@@ -1,15 +1,15 @@
-# Windows AI documentation
+# <a name="windows-ai-documentation"></a>Windows の AI のドキュメント
 
-Welcome to the Windows AI documentation repository, the source of [https://docs.microsoft.com/windows/ai](https://docs.microsoft.com/windows/ai).
+Windows の AI のドキュメント リポジトリのソースへようこそ[ https://docs.microsoft.com/windows/ai](https://docs.microsoft.com/windows/ai)します。
 
-## Contribute to documentation
+## <a name="contribute-to-documentation"></a>ドキュメントに投稿します。
 
-We welcome contributions from all members of the community!
+コミュニティのすべてのメンバーから投稿を歓迎します。
 
-To contribute to our documentation, you can visit the article on [https://docs.microsoft.com/windows/ai](https://docs.microsoft.com/windows/ai) and click the **Edit** link in the top right corner of the article, which goes to the GitHub source. Then, just use the GitHub UI to make your updates. Or, you are welcome to fork the repository and submit updates from your fork. See our general [contributor guide](https://docs.microsoft.com/contribute/) for more information.
+ドキュメントをドキュメントに投稿する記事をアクセスで[ https://docs.microsoft.com/windows/ai ](https://docs.microsoft.com/windows/ai) ] をクリックし、**編集**GitHub ソースにアクセスする、この記事の右上隅にあるリンクです。 次に、更新を行うだけ GitHub UI を使用します。 または、独自のフォークから更新を送信しているリポジトリのフォークへようこそ。 [全般] を参照してください。[共同作成者ガイド](https://docs.microsoft.com/contribute/)詳細についてはします。
 
-![Edit](docs/images/edit-button.png)
+![編集](docs/images/edit-button.png)
 
-## Microsoft Open Source Code of Conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft のオープン ソース倫理
+このプロジェクトを採用しています、 [Microsoft オープン ソース倫理規定](https://opensource.microsoft.com/codeofconduct/)します。
+詳細については、次を参照してください。、 [FAQ の実施コード](https://opensource.microsoft.com/codeofconduct/faq/)にお問い合わせくださいまたは[ opencode@microsoft.com ](mailto:opencode@microsoft.com)その他の質問またはコメント。
