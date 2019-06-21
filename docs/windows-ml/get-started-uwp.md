@@ -37,7 +37,7 @@ ms.locfileid: "66181954"
 
 ## <a name="1-open-the-project-in-visual-studio"></a>1. Visual Studio でプロジェクトを開きます
 
-Visual Studio を起動し、開くプロジェクト GitHub からダウンロードすると後、 **MNIST_Demo.sln**ファイル (である必要がある**&lt;リポジトリへのパス&gt;\Windows-Machine-Learning\Samples\MNIST\Tutorial\cs**)。 ソリューションが利用不可と表示されている場合でプロジェクトを右クリックする必要があります、**ソリューション エクスプ ローラー**選択**プロジェクトの再読み込み**します。
+Visual Studio を起動し、開くプロジェクト GitHub からダウンロードすると後、 **MNIST_Demo.sln** ファイル (である必要がある **&lt;リポジトリへのパス&gt;\Windows-Machine-Learning\Samples\MNIST\Tutorial\cs**)。 ソリューションが利用不可と表示されている場合でプロジェクトを右クリックする必要があります、**ソリューション エクスプ ローラー**選択**プロジェクトの再読み込み**します。
 
 次のような XAML コントロールとイベントを実装したテンプレートが用意されています。
 

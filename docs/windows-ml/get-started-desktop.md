@@ -52,7 +52,7 @@ Windows ML Api を活用すると、内での機械学習モデルを簡単に�
 
 1. 選択**ファイル > 新規 > プロジェクト**を開く、**新しいプロジェクト**ウィンドウ。
 2. 左側のウィンドウで次のように選択します。**インストール済み > Visual C++ > Windows デスクトップ**、し、真ん中の次のように選択します。 **Windows コンソール アプリケーション (C++/WinRT)** します。
-3. プロジェクトを与える、**名前**と**場所**、順にクリックします **[ok]**。
+3. プロジェクトを与える、**名前**と**場所**、順にクリックします **[ok]** 。
 4. **新しいユニバーサル Windows プラットフォーム プロジェクト**ウィンドウで、設定、**ターゲット**と**最小バージョン**17763 以降のビルドとクリックの両方**OK**.
 5. 必ず上部のツールバーのドロップダウン メニューに設定されます**デバッグ**、どちらか**x64**または**x86**コンピューターのアーキテクチャによって異なります。
 6. キーを押して**Ctrl + F5**デバッグなしでプログラムを実行します。 "Hello world"テキストでターミナルを開く必要があります。 閉じるには任意のキーを押します。
@@ -113,7 +113,7 @@ Windows ML Api を活用すると、内での機械学習モデルを簡単に�
     ```
 
 5. **Main.cpp**、"Hello world"のコードを削除 (内のすべて、`main`後関数`init_apartment`)。
-6. 検索、 **SqueezeNet.onnx**ファイルのローカル複製で、 **Windows Machine Learning**リポジトリ。 ある必要があります**\Windows-Machine-Learning\SharedContent\models**します。
+6. 検索、 **SqueezeNet.onnx**ファイルのローカル複製で、 **Windows Machine Learning**リポジトリ。 ある必要があります **\Windows-Machine-Learning\SharedContent\models** します。
 7. ファイルのパスをコピーし、それを割り当てる、`modelPath`上部にある定義した場所の変数。 文字列をプレフィックスに注意してください、`L`ようにし、ワイド文字の文字列を正常に動作する`hstring`、円記号をエスケープして (`\`) 追加の円記号で。 例:
     ```cpp
     hstring modelPath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\models\\SqueezeNet.onnx";
@@ -182,7 +182,7 @@ Windows ML Api を活用すると、内での機械学習モデルを簡単に�
     imageFrame = LoadImageFile(imagePath);
     ```
 
-3. 検索、**メディア**フォルダーのローカル複製で、 **Windows Machine Learning**リポジトリ。 配置されている必要がある**\Windows-Machine-Learning\SharedContent\media**します。
+3. 検索、**メディア**フォルダーのローカル複製で、 **Windows Machine Learning**リポジトリ。 配置されている必要がある **\Windows-Machine-Learning\SharedContent\media** します。
 4. 、そのフォルダー内のイメージを選択し、へのファイル パスを割り当てます、`imagePath`上部にある定義した場所の変数。 前にプレフィックスに注意してください、`L`ワイド文字の文字列を別の円記号の円記号をエスケープするとします。 次に、例を示します。
     ```cpp
     hstring imagePath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\media\\kitten_224.png";
@@ -303,7 +303,7 @@ Windows ML Api を活用すると、内での機械学習モデルを簡単に�
     }
     ```
 
-4. 検索、 **Labels.txt**ファイルのローカル複製で、 **Windows Machine Learning**リポジトリ。 必要がある**\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp**します。
+4. 検索、 **Labels.txt**ファイルのローカル複製で、 **Windows Machine Learning**リポジトリ。 必要がある **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp** します。
 5. このファイルのパスに割り当てる、`labelsFilePath`上部にある定義した場所の変数。 もう 1 つの円記号の円記号をエスケープしてください。 例:
     ```cpp
     string labelsFilePath = "C:\\Repos\\Windows-Machine-Learning\\Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\Labels.txt";

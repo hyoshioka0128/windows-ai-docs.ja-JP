@@ -9,7 +9,7 @@ keywords: windows 10、windows の ai windows ビジョンのスキルを uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 6ff041e746ed9c78961692c6618b780b9b96f9c4
 ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/23/2019
 ms.locfileid: "66179904"
@@ -21,7 +21,7 @@ ms.locfileid: "66179904"
 
 前の[チュートリアル](tutorial.md)、作成して、Windows のビジョンのスキルをパッケージ化する方法について説明しました。 ここで、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを統合する方法について説明します。 使用できる完全なサンプルをダウンロードする[GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill)をどのようにしたらを参照してください。
 
-このチュートリアルに関連性で見つかりますここ読み込みの詳細について*[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* 次のソースから。
+このチュートリアルに関連性で見つかりますここ読み込みの詳細について *[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* 次のソースから。
 - [既存*SoftwareBitmap*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
 - [イメージ ファイル](https://docs.microsoft.com/windows/uwp/audio-video-camera/imaging#create-a-softwarebitmap-from-an-image-file-with-bitmapdecoder)
 - 使用してカメラ[FrameReader](https://docs.microsoft.com/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader)
