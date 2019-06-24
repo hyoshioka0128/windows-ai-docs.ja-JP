@@ -38,7 +38,7 @@ ms.locfileid: "66179904"
 
 Windows のビジョン スキル API に関連するコードの行について説明します。 
 
-+ インスタンスを作成、 [ISkillDescriptor] [ ISkillDescriptor]派生物
++ インスタンスを作成、 [ISkillDescriptor][ISkillDescriptor]派生物
 
     ```csharp
     ...
@@ -54,7 +54,7 @@ Windows のビジョン スキル API に関連するコードの行について
     ...
     ```
 
-+ クエリを使用して利用可能な実行デバイス、 [ISKillDescriptor] [ ISKillDescriptor]インスタンス
++ クエリを使用して利用可能な実行デバイス、 [ISKillDescriptor][ISKillDescriptor]インスタンス
     ```csharp
     ...
     
@@ -68,7 +68,7 @@ Windows のビジョン スキル API に関連するコードの行について
     ...
     ```
 
-+ スキルを使用して、インスタンス化、 [ISKillDescriptor] [ ISKillDescriptor]インスタンスおよび、必要な[ISkillExecutionDevice][ISkillExecutionDevice]
++ スキルを使用して、インスタンス化、 [ISKillDescriptor][ISKillDescriptor]インスタンスおよび、必要な[ISkillExecutionDevice][ISkillExecutionDevice]
     ```csharp
     ...
     
@@ -83,7 +83,7 @@ Windows のビジョン スキル API に関連するコードの行について
     ...
     ```
 
-+ バインド オブジェクトを使用して、スキルをインスタンス化、 [ISKill] [ ISKill]インスタンス
++ バインド オブジェクトを使用して、スキルをインスタンス化、 [ISKill][ISKill]インスタンス
     ```csharp
     ...
     
@@ -98,7 +98,7 @@ Windows のビジョン スキル API に関連するコードの行について
     ...
     ```
 
-+ 入力、プリミティブ型を取得 (*VideoFrame*) し、対応するアクセスすることによって、バインディング オブジェクトにバインドする[ISkillFeature] [ ISkillFeature]名前を使用してインデックスを作成します。 このスキルを便利なメソッドの設定宣言*SetInputImage*
++ 入力、プリミティブ型を取得 (*VideoFrame*) し、対応するアクセスすることによって、バインディング オブジェクトにバインドする[ISkillFeature][ISkillFeature]名前を使用してインデックスを作成します。 このスキルを便利なメソッドの設定宣言*SetInputImage*
     ```csharp
     ...
 
