@@ -1,5 +1,5 @@
 > [!NOTE]
-> ML の Windows のヘルプについて、次のリソースを使用します。
-> * 質問または Windows ML に関する技術的な質問の回答を使用してください、 **windows machine learning**タグを[Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning)します。
-> * バグを報告するでして問題を報告、 [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues)します。
-> * 機能を要求してください に進み[Windows 開発者からのフィードバック](https://wpdev.uservoice.com/)します。
+> Windows ML に関するヘルプについては、次のリソースを参照してください。
+> * Windows ML に関する技術的な質問をしたり、質問に回答したりするには、[Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning) の **windows-machine-learning** タグを使用してください。
+> * バグを報告するには、[GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues) で問題を提出してください。
+> * 機能をリクエストするには、[Windows Developer Feedback](https://wpdev.uservoice.com/) に進んでください。

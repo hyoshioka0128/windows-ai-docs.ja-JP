@@ -7,19 +7,19 @@ ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10、windows の ai windows ビジョンのスキルを uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ff041e746ed9c78961692c6618b780b9b96f9c4
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
-ms.translationtype: HT
+ms.openlocfilehash: 75aa0082002dcc75277811f4d1d747d5e7ad64bb
+ms.sourcegitcommit: 4ad0fea02000c8f6dbb9a919fb6ce1f435d0e8d6
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179904"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67334157"
 ---
 # <a name="tutorial-create-a-windows-vision-skill-uwp-application"></a>チュートリアル:Windows のビジョンのスキルの UWP アプリケーションを作成します。
 
 > [!NOTE]
-> いくつかの情報は、リリース版の発売までに著しく変更される可能性がありますが、リリース前の製品に関連します。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
+> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
 
-前の[チュートリアル](tutorial.md)、作成して、Windows のビジョンのスキルをパッケージ化する方法について説明しました。 ここで、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを統合する方法について説明します。 使用できる完全なサンプルをダウンロードする[GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill)をどのようにしたらを参照してください。
+前の[チュートリアル](tutorial.md)、作成して、Windows のビジョンのスキルをパッケージ化する方法について説明しました。 ここで、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを統合する方法について説明します。 使用できる完全なサンプルをダウンロードする[GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)をどのようにしたらを参照してください。
 
 このチュートリアルに関連性で見つかりますここ読み込みの詳細について *[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* 次のソースから。
 - [既存*SoftwareBitmap*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
@@ -34,7 +34,7 @@ ms.locfileid: "66179904"
 ---
 
 ## <a name="api-flow"></a>API のフロー
-ここで説明されている API のフローを再確認、[重要な API の概念](important-api-concepts.md#APIFlow)具体的な一連のクラスのようになりましたが、ページC#します。 完全なサンプル コードは[GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalysisTestApp/MainPage.xaml.cs)します。 
+ここで説明されている API のフローを再確認、[重要な API の概念](important-api-concepts.md#APIFlow)具体的な一連のクラスのようになりましたが、ページC#します。 完全なサンプル コードは[GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs)します。 
 
 Windows のビジョン スキル API に関連するコードの行について説明します。 
 

@@ -7,17 +7,17 @@ ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10、windows の ai windows vision スキル
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b02069ece8394f439dd2cdf8005b0fb9297645f
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: af0e6a9ee2fe80531a41a0f2722f1a8c8b9c723c
+ms.sourcegitcommit: 4ad0fea02000c8f6dbb9a919fb6ce1f435d0e8d6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179974"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67334106"
 ---
 # <a name="tutorial-create-your-own-windows-vision-skill-c"></a>チュートリアル:Windows のビジョン スキルの作成 (C#)
 
 > [!NOTE]
-> いくつかの情報は、リリース版の発売までに著しく変更される可能性がありますが、リリース前の製品に関連します。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
+> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
 
 このチュートリアルを拡張することによって、Windows のビジョンのスキルでソリューションをラップする方法を示しています、ビジョンのカスタム ソリューションを既にある場合、 [Microsoft.AI.Skills.SkillInterfacePreview] [ SkillInterfacePreview] API のベースします。
 
@@ -39,8 +39,8 @@ ms.locfileid: "66179974"
 
 完全なソース コード、C#とC++/サンプルの GitHub リポジトリでこの例の WinRT バージョンが使用可能な。
 
-- [C#例のスキル](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalyzer)
-- [C++/WinRT の例のスキル](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/FaceSentimentAnalyzer)
+- [C#例のスキル](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)
+- [C++/WinRT の例のスキル](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp)
 
 このチュートリアルをします。
 
@@ -65,7 +65,7 @@ ms.locfileid: "66179974"
 
 Visual Studio でカスタム ビジョン ソリューションを開きます。
 
-### a.  ISkillDescriptor <a name="ISkillDescriptor"></a>
+### a. ISkillDescriptor <a name="ISkillDescriptor"></a>
 
 作成し、スキル記述子クラスから継承された実装[ISkillDescriptor] [ ISkillDescriptor]スキルに関する情報を (CPU、GPU、およびなど) の実行がサポートされているデバイスの一覧を示しますおよびとして機能しますスキルのファクトリ オブジェクト。
 
@@ -226,7 +226,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
         }
         ```
 
-### b.  **ISkillBinding** <a name="ISkillBinding"></a>
+### b. **ISkillBinding** <a name="ISkillBinding"></a>
 
 作成し、スキルから継承されるクラスにバインド実装[ISkillBinding] [ ISkillBinding]およびスキルによって生成される入力と出力の変数を含むインターフェイス。
 
@@ -575,7 +575,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
 
 ([*の詳細については、ここで、NuGet パッケージは*](https://docs.microsoft.com/nuget/what-is-nuget))
 
-NuGet パッケージを作成するには、記述する必要があります、 *.nuspec*下にあるようなファイル[Git リポジトリで元のファイルを参照してください。](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/SentimentAnalyzer_CS.nuspec)します。 このファイルは 2 つの主要なセクションで構成されます。
+NuGet パッケージを作成するには、記述する必要があります、 *.nuspec*下にあるようなファイル[Git リポジトリで元のファイルを参照してください。](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec)します。 このファイルは 2 つの主要なセクションで構成されます。
 
 - **メタデータ**:この部分には、名前、説明、作成者と所有者、ライセンス、および依存関係が含まれています。 ここではによって異なることに注意してください、 [Microsoft.AI.Skills.SkillInterfacePreview] [ SkillInterfacePreview] NuGet パッケージ。 この NuGet パッケージはまた、ライセンスへのリンクし、インジェストの前に、承認の要求をトリガーします。
 
@@ -621,13 +621,13 @@ NuGet パッケージを作成するには、記述する必要があります�
 > .\nuget.exe pack <path to your .nuspec>
 ```
 
-パッケージをテストするローカルにする配置して、この *.nupkg* NuGet Visual Studio でのフィードとして設定したフォルダー内のファイル ([ここに関する「方法」を参照してください。](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed))。
+パッケージをテストするローカルにする配置して、この *.nupkg* NuGet Visual Studio でのフィードとして設定したフォルダー内のファイル ([ここに関する「方法」を参照してください。](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed))。
 
 誕生日おめでとう、作成した、最初の Windows ビジョン スキルです。 パッケージ化のスキルをアップロードする[NuGet.org](https://www.nuget.org/)!
 
 ## 3.もう一つ。 難読化して、知的財産権を非表示に資産ファイルを deobfuscating<a name="Obfuscation"></a>
 
-改ざんしたり (モデル ファイル、画像など)、スキル資産へのアクセス、コンシューマーを阻止するには、ビルド前の手順としてファイルを難読化し、実行時にファイルを deobfuscate できます。 [の例では、GitHub サンプル](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp)を利用するヘルパー クラスの実装が含まれて[Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography)に[難読化](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Obfuscator)コンパイル時にファイルと[deobfuscate](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Deobfuscator)実行時にします。 この部分でのみ表示される注記をC++/WinRT バージョンを保持する例のスキルのC#バージョンに簡単です。  
+改ざんしたり (モデル ファイル、画像など)、スキル資産へのアクセス、コンシューマーを阻止するには、ビルド前の手順としてファイルを難読化し、実行時にファイルを deobfuscate できます。 [の例では、GitHub サンプル](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer)を利用するヘルパー クラスの実装が含まれて[Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography)に[難読化](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator)コンパイル時にファイルと[deobfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator)実行時にします。 この部分でのみ表示される注記をC++/WinRT バージョンを保持する例のスキルのC#バージョンに簡単です。  
 
 - 難読化ことは、1 回実行するか、すべての時間を実行するプロジェクトを設定し、資産として出力を直接使用するビルド前イベントとは。 この例では、専用のコンパイル ツール (Obfuscator.exe) を使用します。 スキル、コンパイル時のビルド前イベントとして起動する前に、このツールのコンパイルが最初になっていることを確認するがあります。 コンパイル時に、開発用コンピューターで実行をするためコンパイルできる任意のターゲットとサポートされるプラットフォームを使用するとそれに注意してください (つまりこの場合*デバッグ/Win32*)。
 

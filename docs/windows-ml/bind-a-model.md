@@ -3,16 +3,16 @@ author: eliotcowley
 title: モデルを作成する
 description: モデルの入力と出力に、およびモデルから情報を渡すためにバインドする方法について説明します。
 ms.author: elcowle
-ms.date: 4/1/2019
+ms.date: 5/29/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: 633985cc20d5d2934079abbc9f64a1493217de13
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 32c99fa3cb46eaa3bb1f98ab128308eb37361651
+ms.sourcegitcommit: 4ad0fea02000c8f6dbb9a919fb6ce1f435d0e8d6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180844"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027908"
 ---
 # <a name="bind-a-model"></a>モデルを作成する
 
@@ -43,7 +43,7 @@ Tensors は多次元配列、および最も一般的な tensor は 32 ビット
 
 ### <a name="sequences"></a>シーケンス
 
-シーケンスは、値のベクトルです。 シーケンス型の一般的な用途は、各予測の精度の評価を示すいくつかの分類モデルを返す float 確率のベクトルです。 
+シーケンスは、値のベクトルです。 シーケンス型の一般的な用途は、各予測の精度の評価を示すいくつかの分類モデルを返す float 確率のベクトルです。
 
 ### <a name="maps"></a>マップ
 
@@ -60,6 +60,10 @@ MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size ==
 ```
 
 実際のマップ機能の値になります、`IMap<string, float>`します。
+
+#### <a name="sequence-of-maps"></a>マップのシーケンス
+
+マップのシーケンスは、キー/値ペアのベクトルだけです。 たとえば、マップの浮動小数点数の文字列のシーケンスが、型のでしょう。`IVector<IMap<string, float>>`します。 上記の出力の犬の優れた予測`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`マップのシーケンスの例を示します。
 
 ### <a name="images"></a>画像
 
@@ -125,15 +129,15 @@ Windows の ML では、4 次元 tensors「NCHW tensor 形式」で 32 ビット
 
 ```cs
 private void BindModel(
-    LearningModelSession session, 
-    VideoFrame inputFrame, 
-    string inputName) 
+    LearningModelSession session,
+    VideoFrame inputFrame,
+    string inputName)
 {
     // Create a binding object from the session
     LearningModelBinding binding = new LearningModelBinding(session);
 
     // Create an image tensor from a video frame
-    ImageFeatureValue image = 
+    ImageFeatureValue image =
         ImageFeatureValue.CreateFromVideoFrame(inputFrame);
 
     // Bind the image to the input
@@ -143,7 +147,7 @@ private void BindModel(
 
 ## <a name="see-also"></a>関連項目
 
-* 先の：[セッションを作成します。](create-a-session.md)
-* 次に：[モデルの入力を評価します。](evaluate-model-inputs.md)
+* 先の：[セッションを作成する](create-a-session.md)
+* 次に：[モデルの入力を評価する](evaluate-model-inputs.md)
 
 [!INCLUDE [help](../includes/get-help.md)]
