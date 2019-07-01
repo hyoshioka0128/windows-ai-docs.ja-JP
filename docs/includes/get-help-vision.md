@@ -1,5 +1,5 @@
 > [!NOTE]
-> ビジョンのスキルを Windows のヘルプについて、次のリソースを使用します。
+> Windows Vision Skills に関するヘルプについては、次のリソースを参照してください。
 >
-> * バグを報告するでして問題を報告、 [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues)します。
-> * 機能を要求してください に進み[Windows 開発者からのフィードバック](https://wpdev.uservoice.com/)します。
+> * バグを報告するには、[GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/issues) で問題を提出してください。
+> * 機能をリクエストするには、[Windows Developer Feedback](https://wpdev.uservoice.com/) に進んでください。

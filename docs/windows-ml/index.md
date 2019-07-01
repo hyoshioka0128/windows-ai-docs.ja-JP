@@ -3,17 +3,17 @@ author: rosanevallim
 title: Windows Machine Learning
 description: Windows ML を使うと、Windows アプリケーション内でトレーニング済みの機械学習モデルを利用できます。
 ms.author: rovalli
-ms.date: 4/17/2019
+ms.date: 6/5/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c6ed47251d9d5372fcf0b998ab3a0a0ca7d9e25a
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 489dea907eba3d7b8eb9722f6a7934d31228206a
+ms.sourcegitcommit: 88c4ba40260771589c84409e11c9bb19528ebbaf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179793"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67033873"
 ---
 # <a name="windows-machine-learning"></a>Windows Machine Learning
 
@@ -23,7 +23,7 @@ Windows ML を使用して Windows アプリに AI を実装します。Windows 
 
 ## <a name="overview"></a>概要
 
-Windows ML を使用すると、開発者は Windows 10 のローカルデバイスまたは Windows Server 2019 マシン上のいずれかで、C#、C++、または JavaScript で記述された Windows アプリ内のトレーニング済みの ML モデルを使用することができます。 トレーニング済みの ML モデルをアプリケーション コードに組み込むプロセスはシンプルで、次に示すいくつかの単純な手順のみが必要です。
+Windows ML を使用すると、開発者は Windows 10 のローカル デバイスまたは Windows Server 2019 マシン上のいずれかで、C#、C++、JavaScript、または Python で記述された Windows アプリ内のトレーニング済みの ML モデルを使用することができます。 トレーニング済みの ML モデルをアプリケーション コードに組み込むプロセスはシンプルで、次に示すいくつかの単純な手順のみが必要です。
 
 ![トレーニング環境, モデル参照の追加, アプリケーション, Windows ML](../images/winml-flow.png)
 
@@ -38,7 +38,7 @@ Windows ML を使用すると、開発者は Windows 10 のローカルデバイ
     アプリケーションを実行すると、Windows ML ランタイム (ONNX モデル推論エンジンを含む) は Windows 10 デバイス (またはサーバー展開を対象とする場合は Windows Server 2019) 上のトレーニング済みモデルを評価します。 Windows ML がハードウェア アブストラクションを処理するため、開発者は CPU や GPU、さらに将来は AI アクセラレータなどを含む広い範囲のシリコンを対象にすることができます。 Windows ML ハードウェア アクセラレータは [DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml) 上に構築されます。これは ML 推論を実行するための高パフォーマンスで低レベルの API で、DirectX ファミリの一部です。
     :::column-end:::
     :::column:::
-        ![windows ml layers](../images/overview-diagram.png)
+        ![windows ml layers](../images/overview-diagram.svg)
     :::column-end:::
 :::row-end:::
 

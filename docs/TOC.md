@@ -2,9 +2,11 @@
 ## [Windows Machine Learning](windows-ml/index.md)
 ### チュートリアル
 #### [WinML デスクトップ アプリを作成する (C++)](windows-ml/get-started-desktop.md)
+#### [WinML デスクトップ アプリを作成する (Python)](windows-ml/get-started-python.md)
 #### [WinML UWP アプリを作成する (C#)](windows-ml/get-started-uwp.md)
 ### [機械学習モデルとは](windows-ml/what-is-a-machine-learning-model.md)
-### [ONNX モデルを入手する](windows-ml/get-onnx-model.md)
+### [ONNX モデル](windows-ml/get-onnx-model.md)
+#### [ONNX バージョンと Windows ビルド](windows-ml/onnx-versions.md)
 #### [CNTK を使ってモデルをトレーニングする](windows-ml/train-model-vs-tools-ai.md)
 #### [PyTorch を使ってモデルをトレーニングする](windows-ml/train-model-pytorch.md)
 #### [トレーニング済みモデルを ONNX に変換する](windows-ml/convert-model-winmltools.md)
