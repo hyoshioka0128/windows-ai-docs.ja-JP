@@ -3,16 +3,16 @@ author: rosanevallim
 title: FAQ (よく寄せられる質問)
 description: このページには、コミュニティからの最も一般的な質問に対する回答が含まれています。
 ms.author: rovalli
-ms.date: 5/28/2019
+ms.date: 7/2/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: 430b384f38295d967964bfb3401856822c560404
-ms.sourcegitcommit: 12993277cf7f97c9c6a02908e4a4f1f91b689edb
+ms.openlocfilehash: 0067de7380560337feb06186ff28ba431b167c93
+ms.sourcegitcommit: 24d50c2813c16d5632c52c9dc6799afc6e52f8ac
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66740506"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67523622"
 ---
 # <a name="faq-frequently-asked-questions"></a>FAQ (よく寄せられる質問)
 
@@ -28,9 +28,9 @@ Windows ML を使用したかどうかに、モデルは実行を確認する最
 
 ## <a name="i-am-getting-errors-when-trying-to-export-andor-convert-my-model-to-onnx-that-say-my-model-has-unsupported-operators-what-should-i-do"></a>エクスポートや ONNX モデルという私のモデルに変換しようとしています。 は「サポートされていない演算子です」ときにエラーが発生しました どうしたらいいでしょう。
 
-ONNX バージョンでネイティブ トレーニング フレームワークのいくつかの演算子が現在サポートされていない可能性があります。 最初に、Windows のビルド、ターゲット ONNX のサポートされているバージョンを確認し、最大のサポートされているバージョン、モデルに変換しようとしています。 お勧めします。 ONNX の以降のバージョンには、大規模な一連の以前のバージョンと比較演算子のサポートが含まれます。
+ONNX バージョンでネイティブ トレーニング フレームワークのいくつかの演算子が現在サポートされていない可能性があります。 最初に、サポートされている確認してください[ONNX バージョン、ターゲットの Windows ビルド](onnx-versions.md)、最大のサポートされているバージョン、モデルに変換しようとします。 ONNX の以降のバージョンには、大規模な一連の以前のバージョンと比較演算子のサポートが含まれます。
 
-変換ツールを使用している (またはネイティブ エクスポーター トレーニング フレームワークからエクスポートする場合) 内で指定された opset のサポートされている ONNX 演算子の一覧の確認をお勧めに問題が発生する場合として、データ サイエンティスト チームと連携し、モデルのトレーニング中にサポートされていない演算子を回避します。 詳細についてを検索する[ONNX バージョンと Windows ビルド](onnx-versions.md)します。
+問題が発生する場合は、サポートされていない演算子を回避する、データ サイエンス チームと連携お勧めします。 ソースのフレームワークで、モデルのアーキテクチャを変更し、変換/エクスポートの対象の ONNX バージョンへのモデルをお勧めの方法の 1 つです。 まだ、モデルを再トレーニングする必要があることに注意してください&mdash;アーキテクチャを変換しようとすることができ、成功した場合、移動できます、モデルの完全な再トレーニングします。
 
 ## <a name="why-cant-i-load-a-model"></a>モデルを読み込むことはできませんはなぜですか。
 

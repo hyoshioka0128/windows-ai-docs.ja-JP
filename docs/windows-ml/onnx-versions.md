@@ -3,16 +3,16 @@ author: eliotcowley
 title: ONNX バージョンと Windows のビルド
 description: サポートされている ONNX のバージョンを確認、各 Windows 10 ビルドします。
 ms.author: elcowle
-ms.date: 6/4/2019
+ms.date: 7/2/2019
 ms.topic: article
 keywords: windows 10、windows の ai、windows の ml、winml、windows machine learning、onnx
 ms.localizationpriority: medium
-ms.openlocfilehash: d87302f54962f8031b1fd626f73d2634e856993d
-ms.sourcegitcommit: 12993277cf7f97c9c6a02908e4a4f1f91b689edb
+ms.openlocfilehash: 46a98f886fdd31002bf30023a534b10ac3a3bec4
+ms.sourcegitcommit: 8c18dfc753694e26067e3155509cf6d7c970a765
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66741430"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67515721"
 ---
 # <a name="onnx-versions-and-windows-builds"></a>ONNX バージョンと Windows のビルド
 
@@ -26,5 +26,11 @@ Windows Machine Learning では、Windows のリリースのビルドに ONNX �
 | Windows 10 バージョン 1809 (17763 をビルドする) | 1.2.2 | 7 |
 
 Windows Insider のフライトのビルドを使用して開発する場合を確認してください、[リリース ノート](release-notes.md)最小値と最大値には、Windows 10 SDK のフライト ONNX バージョンがサポートされています。
+
+## <a name="onnx-opset-converter"></a>ONNX opset コンバーター
+
+ONNX API は、異なる opset バージョン間で ONNX モデルを変換するため、ライブラリを提供します。 これにより、開発者やデータ サイエンティストを新しいバージョンでは、既存の ONNX モデルをアップグレードするか、モデル、ONNX 仕様の以前のバージョンをダウン グレードできます。
+
+[バージョン コンバーター](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md)可能性がありますいずれかによって呼び出されるC++または Python Api です。 [チュートリアル](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchToDifferentONNXOpsetVersions.md)アップグレードや、新しいターゲット opset ONNX モデルをダウン グレードする方法のいくつかの例を提供します。
 
 [!INCLUDE [help](../includes/get-help.md)]
