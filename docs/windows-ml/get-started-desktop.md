@@ -19,7 +19,7 @@ ms.locfileid: "66182014"
 
 Windows ML Api を活用すると、内での機械学習モデルを簡単にやり取りC++デスクトップ (Win32) アプリケーションです。 読み込み、バインド、および評価の 3 つの手順を使用して、アプリケーションは、機械学習の力を利用できます。
 
-![負荷のバインド]-> [-> 評価](../images/load-bind-evaluate.png)
+![負荷 -> バインド -> 評価](../images/load-bind-evaluate.png)
 
 利用できる SqueezeNet オブジェクト検出のサンプルの少し簡略化されたバージョンを作成しました[GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp)します。 どうなるかのように完了したときに表示する場合は、完全なサンプルをダウンロードできます。
 
