@@ -1,33 +1,41 @@
 ---
 author: eliotcowley
-title: PyTorch を持つモデルをトレーニングします。
+title: PyTorch ONNX へのエクスポートとモデルをトレーニングします。
 description: PyTorch を ONNX モデルをトレーニングする方法について説明します。
 ms.author: elcowle
-ms.date: 4/1/2019
+ms.date: 7/10/2019
 ms.topic: article
 keywords: windows 10、windows の ai、windows の ml、winml、windows machine learning、pytorch
 ms.localizationpriority: medium
-ms.openlocfilehash: 6beb972db89716ee837bef50e822328448dc73d4
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 6c1f9ac16bfa2359b01b26ecd297b9087caa8c14
+ms.sourcegitcommit: 785057dc180cb252ce63460efaaff321e046a0dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179914"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804780"
 ---
-# <a name="train-a-model-with-pytorch"></a>PyTorch を持つモデルをトレーニングします。
+# <a name="train-a-model-with-pytorch-and-export-to-onnx"></a>PyTorch ONNX へのエクスポートとモデルをトレーニングします。
 
-[PyTorch](https://pytorch.org/)フレームワークでは、ローカルまたはクラウドで、モデルのトレーニングし、Windows Machine Learning でローカルで実行する ONNX ファイルとして、モデルをダウンロードすることができます。
+[PyTorch](https://pytorch.org/)フレームワークと[Azure Machine Learning サービス](https://azure.microsoft.com/services/machine-learning-service/)クラウドでのモデルのトレーニングし、Windows Machine Learning でローカルで実行するための ONNX ファイルとしてダウンロードできます。
 
-## <a name="train-locally"></a>ローカルでトレーニングします。
+## <a name="train-the-model"></a>モデルをトレーニングします。
 
-参照してください[mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/mnist.py) MNIST トレーニングする方法の例については、Azure/MachineLearningNotebooks リポジトリでモデルを使用してローカル PyTorch します。
+Azure ML には迅速なスケール アウト、展開、およびその他のメリットを得る、クラウドで PyTorch モデルをトレーニングできます。 参照してください[PyTorch がある Azure Machine Learning サービスで、大規模モデル トレーニングと登録](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch)詳細についてはします。
 
-詳細については、PyTorch、PyTorch を参照してください。[チュートリアル](https://pytorch.org/tutorials/)と[ドキュメント](https://pytorch.org/docs/stable/index.html)します。
+## <a name="export-to-onnx"></a>ONNX へのエクスポートします。
 
-## <a name="train-in-the-cloud"></a>クラウドでのトレーニングします。
+モデルをトレーニングすると、エクスポートできます ONNX ファイルとして Windows ML を使用したローカルで実行できるようにします。 エクスポート前に、ただし、チェック[ビルド ONNX バージョンと Windows](https://docs.microsoft.com/windows/ai/windows-ml/onnx-versions)サポートされている ONNX バージョンを確認する対象にしている Windows のビルド時にします。
 
-Azure Machine Learning と PyTorch、クラウドでモデルをトレーニングし、Windows Machine Learning でローカルで実行することをダウンロードできます。 [Azure/MachineLearningNotebooks GitHub リポジトリ](https://github.com/Azure/MachineLearningNotebooks)Azure ML でのいくつかのサンプルとチュートリアルを持つはほとんど[Jupyter notebook](https://jupyter.org/)します。 参照してください、 [README](https://github.com/Azure/MachineLearningNotebooks/blob/master/README.md) Azure Notebook または独自の Jupyter Notebook サーバーを Azure ML のこれらのチュートリアルを実行する方法についてはします。
+エクスポートする準備ができたらを参照してください。 [ONNX PyTorch からのエクスポート モデル](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)します。
 
-開くことができますな設定がすべてを取得した後、 [MNIST 手書き数字を使用した分類 ONNX と Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)ノートブックおよび PyTorch と Azure ML を使用してモデル化、MNIST トレーニングする方法についてのチュートリアルに従ってください。 (省略できます、 **web サービスとしてデプロイ**セクション実行モデルを WinML を使用している場合)。
+## <a name="integrate-with-windows-ml"></a>Windows の ML との統合します。
+
+ONNX モデルをエクスポートしたら後、は、Windows の ML アプリケーションに統合する準備ができました。 Windows の ML がいくつかの異なるプログラミング言語で利用可能なのでに最も慣れている言語のチュートリアル。
+
+* **C# の場合:** [Windows Machine Learning の UWP アプリケーションの作成 (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
+
+* **Python:** [Python を使用した Windows Machine Learning アプリケーションを作成します。](https://github.com/Microsoft/xlang/tree/master/samples/python/winml_tutorial)
+
+* **C++:** [Windows Machine Learning のデスクトップ アプリケーションの作成 (C++)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-desktop)
 
 [!INCLUDE [help](../includes/get-help.md)]
