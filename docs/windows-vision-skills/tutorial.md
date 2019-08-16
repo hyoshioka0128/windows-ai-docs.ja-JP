@@ -67,9 +67,9 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
 
 ### a. ISkillDescriptor <a name="ISkillDescriptor"></a>
 
-作成し、スキル記述子クラスから継承された実装[ISkillDescriptor] [ ISkillDescriptor]スキルに関する情報を (CPU、GPU、およびなど) の実行がサポートされているデバイスの一覧を示しますおよびとして機能しますスキルのファクトリ オブジェクト。
+作成し、スキル記述子クラスから継承された実装[ISkillDescriptor][ISkillDescriptor]スキルに関する情報を (CPU、GPU、およびなど) の実行がサポートされているデバイスの一覧を示しますおよびとして機能しますスキルのファクトリ オブジェクト。
 
-1. インポート、 [Microsoft.AI.Skills.SkillInterfacePreview] [ SkillInterfacePreview]名前空間、クラスから派生したもので、 [ISkillDescriptor] [ ISkillDescriptor]インターフェイスです。
+1. インポート、 [Microsoft.AI.Skills.SkillInterfacePreview] [ SkillInterfacePreview]名前空間、クラスから派生したもので、 [ISkillDescriptor][ISkillDescriptor]インターフェイスです。
 
     ```csharp
     ...
@@ -228,9 +228,9 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
 
 ### b. **ISkillBinding** <a name="ISkillBinding"></a>
 
-作成し、スキルから継承されるクラスにバインド実装[ISkillBinding] [ ISkillBinding]およびスキルによって生成される入力と出力の変数を含むインターフェイス。
+作成し、スキルから継承されるクラスにバインド実装[ISkillBinding][ISkillBinding]およびスキルによって生成される入力と出力の変数を含むインターフェイス。
 
-1. インポート、 [Microsoft.AI.Skills.SkillInterfacePreview] [ SkillInterfacePreview]名前空間、クラスから派生したもので、 [ISkillBinding] [ ISkillBinding]インターフェイスとその必要なコレクションを入力します。
+1. インポート、 [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview]名前空間、クラスから派生したもので、 [ISkillBinding][ISkillBinding]インターフェイスとその必要なコレクションを入力します。
 
     ```csharp
     ...
@@ -245,7 +245,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
 
 2. まず 2 つのメンバー変数を作成します。
 
-    - 1 つのヘルパー クラスは、 [VisionSkillBindingHelper] [ VisionSkillBindingHelper]機能が"InputImage"を名前付き入力のイメージを保持する基本インターフェイスで提供します。
+    - 1 つのヘルパー クラスは、 [VisionSkillBindingHelper][VisionSkillBindingHelper]機能が"InputImage"を名前付き入力のイメージを保持する基本インターフェイスで提供します。
 
     ```csharp
     private VisionSkillBindingHelper m_bindingHelper = null;
