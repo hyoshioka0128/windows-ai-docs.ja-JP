@@ -1,46 +1,45 @@
 ---
-author: eliotcowley
-title: Vision スキルのデスクトップ アプリケーションの作成 (C++)
-description: Windows のビジョンのスキルを使用する Windows デスクトップ アプリケーション (非 UWP) を作成する方法について説明します。
-ms.author: elcowle
-ms.date: 4/25/2019
+author: QuinnRadich
+title: デスクトップアプリから Windows 構想スキルを利用する (C++)
+description: デスクトップアプリケーション (UWP 以外) で Windows ビジョンのスキルを準備して使用する方法について説明します。
+ms.author: lobourre
+ms.date: 8/26/2019
 ms.topic: article
-keywords: windows 10、windows の ai windows ビジョンのスキルをデスクトップ
+keywords: windows 10、windows ai、windows ビジョンスキル、デスクトップ
 ms.localizationpriority: medium
-ms.openlocfilehash: d61417a200902979ed8cfa5d9f37ab5b1b078e15
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: a40d4ad18dda21ea73f9bf0e8e9144180fb5aee3
+ms.sourcegitcommit: 900b428a26955f6366f3c03128dc225f52ffd3bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179884"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065736"
 ---
-# <a name="tutorial-create-a-vision-skill-desktop-application-c"></a>チュートリアル:Vision スキルのデスクトップ アプリケーションの作成 (C++)
+# <a name="tutorial-create-a-vision-skill-desktop-application-c"></a>チュートリアル:ビジョンスキルデスクトップアプリケーション (C++) を作成する
 
 > [!NOTE]
-> いくつかの情報は、リリース版の発売までに著しく変更される可能性がありますが、リリース前の製品に関連します。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
+> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 Microsoft は、ここで提供される情報に関して、明示または黙示を問わず、いかなる保証も行いません。
 
 > [!NOTE]
-> 場合は、Win32 や .NET Core のデスクトップ アプリケーションなどの非 UWP アプリで使用する必要があるスキルを作成します。
-スキルは、環境の対応しているかどうかを確認するスキルを変更する必要があります。
+> UWP 以外のアプリ (Win32 または .NET Core デスクトップアプリケーションなど) で使用する必要がある Windows 構想スキルを作成する場合は、その実行時環境についてスキルが認識していることを確認する必要があります。
 
-このチュートリアルで学習する方法。
+このチュートリアルでは、次の方法について説明します。
 
-- コンテナー対応スキル パッケージを変更します。
-- マニフェストとヘッダー ファイルを提供します。
+- 実行時環境を認識するようにスキルパッケージを変更します。 具体的には、このスキルは、UWP アプリコンテナー内で実行されているかどうかを認識している必要があります。
+- 技術が UWP 以外のアプリで機能するために必要なマニフェストファイルとヘッダーファイルを提供します。
 
 ---
 
 ## <a name="prerequisites"></a>前提条件
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (または Visual Studio 2017 バージョン 15.7.4 またはそれ以降)
-- Windows 10、1809 またはそれ以降のバージョン
-- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)、1809 またはそれ以降のバージョン
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)(または Visual Studio 2017、バージョン15.7.4 以降)
+- Windows 10 バージョン 1809 以降
+- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)バージョン1809以降
 
 ---
 
-1. スキルが UWP コンテナー対応であることを確認します。
+1. 実行時に、スキルが UWP に対応していることを確認します。
 
-- スキルからコンテナー環境のアプリを検出します。
+- 技術の内部から UWP アプリコンテナーのランタイム環境を検出します。
 
 コード例:
 
@@ -70,64 +69,82 @@ bool IsUWPContainer()
 }
 ```
 
-- スキルが、UWP アプリ コンテナーまたは UWP のパッケージ化されたコンテナーから呼び出された場合、ファイル アクセスは、アプリ パッケージのパスに制限されます。 そのため、任意のモデル ファイルまたは依存関係は、パッケージ化、およびコンテナーのパスから読み込まれた必要。
-ただし、スキルが通常の win32 cpp または .net core のデスクトップ アプリなどの非コンテナー環境から呼び出される場合、アプリ コンテナーの環境は使用できません。 代わりに、ディスクへのアクセスのほとんどは、スキルを使用するデスクトップ アプリのアクセス許可に従って使用可能になります。 スキルの dll の場所に同じ場所にあるモデル ファイルとその他のリソースを保持することをお勧め可能性があります。
+- 技術が UWP アプリコンテナーまたは UWP パッケージコンテナーから呼び出された場合、ファイルアクセスはアプリケーションパッケージパスに制限されます。 そのため、モデルファイルまたは依存関係は、パッケージ化し、コンテナーパスから読み込む必要があります。
+
+ただし、スキルが Win32 C++や .Net Core 3.0 デスクトップアプリなどの非コンテナー環境から呼び出された場合、UWP アプリコンテナー環境は使用できません。 代わりに、ほとんどのディスクアクセスは、スキルを消費するデスクトップアプリのアクセス許可に従って利用できるようになります。 そのため、モデルファイルとその他のリソースは、スキルのライブラリ ( *.dll*) の場所と同じ場所に保持することをお勧めします。
 
 コード例:
 
 ```csharp
 winrt::Windows::Storage::StorageFile modelFile = nullptr;
+
+// if running from within a UWP app container, access resources using a URI relative to its path
 if (IsUWPContainer())
 {
     auto modelFile = Windows::Storage::StorageFile::GetFileFromApplicationUriAsync(Windows::Foundation::Uri(L"ms-appx:///Contoso.FaceSentimentAnalyzer/" + WINML_MODEL_FILENAME)).get();
 }
+// If running from a regular app process such as a Desktop app, access resources using the full system path
 else
 {
     WCHAR DllPath[MAX_PATH] = { 0 };
     GetModuleFileName(NULL, DllPath, _countof(DllPath));
+    // Get path of current DLL
     auto file = Windows::Storage::StorageFile::GetFileFromPathAsync(DllPath).get();
+    // Use the path of the parent directory to access other resources bundled with the DLL
     auto folder = file.GetParentAsync().get();
     modelFile = folder.GetFileAsync(WINML_MODEL_FILENAME).get();
 ```
 
-1. アプリ開発者のコア (nuget パッケージ) のヘッダー ファイル (.h) との Win32 cpp や .net で利用しやすくするための .manifest ファイルを提供します。
+2. (Nuget でパッケージ) ヘッダーファイル (.h) と*マニフェスト*ファイルを提供して、Win32 または .Net Core 3.0 アプリ開発者が使いやすいようにします。
 
-a.  ヘッダー ファイルC++アプリ
+    2.1. アプリのヘッダーファイル ( *.h*) をC++生成します。
+Visual Studio で、プロジェクトを選択します。 次のコードも同様の結果になります。
+    - WinRT C++コンポーネント:[プロジェクト-> のプロパティ-> MIDL-> 出力-> ヘッダーファイル] を選択します。
+    - WinRT C#コンポーネント:プロジェクトC#にヘッダーファイルを生成するオプションがないため、最初に生成されたメタデータファイル (*winmd*) をインターフェイス定義ファイル ( *.idl*) に変換してから、これらの *.idl*をヘッダーファイル ( *.h*) に変換する必要があります。 これは、Visual Studio 開発者コマンドプロンプトを使用して実行できます。
+      - [Winmdidl](https://docs.microsoft.com/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019)を使用して、 *winmd*から .idl を生成*し*ます。
+      ```
+      > winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
+      ```
+      - [Midlrt](https://docs.microsoft.com/windows/win32/midl/midlrt-and-windows-runtime-components)を使用して *.idl*から *.h*を生成する
+      ```
+      > midlrt <filename.idl> /metadata_dir  <path-to-sdk-unionmetadata> /ns_prefix
+      ```
 
-- WINRT cpp コンポーネント = > プロジェクトのプロパティには、MIDL が]-> [出力]-> [ヘッダー ファイル]-> [
-- WinRTC#コンポーネント = > winmdidl ツールに .winmd を .idl; に変換するにはmidlrt .idl をヘッダー ファイルに変換します。
-- .Idl を生成します。 winmd winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
-- .Idl midlrt < filename.idl >/metadata_dir < パスにする-sdk-unionmetadata >/ns_prefix から .h を常に生成します。
+    2.2. マニフェストファイルを作成して、パッケージ化されていないアプリのスキルをサイドバイサイドで登録できるようにします。 このファイルには、WinRT コンポーネントで定義されているランタイムクラスが一覧表示されるため、実行時に登録して読み込むことができます。 インターフェイス定義ファイル (*idl*) を解析することによってマニフェストを作成できる[便利なスクリプト](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/Scripts/genSxSManifest.ps1)が用意されています。 エンドツーエンドのデモンストレーションについては、[スキルのサンプル](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill)を参照してください。
 
-    b.  マニフェストにパッケージ化されたアプリでスキルのサイド バイ サイドの読み込み: しました。 形式:
+
+    2.2.1. Side-by-side マニフェストの形式:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0">
-    <assemblyIdentity
+    <assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0">
+        <assemblyIdentity
         type="win32"
-        name="manifest Identityname preferable same as dll name without extension and same as filename of this manifest"
+        name="manifest Identityname, preferably same as dll name without extension and same as filename of this manifest"
         version="1.0.0.0"/>
 
-<file name="name of dll of the skill component including extension">
+        <file name="dll name of the skill component, including extension">
 
-<activatableClass
-    name="runtimeclassname1"
-    threadingModel="both"
-    xmlns="urn:schemas-microsoft-com:winrt.v1" />
-<activatableClass
-    name="runtimeclassname2"
-    threadingModel="both"
-    xmlns="urn:schemas-microsoft-com:winrt.v1" />
+            <activatableClass
+            name="runtimeclassname1"
+            threadingModel="both"
+            xmlns="urn:schemas-microsoft-com:winrt.v1" />
 
-</file>
-</assembly>
+            <activatableClass
+            name="runtimeclassname2"
+            threadingModel="both"
+            xmlns="urn:schemas-microsoft-com:winrt.v1" />
+
+        </file>
+    </assembly>
 ```
 
-アプリ側のマニフェスト形式:
+2.3. アプリで、生成したスキルマニフェストを示すマニフェストファイルを追加します。
+
+3.1. アプリケーション側のマニフェストファイルとサイドマニフェストファイルの形式を生成するアプリプロジェクトの設定:
 <div style="text-align:center" markdown="1">
 
-![WinRT コンポーネントの読み込みの SxS のマニフェストのダイアグラム](../images/vision-skills-manifest.png)
+![WinRT コンポーネントの SxS 読み込みのマニフェストの図](../images/vision-skills-manifest.png)
 
 </div>
 
@@ -157,9 +174,8 @@ a.  ヘッダー ファイルC++アプリ
 </assembly>
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-誕生日おめでとう、スキルする準備ができましたデスクトップ アプリケーションで使用します。 サンプルの完全なソース コードは GitHub で入手できますがまもなくされます。
-の他のサンプルでいろいろ[GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill)し、自由に拡張します。
+バンザイ、スキルをデスクトップアプリケーションで使用する準備ができました。 [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples)でスキルのサンプルを使ってみてください。
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
