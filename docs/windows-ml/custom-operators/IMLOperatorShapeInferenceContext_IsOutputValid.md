@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorShapeInferenceContext.IsOutputValid メソッド
-description: オペレーターへの出力が有効な場合に true を返します。
-ms.author: elcowle
+title: IMLOperatorShapeInferenceContext メソッド
+description: 演算子への出力が有効な場合は true を返します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IsOutputValid
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、IsOutputValid
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorShapeInferenceContext.IsOutputValid
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: e0608df013682328a51ca9f75a5b9c19df6aeb36
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 8dd8ef2987fc5400c66fa549f173e2f6fded6744
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180984"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157767"
 ---
-# <a name="imloperatorshapeinferencecontextisoutputvalid-method"></a>IMLOperatorShapeInferenceContext.IsOutputValid メソッド
+# <a name="imloperatorshapeinferencecontextisoutputvalid-method"></a>IMLOperatorShapeInferenceContext メソッド
 
-オペレーターへの出力が有効な場合に true を返します。 常に true を返します省略可能な出力は、無効なインデックスを除く。
+演算子への出力が有効な場合は true を返します。 省略可能な出力と無効なインデックスの場合を除き、常に true を返します。
 
 ```cpp
 bool IsOutputValid(
@@ -35,8 +33,8 @@ bool IsOutputValid(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

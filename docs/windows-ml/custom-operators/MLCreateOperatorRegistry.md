@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: MLCreateOperatorRegistry 関数
-description: インスタンスを作成します**IMLOperatorRegistry**カスタム演算子のカーネルとカスタム演算子のスキーマを登録するこれを使用することがあります。
-ms.author: elcowle
+title: Mlcreateのレジストリ関数
+description: カスタム演算子カーネルとカスタムの演算子スキーマを登録するために使用できる**Imloperatorregistry**のインスタンスを作成します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を MLCreateOperatorRegistry
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、Mlcreateoperators レジストリ
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - MLCreateOperatorRegistry
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: a94b68f559e4a959a0a39b196f26f49923326c30
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 7c758f30476bb306628c1e63b787a61b1301ef8d
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181484"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156089"
 ---
-# <a name="mlcreateoperatorregistry-function"></a>MLCreateOperatorRegistry 関数
+# <a name="mlcreateoperatorregistry-function"></a>Mlcreateのレジストリ関数
 
-インスタンスを作成します[IMLOperatorRegistry](IMLOperatorRegistry.md)カスタム演算子のカーネルとカスタム演算子のスキーマを登録するこれを使用することがあります。
+カスタム演算子カーネルとカスタムの演算子スキーマを登録するために使用できる[Imloperatorregistry](IMLOperatorRegistry.md)のインスタンスを作成します。
 
 ```cpp
 HRESULT MLCreateOperatorRegistry(
@@ -35,8 +33,8 @@ HRESULT MLCreateOperatorRegistry(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

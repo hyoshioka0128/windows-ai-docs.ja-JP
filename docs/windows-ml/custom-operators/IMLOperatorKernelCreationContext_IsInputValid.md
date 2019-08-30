@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorKernelCreationContext.IsInputValid method
-description: オペレーターへの入力が有効な場合に true を返します。
-ms.author: elcowle
+title: ImloperatorIsInputValid メソッド
+description: 演算子への入力が有効な場合は true を返します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IsInputValid
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、IsInputValid
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorKernelCreationContext.IsInputValid
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 8734c7201f29ddcc18c4b0274aa827400cb22396
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 4a62829ce3573ac65c7fecd8471c67bfd82c784a
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180584"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157553"
 ---
-# <a name="imloperatorkernelcreationcontextisinputvalid-method"></a>IMLOperatorKernelCreationContext.IsInputValid method
+# <a name="imloperatorkernelcreationcontextisinputvalid-method"></a>ImloperatorIsInputValid メソッド
 
-オペレーターへの入力が有効な場合に true を返します。 常に true を返します省略可能な入力を除く。
+演算子への入力が有効な場合は true を返します。 これは、省略可能な入力を除き、常に true を返します。
 
 ```cpp
 bool IsInputValid(uint32_t inputIndex)
@@ -34,8 +32,8 @@ bool IsInputValid(uint32_t inputIndex)
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

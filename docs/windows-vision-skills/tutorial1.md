@@ -1,104 +1,102 @@
 ---
-author: eliotcowley
-title: ビジョン スキル UWP アプリケーションを作成します。
-description: このチュートリアルで、UWP アプリにビジョンのスキルを統合します。
-ms.author: elcowle
+title: ビジョンスキル UWP アプリケーションを作成する
+description: このチュートリアルに従って、ビジョンスキルを UWP アプリに統合します。
 ms.date: 4/25/2019
 ms.topic: article
-keywords: windows 10、windows の ai windows ビジョンのスキルを uwp
+keywords: windows 10、windows ai、windows ビジョンスキル、uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 75aa0082002dcc75277811f4d1d747d5e7ad64bb
-ms.sourcegitcommit: 4ad0fea02000c8f6dbb9a919fb6ce1f435d0e8d6
+ms.openlocfilehash: d6e5b42ab86b1317d90555b72895df747daf9206
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67334157"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156957"
 ---
-# <a name="tutorial-create-a-windows-vision-skill-uwp-application"></a>チュートリアル:Windows のビジョンのスキルの UWP アプリケーションを作成します。
+# <a name="tutorial-create-a-windows-vision-skill-uwp-application"></a>チュートリアル:Windows ビジョンスキル UWP アプリケーションを作成する
 
 > [!NOTE]
-> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
+> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 Microsoft は、ここで提供される情報に関して、明示または黙示を問わず、いかなる保証も行いません。
 
-前の[チュートリアル](tutorial.md)、作成して、Windows のビジョンのスキルをパッケージ化する方法について説明しました。 ここで、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを統合する方法について説明します。 使用できる完全なサンプルをダウンロードする[GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)をどのようにしたらを参照してください。
+前の[チュートリアル](tutorial.md)では、Windows ビジョンスキルを作成してパッケージ化する方法を学習しました。 次に、これをユニバーサル Windows プラットフォーム (UWP) アプリケーションに統合する方法について説明します。 [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)から入手できる完全なサンプルをダウンロードして、完了時にどのように表示されるかを確認できます。
 
 このチュートリアルに関連性で見つかりますここ読み込みの詳細について *[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* 次のソースから。
-- [既存*SoftwareBitmap*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
-- [イメージ ファイル](https://docs.microsoft.com/windows/uwp/audio-video-camera/imaging#create-a-softwarebitmap-from-an-image-file-with-bitmapdecoder)
-- 使用してカメラ[FrameReader](https://docs.microsoft.com/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader)
-- Microsoft.Toolkit を介してカメラ:[CameraPreview](https://docs.microsoft.com/windows/communitytoolkit/controls/camerapreview)、 [CameraHelper](https://docs.microsoft.com/windows/communitytoolkit/helpers/camerahelper)
+- [既存の*ソフトウェアビットマップ*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
+- [イメージファイル](https://docs.microsoft.com/windows/uwp/audio-video-camera/imaging#create-a-softwarebitmap-from-an-image-file-with-bitmapdecoder)
+- [FrameReader](https://docs.microsoft.com/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader)経由のカメラ
+- Microsoft Toolkit を使用したカメラ:[CameraPreview](https://docs.microsoft.com/windows/communitytoolkit/controls/camerapreview)、 [CameraHelper](https://docs.microsoft.com/windows/communitytoolkit/helpers/camerahelper)
 
 ---
 ## <a name="prerequisites"></a>前提条件
 
-- 前のチュートリアルを完了[Windows ビジョン スキルを作成します。](tutorial.md)
+- [独自の Windows ビジョンスキルの作成](tutorial.md)に関する前のチュートリアルを完了しています
 ---
 
-## <a name="api-flow"></a>API のフロー
-ここで説明されている API のフローを再確認、[重要な API の概念](important-api-concepts.md#APIFlow)具体的な一連のクラスのようになりましたが、ページC#します。 完全なサンプル コードは[GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs)します。 
+## <a name="api-flow"></a>API フロー
+ここでは、「 [api の重要な概念](important-api-concepts.md#APIFlow)」ページで説明した api フローについて説明C#しますが、ここではのクラスの具体的なセットを示します。 完全なサンプルコードは、 [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs)で入手できます。
 
-Windows のビジョン スキル API に関連するコードの行について説明します。 
+Windows ビジョンスキル API に関連するコード行について説明します。
 
-+ インスタンスを作成、 [ISkillDescriptor][ISkillDescriptor]派生物
++ Isの[記述子][ISkillDescriptor]の派生をインスタンス化する
 
     ```csharp
     ...
-    
+
     // member variable to hold the skill descriptor
     private FaceSentimentAnalyzerDescriptor m_skillDescriptor = null;
-    
+
     ...
-    
+
     // Instatiate skill descriptor to display details about the skill and populate UI
     m_skillDescriptor = new FaceSentimentAnalyzerDescriptor();
 
     ...
     ```
 
-+ クエリを使用して利用可能な実行デバイス、 [ISKillDescriptor][ISKillDescriptor]インスタンス
++ [Isの記述子][ISKillDescriptor]インスタンスを使用して、使用可能な実行デバイスに対してクエリを実行します。
     ```csharp
     ...
-    
+
     // member variable to hold the available execution devices
     private IReadOnlyList<ISkillExecutionDevice> m_availableExecutionDevices = null;
-    
+
     ...
-    
+
     m_availableExecutionDevices = await m_skillDescriptor.GetSupportedExecutionDevicesAsync();
 
     ...
     ```
 
-+ スキルを使用して、インスタンス化、 [ISKillDescriptor][ISKillDescriptor]インスタンスおよび、必要な[ISkillExecutionDevice][ISkillExecutionDevice]
++ [Iskilldescriptor][ISKillDescriptor]インスタンスと必要な[Isinstexecutiondevice][ISkillExecutionDevice]を使用してスキルをインスタンス化する
     ```csharp
     ...
-    
+
     // member variable to hold the skill
     private FaceSentimentAnalyzerSkill m_skill = null;
-    
+
     ...
-    
+
     // Initialize skill with the selected supported device
     m_skill = await m_skillDescriptor.CreateSkillAsync(m_availableExecutionDevices[UISkillExecutionDevices.SelectedIndex]) as FaceSentimentAnalyzerSkill;
 
     ...
     ```
 
-+ バインド オブジェクトを使用して、スキルをインスタンス化、 [ISKill][ISKill]インスタンス
++ [Iskill][ISKill]インスタンスを使用して、スキルバインドオブジェクトをインスタンス化する
     ```csharp
     ...
-    
+
     // member variable to hold the skill binding
     private FaceSentimentAnalyzerBinding m_binding = null;
-    
+
     ...
-    
+
    // Instantiate a binding object that will hold the skill's input and output resource
    m_binding = await m_skill.CreateSkillBindingAsync() as FaceSentimentAnalyzerBinding;
 
     ...
     ```
 
-+ 入力、プリミティブ型を取得 (*VideoFrame*) し、対応するアクセスすることによって、バインディング オブジェクトにバインドする[ISkillFeature][ISkillFeature]名前を使用してインデックスを作成します。 このスキルを便利なメソッドの設定宣言*SetInputImage*
++ 入力プリミティブ (*Videoframe*) を取得し、名前を使用してインデックス付けされた対応する[isinput 機能][ISkillFeature]にアクセスして、バインドオブジェクトにバインドします。 このスキルでは、便利な set メソッド*SetInputImage*が宣言されていることに注意してください。
     ```csharp
     ...
 
@@ -112,20 +110,20 @@ Windows のビジョン スキル API に関連するコードの行について
 
     ...
     ```
-    この便利なメソッドは、バイパスする可能性があり、値をそのために直接 like 設定と同じ効果があります。
+    この便宜的な方法は、次のように値を直接設定するのと同じ効果があります。
 
     ```csharp
     // Update input image feature
     await m_binding["InputImage"].SetFeatureValueAsync(frame);
     ```
 
-+ バインド オブジェクト上で、スキルを実行します。
++ バインドオブジェクトに対してスキルを実行する
     ```csharp
     // Evaluate the binding
     await m_skill.EvaluateAsync(m_binding);
     ```
 
-+ バインド オブジェクトから、出力のプリミティブを取得します。 このスキルがという名前の便利な get アクセス操作子プロパティを宣言することに注意してください。 *IsFaceFound*します。
++ バインドオブジェクトから出力プリミティブを取得します。 このスキルでは、 *IsFaceFound*という便利な getter プロパティが宣言されていることに注意してください。
     ```csharp
     // Retrieve results
     if (m_binding.IsFaceFound)
@@ -134,7 +132,7 @@ Windows のビジョン スキル API に関連するコードの行について
     }
     ```
 
-    前のチュートリアルでは、以下に詳しく説明されているこの便利なメソッドは、バインドから直接出力機能を取得すると同じ効果を備え、ゼロでない値を検証しています。
+    前のチュートリアルで説明したように、この便利な方法は、バインディングから直接出力機能を取得し、その値が0ではないことを検証するのと同じ効果があります。
 
     ```csharp
     public bool FaceSentimentAnalyzerBinding.IsFaceFound

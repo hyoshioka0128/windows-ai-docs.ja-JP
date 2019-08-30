@@ -1,36 +1,34 @@
 ---
-author: eliotcowley
-title: ONNX バージョンと Windows のビルド
-description: サポートされている ONNX のバージョンを確認、各 Windows 10 ビルドします。
-ms.author: elcowle
+title: ONNX バージョンと Windows ビルド
+description: 各 Windows 10 ビルドでサポートされている ONNX のバージョンを確認します。
 ms.date: 7/2/2019
 ms.topic: article
-keywords: windows 10、windows の ai、windows の ml、winml、windows machine learning、onnx
+keywords: windows 10、windows ai、windows ml、winml、windows machine learning、onnx
 ms.localizationpriority: medium
-ms.openlocfilehash: 46a98f886fdd31002bf30023a534b10ac3a3bec4
-ms.sourcegitcommit: 8c18dfc753694e26067e3155509cf6d7c970a765
+ms.openlocfilehash: 0124f1a5d66a2b8801aaab10237ed731faddf44f
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67515721"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156362"
 ---
-# <a name="onnx-versions-and-windows-builds"></a>ONNX バージョンと Windows のビルド
+# <a name="onnx-versions-and-windows-builds"></a>ONNX バージョンと Windows ビルド
 
-Windows Machine Learning では、Windows のリリースのビルドに ONNX 形式の特定のバージョンをサポートしています。 Windows の ML を使用するモデルの順番 ONNX モデルのバージョンは、Windows のリリースでサポートされていることを確認する必要があります、アプリケーションの対象とします。
+Windows Machine Learning は、リリースされた Windows ビルドで ONNX 形式の特定のバージョンをサポートしています。 Windows ML でモデルを使用するには、アプリケーションの対象となる Windows リリースで ONNX モデルバージョンがサポートされていることを確認する必要があります。
 
-次の表には、すべての現在リリースされているバージョンの Windows の ML とサポートされている対応する ONNX バージョンをまとめたものです。
+次の表は、現在リリースされているすべてのバージョンの Windows ML とそれに対応する ONNX のバージョンをまとめたものです。
 
-| Windows のリリース | サポートされている ONNX バージョン | サポートされている ONNX opsets |
+| Windows のリリース | サポートされている ONNX のバージョン | サポートされている ONNX opsets |
 |-----------------|-------------------------|-----------------------|
-| Windows 10 バージョン 1903 (18362 をビルドする) | 1.2.2 1.3 | 7 および 8 |
-| Windows 10 バージョン 1809 (17763 をビルドする) | 1.2.2 | 7 |
+| Windows 10 バージョン 1903 (ビルド 18362) | 1.2.2 と1.3 | 7と8 |
+| Windows 10 バージョン 1809 (ビルド 17763) | 1.2.2 | 7 |
 
-Windows Insider のフライトのビルドを使用して開発する場合を確認してください、[リリース ノート](release-notes.md)最小値と最大値には、Windows 10 SDK のフライト ONNX バージョンがサポートされています。
+Windows Insider フライトビルドを使用して開発している場合は、Windows 10 SDK のフライトでサポートされている ONNX の最小バージョンと最大バージョンについて、[リリースノート](release-notes.md)を確認してください。
 
 ## <a name="onnx-opset-converter"></a>ONNX opset コンバーター
 
-ONNX API は、異なる opset バージョン間で ONNX モデルを変換するため、ライブラリを提供します。 これにより、開発者やデータ サイエンティストを新しいバージョンでは、既存の ONNX モデルをアップグレードするか、モデル、ONNX 仕様の以前のバージョンをダウン グレードできます。
+ONNX API には、異なる opset バージョン間で ONNX モデルを変換するためのライブラリが用意されています。 これにより、開発者とデータ科学者は、既存の ONNX モデルを新しいバージョンにアップグレードしたり、モデルを古いバージョンの ONNX 仕様にダウングレードしたりすることができます。
 
-[バージョン コンバーター](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md)可能性がありますいずれかによって呼び出されるC++または Python Api です。 [チュートリアル](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchToDifferentONNXOpsetVersions.md)アップグレードや、新しいターゲット opset ONNX モデルをダウン グレードする方法のいくつかの例を提供します。
+[バージョンコンバーターは、](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md)または Python api C++を使用して呼び出すことができます。 また、ONNX モデルを新しいターゲット opset にアップグレードおよびダウングレードする方法について、いくつかの例を示した[チュートリアル](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchToDifferentONNXOpsetVersions.md)もあります。
 
 [!INCLUDE [help](../includes/get-help.md)]

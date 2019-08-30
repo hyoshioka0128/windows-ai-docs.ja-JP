@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorKernelCreationContext.GetOutputEdgeDescription メソッド
-description: 演算子の指定した出力のエッジの説明を取得します。
-ms.author: elcowle
+title: ImloperatorGetOutputEdgeDescription メソッド
+description: 演算子の指定した出力エッジの説明を取得します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetOutputEdgeDescription
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetOutputEdgeDescription
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,20 +13,20 @@ api_name:
 - IMLOperatorKernelCreationContext.GetOutputEdgeDescription
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 99719e1a8692ee962d566a6f38c6dc004166e138
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 9c937fe574e60fd8bfd0dff0baaef5d72d3c0106
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181564"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157518"
 ---
-# <a name="imloperatorkernelcreationcontextgetoutputedgedescription-method"></a>IMLOperatorKernelCreationContext.GetOutputEdgeDescription メソッド
+# <a name="imloperatorkernelcreationcontextgetoutputedgedescription-method"></a>ImloperatorGetOutputEdgeDescription メソッド
 
-演算子の指定した出力のエッジの説明を取得します。
+演算子の指定した出力エッジの説明を取得します。
 
 ```cpp
 void GetOutputEdgeDescription(
-    uint32_t outputIndex, 
+    uint32_t outputIndex,
     _Out_ MLOperatorEdgeDescription* edgeDescription)
 ```
 
@@ -36,8 +34,8 @@ void GetOutputEdgeDescription(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

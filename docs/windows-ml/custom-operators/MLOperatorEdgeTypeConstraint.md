@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
 title: MLOperatorEdgeTypeConstraint 構造体
-description: カスタム演算子のカーネルとスキーマでサポートされているエッジの種類に関連する制約を指定します。
-ms.author: elcowle
+description: カスタム演算子カーネルおよびスキーマでサポートされているエッジの種類に対する制約を指定します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を MLOperatorEdgeTypeConstraint
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、MLOperatorEdgeTypeConstraint
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,31 +13,31 @@ api_name:
 - MLOperatorEdgeTypeConstraint
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: bb9e1e948ab3ed5373c24e4ec4ceb7724cd9e74c
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: d2f1b6132f744eece3d25e0cb9732e7c196ee2cf
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181394"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157725"
 ---
 # <a name="mloperatoredgetypeconstraint-struct"></a>MLOperatorEdgeTypeConstraint 構造体
 
-カスタム演算子のカーネルとスキーマでサポートされているエッジの種類に関連する制約を指定します。 指定された型のラベルの文字列は、同じ演算子を ONNX 仕様にラベルを入力に対応します。 内で指定されたラベルの入力に対応するカスタム スキーマでは、 [MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)オペレーターのスキーマを登録するときにします。
+カスタム演算子カーネルおよびスキーマでサポートされているエッジの種類に対する制約を指定します。 指定された型ラベル文字列は、同じ演算子の ONNX 仕様の型ラベルに対応します。 カスタムスキーマの場合は、演算子のスキーマを登録するときに、 [MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)内で指定された型ラベルに対応します。
 
 ## <a name="fields"></a>フィールド
 
-| 名前 | 種類 | 説明 |
+| 名前 | 型 | 説明 |
 |------|------|-------------|
 | allowedTypeCount | **uint32_t** | |
-| allowedTypes | [MLOperatorEdgeDescription](MLOperatorEdgeDescription.md)* | 制約の使用可能なタイプのセット。 |
-| typeLabel | **Char*** | 制約が定義されている型のラベルです。 ONNX 演算子スキーマのように構成されています。 たとえば、"T"とします。 |
+| Allowedtypes.xml | [MLOperatorEdgeDescription](MLOperatorEdgeDescription.md)* | 制約に許可されている型のセット。 |
+| typeLabel | **char*** | 制約が定義されている型のラベル。 これは、ONNX operator スキーマで構成されます。 たとえば、"T" のようになります。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

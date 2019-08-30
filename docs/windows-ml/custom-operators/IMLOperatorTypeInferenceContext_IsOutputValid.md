@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTypeInferenceContext.IsOutputValid メソッド
-description: オペレーターへの出力が有効な場合に true を返します。
-ms.author: elcowle
+title: IMLOperatorTypeInferenceContext メソッド
+description: 演算子への出力が有効な場合は true を返します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IsOutputValid
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、IsOutputValid
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,28 +13,28 @@ api_name:
 - IMLOperatorTypeInferenceContext.IsOutputValid
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 0635371ebafba764100670ffd7a09c207104780a
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: c112e4f1ad3e09ae4a02f1cc7a5b38fa90413911
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180504"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156066"
 ---
-# <a name="imloperatortypeinferencecontextisoutputvalid-method"></a>IMLOperatorTypeInferenceContext.IsOutputValid メソッド
+# <a name="imloperatortypeinferencecontextisoutputvalid-method"></a>IMLOperatorTypeInferenceContext メソッド
 
-オペレーターへの出力が有効な場合に true を返します。 常に true を返します省略可能な出力を除く。
+演算子への出力が有効な場合は true を返します。 これは、省略可能な出力を除き、常に true を返します。
 
 ```cpp
 bool IsOutputValid(
     uint32_t outputIndex)
 ```
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

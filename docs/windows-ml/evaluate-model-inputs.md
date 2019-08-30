@@ -1,41 +1,39 @@
 ---
-author: eliotcowley
 title: モデルの入力を評価する
-description: 予測を取得するモデルの入力の評価を実行する方法について説明します。
-ms.author: elcowle
+description: モデルの入力に対して評価を実行し、予測を取得する方法について説明します。
 ms.date: 4/1/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: a06a4b55745eaf9c1a0035cfa9249b757c525bf7
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 9f23b272f85f1bd3beb60bfea341c522941fa854
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181244"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156720"
 ---
 # <a name="evaluate-the-model-inputs"></a>モデルの入力を評価する
 
-モデルの入力と出力への値をバインドした後、モデルの入力を評価し、その予測を取得する準備が整いました。
+モデルの入力と出力に値をバインドすると、モデルの入力を評価し、その予測を取得する準備が整います。
 
-呼び出しのいずれかのモデルを実行する、 **Evaluate*** メソッドを[LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession)します。 使用することができます、 [LearningModelEvaluationResult](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult)出力機能を確認します。
+モデルを実行するには、 [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession)で**Evaluate*** メソッドを呼び出します。 [LearningModelEvaluationResult](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult)を使用して、出力機能を確認できます。
 
 ## <a name="example"></a>例
 
-次の例で、セッションで、バインドと一意の関連付け ID を渡して、評価版を実行します 出力を解析しました、確率の一覧と、モデルが、認識し、結果をコンソールに書き込むには、さまざまなモ ノのラベルの一覧に一致。
+次の例では、セッションに対して評価を実行し、バインドと一意の相関 ID を渡します。 次に、確率の一覧として出力を解析し、モデルが認識できるさまざまな要素のラベルの一覧と照合して、結果をコンソールに書き込みます。
 
 ```cs
 // How many times an evaluation has been run
 private int runCount = 0;
 
 private void EvaluateModel(
-    LearningModelSession session, 
+    LearningModelSession session,
     LearningModelBinding binding,
     string outputName,
     List<string> labels)
 {
     // Process the frame with the model
-    var results = 
+    var results =
         await session.EvaluateAsync(binding, $"Run {++runCount}");
 
     // Retrieve the results of evaluation
@@ -78,16 +76,16 @@ private void EvaluateModel(
 
 ## <a name="device-removal"></a>デバイスの削除
 
-デバイスが利用できなくなった場合に、別のデバイスを使用したい場合や、セッションを終了して、新しいセッションを作成する必要があります。
+デバイスが使用できなくなった場合、または別のデバイスを使用する場合は、セッションを閉じて新しいセッションを作成する必要があります。
 
-場合によっては、グラフィックス デバイス必要がありますをアンロードして再読み込みするで説明したように、 [DirectX のドキュメント](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios)します。
+場合によっては、 [DirectX のドキュメント](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios)で説明されているように、グラフィックスデバイスのアンロードと再読み込みが必要になることがあります。
 
-Windows の ML を使用する場合は、このケースを検出し、セッションを閉じる必要があります。 デバイスの削除または再初期化から回復するには、もう一度実行するデバイスの選択ロジックをトリガーする、新しいセッションを作成します。
+Windows ML を使用する場合は、このケースを検出してセッションを閉じる必要があります。 デバイスの削除または再初期化から回復するには、新しいセッションを作成します。これにより、デバイス選択ロジックが再度実行されるようになります。
 
-このエラーを表示、最も一般的なケースは、中に[LearningModelSession.Evaluate](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate)します。 場合はデバイスを削除するか、リセット[LearningModelEvaluationResult.ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus)なります[DXGI_ERROR_DEVICE_REMOVED](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error)または[DXGI_ERROR_DEVICE_RESET](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error)します。
+このエラーが発生する最も一般的なケースは、 [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate)の実行中です。 デバイスの削除またはリセットの場合、 [LearningModelEvaluationResult](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus)は[DXGI_ERROR_DEVICE_REMOVED](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error)または[DXGI_ERROR_DEVICE_RESET](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error)になります。
 
 ## <a name="see-also"></a>関連項目
 
-* 先の：[モデルをバインドします。](bind-a-model.md)
+* 先の：[モデルを作成する](bind-a-model.md)
 
 [!INCLUDE [help](../includes/get-help.md)]
