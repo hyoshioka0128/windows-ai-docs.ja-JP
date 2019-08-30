@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorKernelContext.GetExecutionInterface メソッド
-description: カーネルの種類に基づいて、サポートされているインターフェイスが異なるオブジェクトを返します。
-ms.author: elcowle
+title: Imloperator@ Context. GetExecutionInterface メソッド
+description: カーネルの種類によってサポートされるインターフェイスが異なるオブジェクトを返します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetExecutionInterface
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetExecutionInterface
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,28 +13,28 @@ api_name:
 - IMLOperatorKernelContext.GetExecutionInterface
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 1425dca9dadd2a8a2c44b0c4c9ac5037e635244c
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: fa342999351dd2c1a218ffd086bcd09a1ec9405f
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181164"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157289"
 ---
-# <a name="imloperatorkernelcontextgetexecutioninterface-method"></a>IMLOperatorKernelContext.GetExecutionInterface メソッド
+# <a name="imloperatorkernelcontextgetexecutioninterface-method"></a>Imloperator@ Context. GetExecutionInterface メソッド
 
-カーネルの種類に基づいて、サポートされているインターフェイスが異なるオブジェクトを返します。 登録されているカーネルの[MLOperatorExecutionType::Cpu](MLOperatorExecutionType.md)、 *executionObject*に設定されます**nullptr**します。 登録されているカーネルの**MLOperatorExecutionType::D3D12**、 *executionObject*サポートは、 [ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist)インターフェイス。 提供されているよりも、別のオブジェクトがあります[IMLOperatorKernelCreationContext::GetExecutionInterface](IMLOperatorKernelCreationContext_GetExecutionInterface.md)カーネル インスタンスの作成時にします。
+カーネルの種類によってサポートされるインターフェイスが異なるオブジェクトを返します。 [Mloperatorexecutiontype:: Cpu](MLOperatorExecutionType.md)に登録されているカーネルの場合、 *executionobject*は**nullptr**に設定されます。 **Mloperatorexecutiontype::D 3D12**に登録されているカーネルの場合、 *Executionobject*は[ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist)インターフェイスをサポートします。 これは、カーネルインスタンスの作成時に[Imloperatorkernel の context:: GetExecutionInterface](IMLOperatorKernelCreationContext_GetExecutionInterface.md)に提供されたものとは異なるオブジェクトである可能性があります。
 
 ```cpp
 void GetExecutionInterface(
     _COM_Outptr_result_maybenull_ IUnknown** executionObject)
 ```
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

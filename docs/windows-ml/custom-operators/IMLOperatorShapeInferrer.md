@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorShapeInferrer インターフェイス
-description: 演算子の出力 tensor エッジの図形を推論する図形 inferrers によって実装されます。
-ms.author: elcowle
+title: Imloperator図形 Inferrer インターフェイス
+description: 図形形式で実装され、演算子の出力の形状を推定します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IMLOperatorShapeInferrer
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、Imloperator図形 Inferrer
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,29 +13,29 @@ api_name:
 - IMLOperatorShapeInferrer
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 41fefb1dfe04f99ec41ceae82cc247668b3f43c5
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 64917ecf3cf490ccb98db86bc670189acbb43c78
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180954"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157773"
 ---
-# <a name="imloperatorshapeinferrer-interface"></a>IMLOperatorShapeInferrer インターフェイス
+# <a name="imloperatorshapeinferrer-interface"></a>Imloperator図形 Inferrer インターフェイス
 
-演算子の出力 tensor エッジの図形を推論する図形 inferrers によって実装されます。 パフォーマンスを向上させるために作成され、計算時に、その出力 tensors の形状を照会するカーネルを有効にして、カスタム演算子カーネルを登録するときに、図形 inferrers を指定することがあります。 図形 inferrers はモデルの検証を向上させるためにカスタム演算子のスキーマを登録するときにも提供されます。
+図形形式で実装され、演算子の出力の形状を推定します。 カスタム演算子カーネルを登録してパフォーマンスを向上させ、カーネルが作成および計算されたときにその出力 tensors の形状に対してクエリを実行できるようにする場合は、形状を指定できます。 カスタム演算子スキーマを登録するときに、モデルの検証を改善するために、図形を指定することもできます。
 
 ## <a name="methods"></a>メソッド
 
 | 名前 | 説明 |
 |------|-------------|
-| [InferOutputShapes](IMLOperatorShapeInferrer_InferOutputShapes.md) | 演算子の出力のエッジの図形を推論と呼ばれます。 |
+| [InferOutputShapes](IMLOperatorShapeInferrer_InferOutputShapes.md) | 演算子の出力エッジの形状を推論するために呼び出されます。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

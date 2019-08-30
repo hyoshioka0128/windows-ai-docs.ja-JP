@@ -1,28 +1,26 @@
 ---
-author: eliotcowley
 title: モデルを作成する
-description: モデルの入力と出力に、およびモデルから情報を渡すためにバインドする方法について説明します。
-ms.author: elcowle
+description: モデルの入力と出力をバインドして、モデルとの間で情報を渡す方法について説明します。
 ms.date: 5/29/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: 32c99fa3cb46eaa3bb1f98ab128308eb37361651
-ms.sourcegitcommit: 4ad0fea02000c8f6dbb9a919fb6ce1f435d0e8d6
+ms.openlocfilehash: abffa39c066abb49bf74d528722a29432c2543b2
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027908"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156183"
 ---
 # <a name="bind-a-model"></a>モデルを作成する
 
-機械学習モデルに入力と出力の機能は、モデルとの間の情報を渡します。
+機械学習モデルには、入力と出力の機能があります。この機能は、モデルとの間で情報をやり取りします。
 
-として、モデルの読み込み後、 [LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel)、使用することができます[LearningModel.InputFeatures](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.inputfeatures)と[LearningModel.OutputFeatures](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.outputfeatures)させる[ILearningModelFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor)オブジェクト。 これらの一覧、モデルの入力と機能の種類の出力します。
+[LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel)としてモデルを読み込んだ後、 [LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.inputfeatures)と[LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.outputfeatures)を使用して[ILearningModelFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor)オブジェクトを取得できます。 これらの一覧には、モデルの期待される入力と出力の機能の種類が表示されます。
 
-使用する、 [LearningModelBinding](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding) 、機能に値をバインドするを参照する、 **ILearningModelFeatureDescriptor**によってその[名前](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor.name)プロパティ。
+[LearningModelBinding](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding)を使用して、 **ILearningModelFeatureDescriptor**を[Name](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor.name)プロパティで参照する機能に値をバインドします。
 
-次のビデオでは、バインディングの機械学習モデルの機能の概要を示します。
+次のビデオでは、機械学習モデルのバインド機能の概要を簡単に説明します。
 
 <br/>
 
@@ -30,28 +28,28 @@ ms.locfileid: "67027908"
 
 ## <a name="types-of-features"></a>機能の種類
 
-Windows の ML 内に列挙されたすべての ONNX 機能型をサポートしている[LearningModelFeatureKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind)します。 これらは、さまざまな機能の記述子のクラスにマップされます。
+Windows ML は、 [LearningModelFeatureKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind)で列挙されるすべての ONNX 機能の種類をサポートしています。 これらは、さまざまな特徴記述子クラスにマップされます。
 
-* **利用したテンソル**:[TensorFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
+* 次のようになります。[TensorFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
 * **シーケンス**:[SequenceFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor)
 * **マップ**:[MapFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor)
 * **イメージ**:[ImageFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)
 
 ### <a name="tensors"></a>Tensors
 
-Tensors は多次元配列、および最も一般的な tensor は 32 ビットの浮動小数点値を利用したテンソルします。 Tensors のディメンションでは、行優先が緊密にパックされた連続するデータが各ディメンションを表します。 利用したテンソルの合計サイズは、各次元のサイズの積です。
+Tensors は多次元配列であり、最も一般的なのは、32ビットの浮動小数点数です。 Tensors のディメンションは行メジャーであり、各ディメンションを表す連続したデータが厳密にパックされています。 この合計サイズは、各ディメンションのサイズの積です。
 
 ### <a name="sequences"></a>シーケンス
 
-シーケンスは、値のベクトルです。 シーケンス型の一般的な用途は、各予測の精度の評価を示すいくつかの分類モデルを返す float 確率のベクトルです。
+シーケンスは、値のベクターです。 シーケンス型の一般的な使用方法は、float 確率のベクターです。これは、各予測の精度の評価を示すために返される分類モデルです。
 
 ### <a name="maps"></a>マップ
 
-マップは、情報のキー/値ペアです。 分類モデルはよく、各分類のラベルが付いた名前の float 確率を説明する文字列/float マップを返します。 たとえば、画像の犬の種類を予測しようとするモデルの出力があります`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`します。
+マップは、情報のキーと値のペアです。 通常、分類モデルは、ラベル付けされた各分類名の float 確率を表す文字列/浮動小数点マップを返します。 たとえば、画像の犬の組み合わせを予測しようとするモデルの出力は、のよう`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`になります。
 
 #### <a name="scalars"></a>スカラー
 
-ほとんどのマップおよびシーケンスは、スカラー値を持ちます。 これらの場所を表示**TensorFeatureDescriptor.Shape.Size**はゼロ (0)。 ここでは、マップまたはシーケンスは、スカラー型になります。 最も一般的な`float`します。 たとえば、マップを float への文字列は次のようになります。
+ほとんどのマップとシーケンスは、スカラー値を持ちます。 これらは、保存場所がゼロ (0) であることを示しています。 この場合、マップまたはシーケンスはスカラー型になります。 最も一般的なの`float`はです。 たとえば、マップする文字列は次のようになります。
 
 ```cs
 MapFeatureDescriptor.KeyKind == TensorKind.String
@@ -59,73 +57,73 @@ MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
 MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size == 0
 ```
 
-実際のマップ機能の値になります、`IMap<string, float>`します。
+実際のマップ機能の値はに`IMap<string, float>`なります。
 
 #### <a name="sequence-of-maps"></a>マップのシーケンス
 
-マップのシーケンスは、キー/値ペアのベクトルだけです。 たとえば、マップの浮動小数点数の文字列のシーケンスが、型のでしょう。`IVector<IMap<string, float>>`します。 上記の出力の犬の優れた予測`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`マップのシーケンスの例を示します。
+一連のマップは、キーと値のペアのベクターにすぎません。 たとえば、文字列から浮動小数点数へのマップのシーケンスは型`IVector<IMap<string, float>>`になります。 犬の予測`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`の上記の出力は、一連のマップの一例です。
 
 ### <a name="images"></a>画像
 
-イメージを使用する場合は、イメージ形式と tensorization を意識する必要があります。
+イメージを操作する場合は、イメージ形式に注意する必要があります。
 
-#### <a name="image-formats"></a>イメージの形式
+#### <a name="image-formats"></a>画像の形式
 
-イメージのトレーニング データでモデルがトレーニングし、重みが保存され、そのトレーニング セットに合わせて調整します。 イメージをモデルに入力を渡すときに、その形式は、トレーニングのイメージ形式と一致する必要があります。
+モデルは、イメージトレーニングデータでトレーニングされます。重みは、そのトレーニングセットに合わせて保存され、調整されます。 イメージ入力をモデルに渡すときは、その形式がトレーニングイメージの形式と一致している必要があります。
 
-多くの場合、モデルが、必要なイメージ形式を説明します。ONNX モデルを使用できる[メタデータ](https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md)に必要なイメージ形式について説明します。  
+多くの場合、モデルは予想されるイメージ形式を表します。ONNX モデルでは、[メタデータ](https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md)を使用して、予想されるイメージ形式を記述できます。  
 
-ほとんどのモデルは、次の形式を使用して、すべてのモデルにユニバーサルではありません。
+ほとんどのモデルでは次の形式が使用されますが、これはすべてのモデルに対して汎用的ではありません。
 
-* **Image.BitmapPixelFormat**:Bgr8
-* **Image.ColorSpaceGamma**:SRGB
-* **Image.NominalPixelRange**:NominalRange_0_255
+* **BitmapPixelFormat**:Bgr8
+* **イメージ。 Colorspace ガンマ**:SRGB
+* **NominalPixelRange**:NominalRange_0_255
 
-#### <a name="tensorization"></a>Tensorization
+#### <a name="tensorization"></a>すべてのものを
 
-イメージは、Windows の ML で利用したテンソル形式で表現されます。 Tensorization を利用したテンソルにイメージを変換するプロセスは、バインド中に発生します。
+イメージは、Windows ML では、その形式で表示されます。 これは、イメージをオートに変換するプロセスであり、バインド中に発生します。
 
-Windows の ML では、4 次元 tensors「NCHW tensor 形式」で 32 ビットの浮動小数点値にイメージを変換します。
+Windows ML では、"NCHW tensors" という形式で、イメージが32ビットの浮動小数点数に変換されます。
 
-* **N**:バッチ サイズ (またはイメージの数)。 Windows の ML には、1 のバッチ サイズ N 現在サポートしています。
-* **C**:チャネルの数 (Gray8、Bgr8 3 の 1)。
-* **H**:高さ。
+* **N**:バッチサイズ (またはイメージの数)。 Windows ML では、現在、バッチサイズ N の1がサポートされています。
+* **C**:チャネル数 (Gray8 の場合は1、Bgr8 の場合は 3)。
+* **H**:上下.
 * **W**:幅。
 
-各ピクセルのイメージは、0 ~ 255 の範囲に格納され、32 ビット浮動小数点数にパックする 8 ビット色数です。
+イメージの各ピクセルは、0-255 の範囲に格納され、32ビットの浮動小数点数にパックされる8ビットのカラー番号です。
 
-#### <a name="how-to-pass-images-into-the-model"></a>イメージをモデルに渡す方法
+#### <a name="how-to-pass-images-into-the-model"></a>モデルにイメージを渡す方法
 
-イメージは、モデルに渡すことができます 2 つの方法はあります。
+イメージをモデルに渡すには、次の2つの方法があります。
 
 * [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
 
-    使用することをお勧めします。 **ImageFeatureValue**変換と tensorization の両方の処理には、入力と出力としてイメージをバインドするにように、イメージと一致、モデルの必要なイメージ形式。 現在サポートされているモデル形式の種類は**Gray8**、 **Rgb8**、および**Bgr8**、現在サポートされているピクセルの範囲は 0 ~ 255 とします。
+    **Imagefeaturevalue**を使用して、画像を入力および出力としてバインドすることをお勧めします。これは、変換と変換の両方が処理されるため、イメージはモデルの必要なイメージ形式と一致するためです。 現在サポートされているモデル形式の種類は**Gray8**、 **Rgb8**、および**Bgr8**で、現在サポートされているピクセル範囲は0-255 です。
 
-    作成することができます、 **ImageFeatureValue**静的メソッドを使用して[ImageFeatureValue.CreateFromVideoFrame](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe)します。
+    Imagefeaturevalue を作成するには、静的なメソッド[Imagefeaturevalue. CreateFromVideoFrame](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe)を使用します。
 
-    モデルの形式を確認する必要があります、WinML は、次のロジックと優先順位の順序を使用します。
+    モデルで必要な形式を確認するために、WinML は次のロジックと優先順位を使用します。
 
-    1. [バインド (String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_)イメージのすべての設定が上書きされます。
-    2. モデル メタデータをチェックし、および使用可能な場合に使用されます。
-    3. モデルのメタデータが指定されていない呼び出し元にプロパティが指定されていない場合は、ランタイムは最適な一致を作成しようとします。 NCHW ようテンソル場合 (4 次元 float32、N 1 = =)、ランタイムはいずれかを想定していますが**Gray8**または**Bgr8**チャネルの数によって異なります。
+    1. [Bind (String, Object, IPropertySet) は、](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_)すべてのイメージ設定を上書きします。
+    2. モデルのメタデータはチェックされ、使用可能な場合は使用されます。
+    3. モデルメタデータが指定されておらず、呼び出し元が指定したプロパティがない場合、ランタイムは最適な照合を試みます。 このようにしても、NCHW (4 次元の float32, N = = 1) のように見える場合、ランタイムはチャネル数に応じて**Gray8**または**Bgr8**のいずれかを想定します。
 
-    いくつかの省略可能なプロパティに渡すことができる[バインド (String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
+    Bind に渡すことができる省略可能なプロパティがいくつかあります[(String、Object、IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_)。
 
-    * [BitmapBounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds):指定すると場合、これらは、トリミング境界をモデルにイメージを送信する前に適用します。
-    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat):指定した場合は、イメージの変換中にモデルのピクセル形式として使用されるピクセル形式になります。
+    * [Bitmapbounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds):指定されている場合、これらは、モデルにイメージを送信する前に適用するトリミング境界です。
+    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat):指定した場合、イメージの変換中にモデルのピクセル形式として使用されるピクセル形式になります。
 
-    イメージ図形は、モデルは、いずれかの特定の図形 (たとえば、SqueezeNet は 224,224) かかること、または、モデルは、任意図形のイメージ (StyleTransfer 型の多くのモデルは、可変サイズの画像をかかることができます) の無料の寸法を指定できますを指定できます。 呼び出し元が使用できる**BitmapBounds**のどのセクションで、イメージ扱おうとする使用を選択します。 指定しない場合、ランタイムが (縦横比を考慮し) モデルのサイズにスケーリングし、トリミングをし、中央します。  
+    イメージ図形の場合、モデルでは、実行する特定の図形 (たとえば、SqueezeNet が224224を受け取る) を指定することも、モデルで任意の図形イメージの自由ディメンションを指定することもできます (多くのスタイル転送タイプのモデルは可変サイズのイメージを使用できます)。 呼び出し元は、 **Bitmapbounds**を使用して、使用するイメージのセクションを選択できます。 指定しない場合、ランタイムはイメージをモデルサイズ (縦横比を考慮) にスケーリングし、次にセンタートリミングします。  
 
 * [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)
 
-    Windows の ML にモデルの色形式またはピクセルの範囲ができない場合は、変換と tensorization を実装できます。 入力の値は、32 ビット浮動小数点数の NCHW 4 次元 tensor を作成します。 参照してください、[カスタム Tensorization サンプル](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)これを行う方法の例についてはします。
+    Windows ML でモデルのカラーフォーマットまたはピクセル範囲がサポートされていない場合は、変換を実装して、変換を行うことができます。 入力値として、32ビット浮動小数点値の NCHW を作成します。 これを行う方法の例については、「カスタムの管理」の[サンプル](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)を参照してください。
 
-    このメソッドを使用すると、モデルのすべてのイメージ メタデータが無視されます。
+    このメソッドを使用すると、モデルのイメージメタデータはすべて無視されます。
 
 ## <a name="example"></a>例
 
-次の例では、モデルの入力にバインドする方法を示します。 バインドを作成するこの例では、*セッション*、作成、 **ImageFeatureValue**から*inputFrame*、およびモデルにイメージの入力、bind *inputName*.
+次の例は、モデルの入力にバインドする方法を示しています。 この場合は、*セッション*からバインドを作成し、 *Inputframe*から**imagefeaturevalue**を作成し、そのイメージをモデルの入力*inputframe*にバインドします。
 
 ```cs
 private void BindModel(
@@ -148,6 +146,6 @@ private void BindModel(
 ## <a name="see-also"></a>関連項目
 
 * 先の：[セッションを作成する](create-a-session.md)
-* 次に：[モデルの入力を評価する](evaluate-model-inputs.md)
+* 次の手順:[モデルの入力を評価する](evaluate-model-inputs.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

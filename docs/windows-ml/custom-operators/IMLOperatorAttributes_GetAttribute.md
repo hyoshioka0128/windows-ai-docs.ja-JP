@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorAttributes.GetAttribute メソッド
+title: IMLOperatorAttributes メソッド
 description: 数値型の属性要素の値を取得します。
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetAttribute
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetAttribute
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorAttributes.GetAttribute
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 0f77c05681200303fede9bb2678d8188952d0d25
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 69c886c7b8b837cff01d12d369debf924a3d9160
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181044"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157075"
 ---
-# <a name="imloperatorattributesgetattribute-method"></a>IMLOperatorAttributes.GetAttribute メソッド
+# <a name="imloperatorattributesgetattribute-method"></a>IMLOperatorAttributes メソッド
 
-数値型の属性要素の値を取得します。 配列型の属性の場合は、このメソッドは、指定したインデックス位置にある属性内の各要素を照会します。
+数値型の属性要素の値を取得します。 配列型の属性の場合、このメソッドは、指定されたインデックス位置にある属性内の個々の要素を照会します。
 
 ```cpp
 void GetAttribute(
@@ -35,12 +33,12 @@ void GetAttribute(
     _Out_writes_bytes_(elementCount * elementByteSize) void* value)
 ```
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

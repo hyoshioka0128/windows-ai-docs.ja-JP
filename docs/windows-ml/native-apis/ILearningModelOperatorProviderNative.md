@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
 title: ILearningModelOperatorProviderNative 構造体
-description: カスタム演算子の登録を含む IMLOperatorRegistry オブジェクトへのアクセスを提供します。
-ms.author: elcowle
+description: カスタムオペレーター登録を含む IMLOperatorRegistry オブジェクトへのアクセスを提供します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows の機械学習、WinML、ILearningModelOperatorProviderNative
+keywords: windows 10、windows machine learning、WinML、ILearningModelOperatorProviderNative
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,29 +13,29 @@ api_name:
 - ILearningModelOperatorProviderNative
 api_location:
 - windows.ai.machinelearning.native.h
-ms.openlocfilehash: 5b4a17c3bcc2c14b2921cf7b6a4269081398f052
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 1f5ad315f95f54aebce011d76695f9c6ea655d51
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181904"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156536"
 ---
 # <a name="ilearningmodeloperatorprovidernative-struct"></a>ILearningModelOperatorProviderNative 構造体
 
-アクセスを提供します。 [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md)カスタム演算子の登録を含むオブジェクト。
+カスタムオペレーター登録を含む[Imloperatorregistry](../custom-operators/IMLOperatorRegistry.md)オブジェクトへのアクセスを提供します。
 
 ## <a name="methods"></a>メソッド
 
 | 名前 | 説明 |
 |------|-------------|
-| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | 取得、 [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md)カスタム演算子の定義を含むオブジェクト。 |
+| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | カスタム演算子の定義を含む[Imloperatorregistry](../custom-operators/IMLOperatorRegistry.md)オブジェクトを取得します。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | windows.ai.machinelearning.native.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | windows. ai.... .h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

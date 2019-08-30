@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTensorShapeDescription.HasOutputShapeDescription メソッド
-description: 使用して、出力の図形をクエリすることがある場合は true を返します**GetOutputTensorDimensionCount**と**GetOutputTensorShape**します。
-ms.author: elcowle
+title: Imloperatortenantsordescription. Hasoutput、Description メソッド
+description: '**Getoutputに**よって出力図形がクエリされる場合は true を返します。'
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を HasOutputShapeDescription
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、Hasoutput図形の説明
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorTensorShapeDescription.HasOutputShapeDescription
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 927fc48cd6554d1d35292490892edb4534f90c82
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: d8d72c1d86efe4608299b8a356e8fee79c87cf7c
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181854"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157854"
 ---
-# <a name="imloperatortensorshapedescriptionhasoutputshapedescription-method"></a>IMLOperatorTensorShapeDescription.HasOutputShapeDescription メソッド
+# <a name="imloperatortensorshapedescriptionhasoutputshapedescription-method"></a>Imloperatortenantsordescription. Hasoutput、Description メソッド
 
-使用して、出力の図形をクエリすることがある場合は true を返します[IMLOperatorTensorShapeDescription::GetOutputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md)と[IMLOperatorTensorShapeDescription::GetOutputTensorShape](IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)します。 これは、カーネルが図形 inferrer に登録されている場合は true。
+[Imloperatortenantsorshapes description:: GetOutputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md)と[Imloperatortenantsorshape Description:: getoutputtenantsorshape](IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)を使用して出力図形を照会できる場合は true を返します。 これは、カーネルが図形 infに登録されている場合に当てはまります。
 
 ```cpp
 bool HasOutputShapeDescription()
@@ -34,8 +32,8 @@ bool HasOutputShapeDescription()
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

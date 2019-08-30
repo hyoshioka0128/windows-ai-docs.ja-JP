@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
 title: ILearningModelDeviceFactoryNative インターフェイス
-description: ID3D12CommandQueue を使用して ILearningModelDevice オブジェクトの作成を有効にするファクトリ メソッドへのアクセスを提供します。
-ms.author: elcowle
+description: ID3D12CommandQueue を使用して ILearningModelDevice オブジェクトを作成できるようにするファクトリメソッドへのアクセスを提供します。
 ms.date: 4/2/2019
 ms.topic: article
-keywords: windows 10、windows の機械学習、WinML、ILearningModelDeviceFactoryNative
+keywords: windows 10、windows machine learning、WinML、ILearningModelDeviceFactoryNative
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,29 +13,29 @@ api_name:
 - ILearningModelDeviceFactoryNative
 api_location:
 - windows.ai.machinelearning.native.h
-ms.openlocfilehash: 035ff6dd7e765dcf1f2f21382eb6c488bdb66f63
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 0f6fdf7a32c768690a47dc3028b8a01adffce056
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181874"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156574"
 ---
 # <a name="ilearningmodeldevicefactorynative-interface"></a>ILearningModelDeviceFactoryNative インターフェイス
 
-作成を有効にするファクトリ メソッドへのアクセスを提供[ILearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice)オブジェクトを使用して[ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)します。
+[ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)を使用して[ILearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice)オブジェクトを作成できるようにするファクトリメソッドへのアクセスを提供します。
 
 ## <a name="methods"></a>メソッド
 
 | 名前 | 説明 |
 |------|-------------|
-| [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md) | 作成、 [LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice)推論を実行するユーザー指定の[ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)します。 |
+| [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md) | ユーザー指定の[ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)に対して推論を実行する[LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice)を作成します。 |
 
 ## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | windows.ai.machinelearning.native.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | windows. ai.... .h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

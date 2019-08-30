@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTypeInferenceContext.SetOutputEdgeDescription メソッド
-description: 出力のエッジの推論された型を設定します。
-ms.author: elcowle
+title: IMLOperatorTypeInferenceContext SetOutputEdgeDescription メソッド
+description: 出力エッジの推定される型を設定します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を SetOutputEdgeDescription
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、SetOutputEdgeDescription
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,20 +13,20 @@ api_name:
 - IMLOperatorTypeInferenceContext.SetOutputEdgeDescription
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 84f928c3a2123119b621ca2e9da8ae5c4f5c4f5f
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: ca3248c16d449a0a21521e00883446f1fd70e47e
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180684"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157926"
 ---
-# <a name="imloperatortypeinferencecontextsetoutputedgedescription-method"></a>IMLOperatorTypeInferenceContext.SetOutputEdgeDescription メソッド
+# <a name="imloperatortypeinferencecontextsetoutputedgedescription-method"></a>IMLOperatorTypeInferenceContext SetOutputEdgeDescription メソッド
 
-出力のエッジの推論された型を設定します。
+出力エッジの推定される型を設定します。
 
 ```cpp
 void SetOutputEdgeDescription(
-    uint32_t outputIndex, 
+    uint32_t outputIndex,
     const MLOperatorEdgeDescription* edgeDescription)
 ```
 
@@ -36,8 +34,8 @@ void SetOutputEdgeDescription(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

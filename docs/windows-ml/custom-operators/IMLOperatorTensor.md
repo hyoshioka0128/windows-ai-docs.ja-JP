@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTensor インターフェイス
-description: カスタム演算子のカーネルの計算中に使用される利用したテンソルの表現。
-ms.author: elcowle
+title: Imloperator、インターフェイス
+description: カスタム演算子カーネルの計算中に使用される、オートの表現。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IMLOperatorTensor
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、Imloperator、
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,35 +13,35 @@ api_name:
 - IMLOperatorTensor
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: a26cd2eb5a1a4be45ff7077c265c972258bbf60d
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: c5cda4b43175cb78372abc1211083ab9d3232a00
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181654"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157790"
 ---
-# <a name="imloperatortensor-interface"></a>IMLOperatorTensor インターフェイス
+# <a name="imloperatortensor-interface"></a>Imloperator、インターフェイス
 
-カスタム演算子のカーネルの計算中に使用される利用したテンソルの表現。
+カスタム演算子カーネルの計算中に使用される、オートの表現。
 
 ## <a name="methods"></a>メソッド
 
 | 名前 | 説明 |
 |------|-------------|
-| [GetData](IMLOperatorTensor_GetData.md) | テンソルのバイトのアドレス指定可能なメモリへのポインターを返します。 |
-| [GetDataInterface](IMLOperatorTensor_GetDataInterface.md) | テンソルのインターフェイス ポインターを取得します。 |
-| [GetDimensionCount](IMLOperatorTensor_GetDimensionCount.md) | テンソルで次元数を取得します。 |
-| [GetShape](IMLOperatorTensor_GetShape.md) | テンソル内の次元のサイズを取得します。 |
-| [GetTensorDataType](IMLOperatorTensor_GetTensorDataType.md) | テンソルのデータ型を取得します。 |
-| [IsCpuData](IMLOperatorTensor_IsCpuData.md) | テンソルによって使用されるメモリが CPU を指定できるかどうかを示します。 |
-| [IsDataInterface](IMLOperatorTensor_IsDataInterface.md) | かどうか、利用したテンソルの内容はインターフェイスの型、またはバイトのアドレス指定可能なメモリによって表されます。 |
+| [GetData](IMLOperatorTensor_GetData.md) | は、その後、またはに対して、バイトでアドレス指定可能なメモリへのポインターを返します。 |
+| [GetDataInterface](IMLOperatorTensor_GetDataInterface.md) | 既存ののインターフェイスポインターを取得します。 |
+| [GetDimensionCount](IMLOperatorTensor_GetDimensionCount.md) | の次元数を取得します。 |
+| [GetShape](IMLOperatorTensor_GetShape.md) | の次元のサイズを取得します。 |
+| [GetTensorDataType](IMLOperatorTensor_GetTensorDataType.md) | のデータ型を取得します。 |
+| [IsCpuData](IMLOperatorTensor_IsCpuData.md) | この値によって使用されるメモリが CPU でアドレス指定可能かどうかを示します。 |
+| [IsDataInterface](IMLOperatorTensor_IsDataInterface.md) | すべての内容がインターフェイス型で表されるか、またはバイトアドレス可能なメモリで表されるかを示します。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

@@ -1,41 +1,39 @@
 ---
-author: eliotcowley
 title: セッションを作成する
-description: 実行とモデルを評価し、デバイスにモデルをバインドするために使用できるセッションを作成する方法について説明します。
-ms.author: elcowle
+description: デバイスにモデルをバインドするために使用できるセッションを作成する方法について説明します。これにより、モデルを実行して評価することができます。
 ms.date: 4/1/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: 918300b23a2d2c3a8c80307725722bba05bfaa42
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: feb1dd5e2837039ea573361ea338cbd8c387ebab
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180434"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156060"
 ---
 # <a name="create-a-session"></a>セッションを作成する
 
-読み込んだら、 [LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel)、作成する、 [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession)を実行し、モデルを評価しているデバイスにモデルをバインドします。
+[LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel)を読み込むと、モデルを実行して評価するデバイスにモデルをバインドする[LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession)が作成されます。
 
-## <a name="choose-a-device"></a>デバイスを選択します。
+## <a name="choose-a-device"></a>デバイスの選択
 
-セッションを作成するときに、デバイスを選択することができます。 型のデバイスを選択した[LearningModelDeviceKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind):
+セッションの作成時にデバイスを選択できます。 種類が[LearningModelDeviceKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind)のデバイスを選択します。
 
-* **Default**
-    * システムが使用するデバイスを決定できるようにします。 現時点では、既定のデバイスには、CPU です。
+* **[Default]**
+    * 使用するデバイスをシステムが決定できるようにします。 現在、既定のデバイスは CPU です。
 * **CPU**
-    * その他のデバイスが使用可能な場合でも、CPU を使用します。
+    * 他のデバイスが使用可能な場合でも、CPU を使用します。
 * **DirectX**
-    * DirectX ハードウェア高速化デバイス、具体的には、最初のアダプターによって列挙を使用して[IDXGIFactory1::EnumAdapters1](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgifactory1-enumadapters1)します。
+    * DirectX ハードウェアアクセラレーションデバイスを使用します。具体的には、 [IDXGIFactory1:: EnumAdapters1](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgifactory1-enumadapters1)によって列挙される最初のアダプターです。
 * **DirectXHighPerformance**
-    * 同じ**DirectX**が使用されますが、 [DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference)アダプターを列挙する場合。
+    * **DirectX**と同じですが、アダプターを列挙するときに[DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference)が使用されます。
 * **DirectXMinPower**
-    * 同じ**DirectX**が使用されますが、 [DXGI_GPU_PREFERENCE_MINIMUM_POWER](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference)アダプターを列挙する場合。
+    * **DirectX**と同じですが、アダプターを列挙するときに[DXGI_GPU_PREFERENCE_MINIMUM_POWER](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference)が使用されます。
 
-デバイスを指定しない場合、システムは**既定**します。 使用することをお勧めします。**既定**システムが、将来の選択の柔軟性を得る。
+デバイスを指定しない場合、システムは**既定値**を使用します。 **既定値**を使用することをお勧めします。これにより、将来的にシステムを選択できる柔軟性が得られます。
 
-次のビデオでは、デバイスの種類はそれぞれの詳細に移動します。
+次のビデオでは、各デバイスの種類について詳しく説明します。
 
 <br/>
 
@@ -43,13 +41,13 @@ ms.locfileid: "66180434"
 
 ## <a name="example"></a>例
 
-次の例では、モデルと、デバイスからセッションを作成する方法を示します。
+次の例は、モデルとデバイスからセッションを作成する方法を示しています。
 
 ```cs
-private void CreateSession(LearningModel model, LearningModelDeviceKind kind) 
+private void CreateSession(LearningModel model, LearningModelDeviceKind kind)
 {
     // Create the evaluation session with the model and device
-    LearningModelSession session = 
+    LearningModelSession session =
         new LearningModelSession(model, new LearningModelDevice(kind));
 }
 ```
@@ -57,6 +55,6 @@ private void CreateSession(LearningModel model, LearningModelDeviceKind kind)
 ## <a name="see-also"></a>関連項目
 
 * 先の：[モデルを読み込む](load-a-model.md)
-* 次に：[モデルをバインドします。](bind-a-model.md)
+* 次の手順:[モデルを作成する](bind-a-model.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

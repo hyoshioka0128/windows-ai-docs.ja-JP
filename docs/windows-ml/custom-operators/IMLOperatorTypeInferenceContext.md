@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
 title: IMLOperatorTypeInferenceContext インターフェイス
-description: 型 inferrers に呼び出されたときに、演算子の使用状況に関する情報を提供します。
-ms.author: elcowle
+description: 型 inferrers の呼び出し中に、演算子の使用法に関する情報を提供します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を IMLOperatorTypeInferenceContext
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、IMLOperatorTypeInferenceContext
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,34 +13,34 @@ api_name:
 - IMLOperatorTypeInferenceContext
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 7af793410357500436142c987b1d3010a6f9b2e4
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 43eadcd6deb99e3f525788ceb9b5f2598d6da863
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180284"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157903"
 ---
 # <a name="imloperatortypeinferencecontext-interface"></a>IMLOperatorTypeInferenceContext インターフェイス
 
-型 inferrers に呼び出されたときに、演算子の使用状況に関する情報を提供します。
+型 inferrers の呼び出し中に、演算子の使用法に関する情報を提供します。
 
 ## <a name="methods"></a>メソッド
 
 | 名前 | 説明 |
 |------|-------------|
-| [GetInputCount](IMLOperatorTypeInferenceContext_GetInputCount.md) | オペレーターへの入力の数を取得します。 |
-| [GetInputEdgeDescription](IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md) | 演算子の指定した入力のエッジの説明を取得します。 |
-| [GetOutputCount](IMLOperatorTypeInferenceContext_GetOutputCount.md) | 演算子には、出力の数を取得します。 |
-| [IsInputValid](IMLOperatorTypeInferenceContext_IsInputValid.md) | オペレーターへの入力が有効な場合に true を返します。 |
-| [IsOutputValid](IMLOperatorTypeInferenceContext_IsOutputValid.md) | オペレーターへの出力が有効な場合に true を返します。 |
-| [SetOutputEdgeDescription](IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md) | 出力のエッジの推論された型を設定します。 |
+| [GetInputCount](IMLOperatorTypeInferenceContext_GetInputCount.md) | 演算子への入力の数を取得します。 |
+| [GetInputEdgeDescription](IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md) | 演算子の指定した入力エッジの説明を取得します。 |
+| [GetOutputCount](IMLOperatorTypeInferenceContext_GetOutputCount.md) | 演算子への出力の数を取得します。 |
+| [IsInputValid](IMLOperatorTypeInferenceContext_IsInputValid.md) | 演算子への入力が有効な場合は true を返します。 |
+| [IsOutputValid](IMLOperatorTypeInferenceContext_IsOutputValid.md) | 演算子への出力が有効な場合は true を返します。 |
+| [SetOutputEdgeDescription](IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md) | 出力エッジの推定される型を設定します。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount メソッド
-description: 演算子の利用したテンソル出力の次元数を取得します。
-ms.author: elcowle
+title: IMLOperatorShapeInferenceContext Count メソッドを呼び出します。
+description: 操作のすべての出力の次元数を取得します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetInputTensorDimensionCount
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、Getinputの Sordimensioncount
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 7d9b2f19f59b56131f3e8cd00b893c576e815546
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 8d191d379045918422c62c80eeac2d8573931860
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180424"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157745"
 ---
-# <a name="imloperatorshapeinferencecontextgetinputtensordimensioncount-method"></a>IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount メソッド
+# <a name="imloperatorshapeinferencecontextgetinputtensordimensioncount-method"></a>IMLOperatorShapeInferenceContext Count メソッドを呼び出します。
 
-演算子の利用したテンソル出力の次元数を取得します。
+操作のすべての出力の次元数を取得します。
 
 ```cpp
 void GetInputTensorDimensionCount(
@@ -32,12 +30,12 @@ void GetInputTensorDimensionCount(
     _Out_ uint32_t* dimensionCount)
 ```
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

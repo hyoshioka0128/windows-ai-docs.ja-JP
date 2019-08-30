@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: ITensorNative.GetBuffer メソッド
-description: バイト配列として利用したテンソルのバッファーを取得します。
-ms.author: elcowle
+title: ITensorNative メソッド
+description: 格納されているバッファーをバイト配列として取得します。
 ms.date: 4/2/2019
 ms.topic: article
-keywords: windows 10、windows の機械学習、WinML、GetBuffer
+keywords: windows 10、windows machine learning、WinML、GetBuffer
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,35 +13,35 @@ api_name:
 - ITensorNative.GetBuffer
 api_location:
 - windows.ai.machinelearning.native.h
-ms.openlocfilehash: fa00f6300516da0dee20ce85a6bd7bfc3cb6ed07
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: f20f49ad4f16905ab53bccc3d3316d41f615b041
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180114"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156493"
 ---
-# <a name="itensornativegetbuffer-method"></a>ITensorNative.GetBuffer メソッド
+# <a name="itensornativegetbuffer-method"></a>ITensorNative メソッド
 
-バイト配列として利用したテンソルのバッファーを取得します。
+格納されているバッファーをバイト配列として取得します。
 
 ```cpp
 HRESULT GetBuffer(
-    [out, size_is(, *capacity)] BYTE **value, 
+    [out, size_is(, *capacity)] BYTE **value,
     [out] UINT32 *capacity);
 ```
 
 ## <a name="parameters"></a>パラメーター
 
-| 名前 | 種類 | 説明 |
+| 名前 | 型 | 説明 |
 |------|------|-------------|
-| value | **バイト**\*\* | 利用したテンソルのバッファー。 |
-| 容量 | **UINT32**\* | バッファーの容量。 |
+| value | **バイト**\*\* | 格納されているバッファー。 |
+| capacity | **UINT32**\* | バッファーの容量。 |
 
 ## <a name="returns"></a>戻り値
 
 **HRESULT**操作の結果。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```cpp
 TensorFloat SoftwareBitmapToSoftwareTensor(SoftwareBitmap softwareBitmap)
@@ -62,14 +60,14 @@ TensorFloat SoftwareBitmapToSoftwareTensor(SoftwareBitmap softwareBitmap)
 
 ## <a name="see-also"></a>関連項目
 
-* [カスタム Tensorization サンプル](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+* [カスタムのカスタマイズのサンプル](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | windows.ai.machinelearning.native.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | windows. ai.... .h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

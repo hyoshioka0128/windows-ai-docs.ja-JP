@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorKernelContext.GetInputTensor メソッド
-description: 指定したインデックス位置にある演算子の入力 tensor を取得します。
-ms.author: elcowle
+title: Imloperatorカーネルコンテキスト。 Getinputのメソッド
+description: 指定したインデックス位置にある演算子によって入力された入力を取得します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetInputTensor
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetInputTensor
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,20 +13,20 @@ api_name:
 - IMLOperatorKernelContext.GetInputTensor
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: b848390fb31231bd30bbe3beaa3020d97f729b68
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 8d35408495d4ee08ae42d11d77103bf64fb2bb3f
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180784"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157301"
 ---
-# <a name="imloperatorkernelcontextgetinputtensor-method"></a>IMLOperatorKernelContext.GetInputTensor メソッド
+# <a name="imloperatorkernelcontextgetinputtensor-method"></a>Imloperatorカーネルコンテキスト。 Getinputのメソッド
 
-指定したインデックス位置にある演算子の入力 tensor を取得します。 これにより、利用したテンソルに設定**nullptr**存在しない入力が省略可能。 指定したインデックス位置にある入力を利用したテンソルでない場合は、エラーを返します。
+指定したインデックス位置にある演算子によって入力された入力を取得します。 これにより、存在しない省略可能な入力に対して、このオプションが**nullptr**に設定されます。 指定したインデックス位置にある入力が、まだ存在しない場合はエラーを返します。
 
 ```cpp
 void GetInputTensor(
-    uint32_t inputIndex, 
+    uint32_t inputIndex,
     _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
 ```
 
@@ -36,8 +34,8 @@ void GetInputTensor(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

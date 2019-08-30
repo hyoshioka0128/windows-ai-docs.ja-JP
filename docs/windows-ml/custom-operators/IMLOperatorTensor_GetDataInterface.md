@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTensor.GetDataInterface メソッド
-description: テンソルのインターフェイス ポインターを取得します。
-ms.author: elcowle
+title: Imloperator(GetDataInterface) メソッド
+description: 既存ののインターフェイスポインターを取得します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetDataInterface
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetDataInterface
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorTensor.GetDataInterface
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: c57f09e7c041343f67587892757754d78baa43ad
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 84903d4a3be68494de5352ee7368056b9ac1b6f8
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180604"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157863"
 ---
-# <a name="imloperatortensorgetdatainterface-method"></a>IMLOperatorTensor.GetDataInterface メソッド
+# <a name="imloperatortensorgetdatainterface-method"></a>Imloperator(GetDataInterface) メソッド
 
-テンソルのインターフェイス ポインターを取得します。 可能性がある際に使用される[IMLOperatorTensor::IsDataInterface](IMLOperatorTensor_IsDataInterface.md)カーネルを使用して登録するために true を返す[MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md)します。 *DataInterface*オブジェクトのサポート、 [ID3D12Resource インターフェイス](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)GPU のバッファーとします。
+既存ののインターフェイスポインターを取得します。 これは、 [Imloperatorthe:: IsDataInterface](IMLOperatorTensor_IsDataInterface.md)が true を返す場合に使用できます。これは、カーネルが[Mloperatorexecutiontype::D 3d12](MLOperatorExecutionType.md)を使用して登録されたためです。 *Datainterface*オブジェクトは、 [ID3D12Resource インターフェイス](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)をサポートします。これは GPU バッファーです。
 
 ```cpp
 void GetDataInterface(
@@ -35,8 +33,8 @@ void GetDataInterface(
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

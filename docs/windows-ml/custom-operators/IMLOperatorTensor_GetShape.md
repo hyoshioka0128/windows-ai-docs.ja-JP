@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: IMLOperatorTensor.GetShape メソッド
-description: テンソル内の次元のサイズを取得します。
-ms.author: elcowle
+title: Imloperator(GetShape) メソッド
+description: の次元のサイズを取得します。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を GetShape
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、GetShape
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - IMLOperatorTensor.GetShape
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: ecb262b225b18b07dcae8c43d00dd4a12fac19a9
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 116a03fab82e27ea3b3a0f2e0f2a0c571c1d562d
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180354"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157849"
 ---
-# <a name="imloperatortensorgetshape-method"></a>IMLOperatorTensor.GetShape メソッド
+# <a name="imloperatortensorgetshape-method"></a>Imloperator(GetShape) メソッド
 
-テンソル内の次元のサイズを取得します。
+の次元のサイズを取得します。
 
 ```cpp
 void GetShape(
@@ -32,12 +30,12 @@ void GetShape(
     _Out_writes_(dimensionCount) uint32_t* dimensions)
 ```
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

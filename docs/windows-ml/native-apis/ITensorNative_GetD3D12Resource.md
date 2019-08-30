@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
-title: ITensorNative.GetD3D12Resource メソッド
-description: ID3D12Resource として利用したテンソル バッファーを取得します。
-ms.author: elcowle
+title: ITensorNative メソッド
+description: ID3D12Resource として格納されているバッファーを取得します。
 ms.date: 4/2/2019
 ms.topic: article
-keywords: windows 10、windows の機械学習、WinML、GetD3D12Resource
+keywords: windows 10、windows machine learning、WinML、GetD3D12Resource
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,16 +13,16 @@ api_name:
 - ITensorNative.GetD3D12Resource
 api_location:
 - windows.ai.machinelearning.native.h
-ms.openlocfilehash: 6d1b6284118a09cc2b0d1d1a2da7438385f581c7
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 9384311d5060df0cf0e4542fd202bdd20cfb73e0
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180174"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156470"
 ---
-# <a name="itensornativegetd3d12resource-method"></a>ITensorNative.GetD3D12Resource メソッド
+# <a name="itensornativegetd3d12resource-method"></a>ITensorNative メソッド
 
-として利用したテンソル バッファーを取得、 [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)します。
+[ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)として格納されているバッファーを取得します。
 
 ```cpp
 HRESULT GetD3D12Resource(
@@ -33,20 +31,20 @@ HRESULT GetD3D12Resource(
 
 ## <a name="parameters"></a>パラメーター
 
-| 名前 | 種類 | 説明 |
+| 名前 | 型 | 説明 |
 |------|------|-------------|
-| 結果 | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)** | として利用したテンソル バッファー、 **ID3D12Resource**します。 |
+| 結果 | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)** | **ID3D12Resource**としての、格納されていないバッファー。 |
 
 ## <a name="returns"></a>戻り値
 
 **HRESULT**操作の結果。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | windows.ai.machinelearning.native.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | windows. ai.... .h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

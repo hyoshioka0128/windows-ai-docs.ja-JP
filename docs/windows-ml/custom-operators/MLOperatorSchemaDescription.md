@@ -1,11 +1,9 @@
 ---
-author: eliotcowley
 title: MLOperatorSchemaDescription 構造体
-description: そのスキーマを登録に使用される演算子のカスタム スキーマの説明です。
-ms.author: elcowle
+description: スキーマの登録に使用されるカスタムオペレータースキーマの説明です。
 ms.date: 4/1/2019
 ms.topic: article
-keywords: windows 10、windows machine learning、WinML、カスタム演算子を MLOperatorSchemaDescription
+keywords: windows 10、windows machine learning、WinML、カスタム演算子、MLOperatorSchemaDescription
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,40 +13,40 @@ api_name:
 - MLOperatorSchemaDescription
 api_location:
 - MLOperatorAuthor.h
-ms.openlocfilehash: 22abc2d02ab6cfeeeeb5007f8b3503c2a3f22039
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 84f5cd88f20de2df8fce2bfca34d082352ab6536
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181364"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70157687"
 ---
 # <a name="mloperatorschemadescription-struct"></a>MLOperatorSchemaDescription 構造体
 
-そのスキーマを登録に使用される演算子のカスタム スキーマの説明です。
+スキーマの登録に使用されるカスタムオペレータースキーマの説明です。
 
 ## <a name="fields"></a>フィールド
 
-| 名前 | 種類 | 説明 |
+| 名前 | 型 | 説明 |
 |------|------|-------------|
-| attributeCount | **uint32_t** | 指定された属性の数。 |
-| 属性 | **const** [MLOperatorAttribute](MLOperatorAttribute.md)* | 演算子の種類によってサポートされる属性のセット。 |
-| defaultAttributeCount | **uint32_t** | 指定された既定の属性値の数。 |
-| defaultAttributes | **const** [MLOperatorAttributeNameValue](MLOperatorAttributeNameValue.md)* | 属性の既定値。 これらは、属性は、演算子の種類を格納しているモデルで不足しているときに適用されます。 |
+| 属性の Ecount | **uint32_t** | 指定された属性の数。 |
+| 属性 | **const**[Mloperatorattribute](MLOperatorAttribute.md)* | 演算子型によってサポートされる属性のセット。 |
+| Default属性の Ecount | **uint32_t** | 指定された既定の属性値の数。 |
+| defaultAttributes | **const**[MLOperatorAttributeNameValue](MLOperatorAttributeNameValue.md)* | 属性の既定値。 これらは、演算子の型を含むモデルで属性が指定されていない場合に適用されます。 |
 | inputCount | **uint32_t** | 演算子の入力の数。 |
-| 入力 | **const** [MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)* | 演算子の説明を格納する配列の端を入力します。 |
-| name | **const char*** | NULL で終わる utf-8 文字列演算子の名前を表します。 |
-| operatorSetVersionAtLastChange | **int32_t** | 演算子は、この演算子が導入されたまたは最後に変更されたバージョンを設定します。 |
+| 入力 | **const**[MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)* | 演算子の入力エッジの説明を格納している配列。 |
+| NAME | **const char*** | NULL で終わる、演算子の名前を表す UTF-8 文字列。 |
+| オペレーター Setversionatlastchange | **int32_t** | この演算子が導入された、または最後に変更された演算子セットのバージョン。 |
 | outputCount | **uint32_t** | 演算子の出力の数。 |
-| 出力 | **const** [MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)* | 演算子の説明を格納する配列のエッジを出力します。 |
-| typeConstraintCount | **uint32_t** | 指定された型の制約の数。 |
-| typeConstraints | **const** [MLOperatorEdgeTypeConstraint](MLOperatorEdgeTypeConstraint.md)* | 型の制約の配列。 各制約では、入力と 1 つまたは複数の境界の種類にラベル文字列の型に関連付けられている出力を制限します。 |
+| 出力 | **const**[MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)* | 演算子の出力エッジの説明を格納している配列。 |
+| typeConstraintCount | **uint32_t** | 指定された型制約の数。 |
+| typeConstraints | **const**[MLOperatorEdgeTypeConstraint](MLOperatorEdgeTypeConstraint.md)* | 型制約の配列。 各制約では、型ラベル文字列に関連付けられている入力と出力を1つ以上のエッジ型に制限します。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | | |
 |-|-|
-| **最小のサポートされているクライアント** | Windows 10 ビルド 17763 |
-| **最小のサポートされているサーバー** | デスクトップ エクスペリエンス搭載の Windows Server 2019 |
-| **ヘッダー** | MLOperatorAuthor.h |
+| **サポートされている最低限のクライアント** | Windows 10、ビルド17763 |
+| **サポートされている最小サーバー** | デスクトップエクスペリエンスを備えた Windows Server 2019 |
+| **項目** | MLOperatorAuthor. h |
 
 [!INCLUDE [help](../../includes/get-help.md)]

@@ -1,18 +1,16 @@
 ---
-author: eliotcowley
 title: Windows Vision Skills
 description: Windows Vision Skills API について説明します。
-ms.author: elcowle
 ms.date: 4/25/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning, Windows Vision Skills
 ms.localizationpriority: medium
-ms.openlocfilehash: 7426688304b59fb429180a1a0046b6d4be1c06d5
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: b2e3a6b424f0f20097f3a66dac0a3d4d0a8631d9
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179773"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156304"
 ---
 # <a name="windows-vision-skills-preview"></a>Windows Vision Skills (プレビュー)
 
