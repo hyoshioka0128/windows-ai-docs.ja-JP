@@ -1,110 +1,108 @@
 ---
-author: eliotcowley
-title: Windows Machine Learning の UWP アプリケーションの作成 (C#)
-description: このステップ バイ ステップ チュートリアルでは、Windows の ML を使用した最初の UWP アプリケーションを作成します。
-ms.author: elcowle
+title: Windows Machine Learning UWP アプリケーションを作成するC#()
+description: このステップ バイ ステップ チュートリアルを使って、Windows ML で初めての UWP アプリケーションを作成します。
 ms.date: 5/10/2019
 ms.topic: article
 keywords: Windows 10, UWP, Windows Machine Learning, WinML, Windows ML
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 9f71237b0a16cb6ed0d353eb818958aa3a6a3438
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.openlocfilehash: 4a8e46835b0018a8057c1056c6dd59b9589b0f9c
+ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66181954"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70156740"
 ---
-# <a name="tutorial-create-a-windows-machine-learning-uwp-application-c"></a>チュートリアル:Windows Machine Learning の UWP アプリケーションの作成 (C#)
+# <a name="tutorial-create-a-windows-machine-learning-uwp-application-c"></a>チュートリアル:Windows Machine Learning UWP アプリケーションを作成するC#()
 
-このチュートリアルでは、ユーザーによって描画される数字を認識するため、トレーニングされた機械学習モデルを使用する単純なユニバーサル Windows プラットフォーム アプリケーションを作成します。 このチュートリアルは、主に読み込み、UWP アプリケーションで Windows ML を使用する方法について説明します。
+このチュートリアルでは、トレーニング済みの機械学習モデルを使用して、ユーザーによって描画された数字を認識する単純なユニバーサル Windows プラットフォームアプリケーションを作成します。 このチュートリアルでは、主に UWP アプリケーションで Windows ML を読み込んで使用する方法について説明します。
 
-次のビデオでは、このチュートリアルに基づくサンプル手順について説明します。
+次のビデオでは、このチュートリアルの基になっているサンプルについて説明します。
 
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/yC3HKAv0aj4]
 
-単に、完成したチュートリアルのコードを確認する場合で見つけることができます、 [WinML GitHub リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs)します。 使用できるも[ C++/CX](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx)します。
+完成したチュートリアルのコードを見たい場合は、 [Winml GitHub リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs)で確認できます。 [ C++/Cx](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx)でも使用できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Windows 10 (バージョンは 1809 以降)
-- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (ビルド 17763 以降)
-- [Visual Studio 2019](https://developer.microsoft.com/windows/downloads) (または Visual Studio 2017 バージョン 15.7.4 またはそれ以降)
-- Windows Machine Learning のコード ジェネレーターの拡張機能の[Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=WinML.MLGenV2)または[2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
-- いくつかの基本的な UWP とC#ナレッジ
+- Windows 10 (バージョン1809以降)
+- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK)(ビルド17763以降)
+- [Visual Studio 2019](https://developer.microsoft.com/windows/downloads)(または Visual Studio 2017、バージョン15.7.4 以降)
+- [Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=WinML.MLGenV2)または[2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)用の Windows Machine Learning コードジェネレーター拡張機能
+- いくつかの基本的C#な UWP と知識
 
-## <a name="1-open-the-project-in-visual-studio"></a>1. Visual Studio でプロジェクトを開きます
+## <a name="1-open-the-project-in-visual-studio"></a>1. Visual Studio でプロジェクトを開く
 
-Visual Studio を起動し、開くプロジェクト GitHub からダウンロードすると後、 **MNIST_Demo.sln** ファイル (である必要がある **&lt;リポジトリへのパス&gt;\Windows-Machine-Learning\Samples\MNIST\Tutorial\cs**)。 ソリューションが利用不可と表示されている場合でプロジェクトを右クリックする必要があります、**ソリューション エクスプ ローラー**選択**プロジェクトの再読み込み**します。
+Visual Studio を起動し、開くプロジェクト GitHub からダウンロードすると後、 **MNIST_Demo.sln** ファイル (である必要がある **&lt;リポジトリへのパス&gt;\Windows-Machine-Learning\Samples\MNIST\Tutorial\cs**)。 ソリューションが使用不可と表示されている場合は、**ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[プロジェクトの再読み込み]** をクリックする必要があります。
 
 次のような XAML コントロールとイベントを実装したテンプレートが用意されています。
 
 - 数字を描画するための [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)。
 - 数字の解釈とキャンバスの消去を行う[ボタン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button)。
-- 変換するヘルパー ルーチン、 **InkCanvas**に出力を[VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe)します。
+- **System.windows.controls.inkcanvas>** の出力を[videoframe](https://docs.microsoft.com/uwp/api/windows.media.videoframe)に変換するヘルパールーチン。
 
-内で、**ソリューション エクスプ ローラー**プロジェクトに 3 つのメイン コード ファイル。
+**ソリューションエクスプローラー**内のプロジェクトには、次の3つの主要なコードファイルがあります。
 
-- **MainPage.xaml** -すべての UI を作成する XAML コードの**InkCanvas**、ボタン、およびラベルを付けます。
-- **MainPage.xaml.cs** -、アプリケーション コードが存在します。
-- **Helper.cs**のトリミングおよび変換するヘルパー ルーチンのイメージ形式。
+- **Mainpage.xaml** -すべての xaml コードを使用して、 **system.windows.controls.inkcanvas>** 、ボタン、およびラベルの UI を作成します。
+- **MainPage.xaml.cs** -アプリケーションコードが存在する場所です。
+- **Helper.cs** -イメージ形式をトリミングおよび変換するヘルパールーチン。
 
 ![Visual Studio のソリューション エクスプローラーとプロジェクト ファイル](../images/get-started1.png)
 
-## <a name="2-build-and-run-the-project"></a>2. ビルドして、プロジェクトの実行
+## <a name="2-build-and-run-the-project"></a>2. プロジェクトをビルドして実行する
 
-Visual Studio ツールバーで、変更、**ソリューション プラットフォーム**に**x64**デバイスが 64 ビットの場合は、ローカル コンピューターにプロジェクトを実行するまたは**x86** 32 ビットである場合。 (Windows 設定アプリで確認できます。**システム > に関する > デバイスの仕様 > システム型**)。
+Visual Studio のツールバーで、**ソリューションプラットフォーム**を **[x64]** に変更して、デバイスが64ビットの場合はローカルコンピューターでプロジェクトを実行し、32ビットの場合は **[x86]** に変更します。 (Windows 設定アプリをチェックインできます。システム **> > デバイスの仕様 > システムの種類に関する情報**)。
 
-プロジェクトを実行する をクリックして、**デバッグの開始**  ボタンをツールバー、またはキーを押して**F5**します。 アプリケーションを表示する必要があります、 **InkCanvas**ユーザーは、数字を記述できますが、 **Recognize**数値の解釈にボタン テキスト、および、として解釈される数字が表示される場所を空のラベルフィールド**数字をオフに**をクリアするボタン、 **InkCanvas**します。
+プロジェクトを実行するには、ツールバーの **[デバッグの開始]** ボタンをクリックするか、 **F5**キーを押します。 アプリケーションでは、ユーザーが数字を記述できる**system.windows.controls.inkcanvas>** 、数値を解釈するための**認識**ボタン、解釈された数字がテキストとして表示される空のラベルフィールド、および消去するため **の明確な数字ボタンを表示する必要があります。System.windows.controls.inkcanvas>** 。
 
 ![アプリケーションのスクリーンショット](../images/get-started2.png)
 
 > [!NOTE]
-> プロジェクトがビルドされない場合は、プロジェクトの配置のターゲット バージョンを変更する必要があります。 プロジェクトを右クリックし、**ソリューション エクスプ ローラー**選択**プロパティ**します。 **アプリケーション**タブで、設定、**ターゲット バージョン**と**最小バージョン**OS と SDK の一致するようにします。
+> プロジェクトがビルドされない場合は、プロジェクトの配置ターゲットバージョンの変更が必要になることがあります。 **ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[プロパティ]** を選択します。 **[アプリケーション]** タブで、OS と SDK に一致する**ターゲットバージョン**と**最小バージョン**を設定します。
 
 > [!NOTE]
-> アプリケーションが既にインストールされている警告が発生した場合だけ選択**はい**展開を続行します。 Visual Studio を終了し、それでもうまくいかない場合を再び開く必要があります。
+> アプリケーションが既にインストールされていることを示す警告が表示された場合は、 **[はい]** を選択して展開を続行します。 まだ動作しない場合は、Visual Studio を閉じて再度開く必要があります。
 
-## <a name="3-download-a-model"></a>3.モデルをダウンロードします。
+## <a name="3-download-a-model"></a>3.モデルのダウンロード
 
-次に、アプリケーションに追加する機械学習モデルを取得します。 このチュートリアルでは、MNIST の事前トレーニング済みモデルでトレーニングされてを使用します、 [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)と[ONNX 形式にエクスポートされる](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)します。
+次に、アプリケーションに追加する機械学習モデルを取得しましょう。 このチュートリアルでは、 [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)を使用してトレーニングし、 [ONNX 形式にエクスポート](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)した事前トレーニング済みの mnist モデルを使用します。
 
-MNIST モデルが既に含まれています、**資産** フォルダーは既存の項目として、アプリケーションに追加する必要があります。 また、GitHub の [ONNX Model Zoo](https://github.com/onnx/models) から事前トレーニング済みのモデルをダウンロードすることもできます。
+MNIST モデルは既に**Assets**フォルダーに含まれており、既存のアイテムとしてアプリケーションに追加する必要があります。 また、GitHub の [ONNX Model Zoo](https://github.com/onnx/models) から事前トレーニング済みのモデルをダウンロードすることもできます。
 
 ## <a name="4-add-the-model"></a>4。モデルの追加
 
-右クリックして、**資産**フォルダーで、**ソリューション エクスプ ローラー**を選択し、**追加** > **既存項目の**します。 ファイル ピッカーを ONNX モデルの場所をポイントしてクリックして**追加**します。
+**ソリューションエクスプローラー**で **[Assets]** フォルダーを右クリックし、[**既存項目**の**追加** > ] を選択します。 ファイルピッカーで ONNX モデルの場所をポイントし、 **[追加]** をクリックします。
 
 次の 2 つの新しいファイルがプロジェクトに追加されます。
 
-- **mnist.onnx** -、トレーニングされたモデル。
-- **mnist.cs** -The Windows ML によって生成されたコード。
+- **onnx** -トレーニング済みのモデル。
+- **mnist.cs** -Windows ML で生成されたコード。
 
 ![新しいファイルが追加されたソリューション エクスプローラー](../images/get-started3.png)
 
-アプリケーションをコンパイルするときに、モデルを構築することを確認を右クリックして、 **mnist.onnx**ファイル、および選択**プロパティ**します。 **[ビルド アクション]** で **[コンテンツ]** を選択します。
+アプリケーションをコンパイルするときにモデルがビルドされるようにするには、 **onnx**ファイルを右クリックし、 **[プロパティ]** を選択します。 **[ビルド アクション]** で **[コンテンツ]** を選択します。
 
-ここで、新しく生成されたコードを見ていきましょう、 **mnist.cs**ファイル。 次の 3 つのクラスがあります。
+次に、 **mnist.cs**ファイルで新しく生成されたコードを見てみましょう。 次の 3 つのクラスがあります。
 
-- **mnistModel**機械学習モデルの表現を作成しますをシステム既定のデバイスにセッションを作成、特定の入力をバインドしますと、モデルに出力し、モデルの評価を非同期にします。 
-- **mnistInput**モデルが必要とする入力の種類を初期化します。 この場合、入力が必要ですが、 [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)します。
-- **mnistOutput**モデルを出力する型を初期化します。 この場合、出力になりますと呼ばれるリスト**Plus214_Output_0**型の[TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)します。
+- **mnistModel**は、機械学習モデル表現を作成し、システムの既定のデバイスにセッションを作成し、特定の入力と出力をモデルにバインドし、モデルを非同期的に評価します。
+- **mnistInput**モデルで想定される入力の型を初期化します。 この場合、入力には[Imagefeaturevalue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)が必要です。
+- **mnistOutput**モデルによって出力される型を初期化します。 この場合、出力は**Plus214_Output_0**と[いう型の一覧になります](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)。
 
 これらのクラスを使って、プロジェクトでモデルを読み込み、バインドし、評価していきます。
 
-## <a name="5-load-bind-and-evaluate-the-model"></a>5。読み込み、バインド、およびモデルを評価します。
+## <a name="5-load-bind-and-evaluate-the-model"></a>5。モデルの読み込み、バインド、および評価
 
-ML の Windows アプリケーション、に従ってするパターンは次のとおりです。ロード > バインド > を評価します。
+Windows ML アプリケーションでは、次のパターンを使用します。読み込み > バインド > 評価します。
 
 1. 機械学習モデルを読み込む。
 2. 入力と出力をモデルにバインドする。
 3. モデルを評価して結果を確認する。
 
-生成されたインターフェイスのコードを使用します**mnist.cs**読み込むをクリックし、バインドして、アプリケーションでは、モデルを評価します。
+**Mnist.cs**で生成されたインターフェイスコードを使用して、アプリケーションでモデルを読み込んでバインドし、評価します。
 
-最初に、 **MainPage.xaml.cs**モデル、入力と出力のインスタンスを作成してみましょう。 次のメンバー変数を追加、 **MainPage**クラス。
+まず、 **MainPage.xaml.cs**でモデル、入力、および出力をインスタンス化してみましょう。 **Mainpage.xaml**クラスに次のメンバー変数を追加します。
 
 ```csharp
 private mnistModel ModelGen;
@@ -112,7 +110,7 @@ private mnistInput ModelInput = new mnistInput();
 private mnistOutput ModelOutput;
 ```
 
-次に、 **LoadModelAsync**モデルをロードしましょう。 モデルのメソッドのいずれかを使用前に、このメソッドを呼び出す必要があります (つまり、 **MainPage**の[Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded)イベントで、 [OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto)上書き、または任意の場所する前に**recognizeButton_Click**と呼びます)。 **MnistModel**クラスは、MNIST モデルを表すし、システムの既定のデバイスにセッションを作成します。 モデルを読み込むには、いわゆる、 **CreateFromStreamAsync**メソッドのパラメーターとして ONNX ファイル。
+次に、 **Loadmodelasync**でモデルを読み込みます。 このメソッドは、モデルのメソッドを使用する前に呼び出す必要があります (つまり、 **mainpage.xaml**の[Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded)イベント、 [OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto)オーバーライド、または**recognizeButton_Click**が呼び出される前の任意の場所)。 **MnistModel**クラスは、mnist モデルを表し、システムの既定のデバイスにセッションを作成します。 モデルを読み込むには、 **CreateFromStreamAsync**メソッドを呼び出して、ONNX ファイルをパラメーターとして渡します。
 
 ```csharp
 private async Task LoadModelAsync()
@@ -124,13 +122,13 @@ private async Task LoadModelAsync()
 ```
 
 > [!NOTE]
-> 下の赤い下線が表示された場合**IRandomAccessStreamReference**、その名前空間を含める必要があります。 上にカーソルを置き、キーを押して**Ctrl + です。** 選択と**Windows.Storage.Streams を使用して**ドロップダウン メニューから。
+> **IRandomAccessStreamReference**の下に赤い下線が表示された場合は、名前空間を含める必要があります。 その上にカーソルを置き、 **ctrl +** キーを押します。 ドロップダウンメニューから **[使用]** を選択します。
 
-次に、入力と出力をモデルにバインドします。 生成されたコードも含まれています。 **mnistInput**と**mnistOutput**ラッパー クラス。 **MnistInput**クラスは、モデルの必要な入力を表します、 **mnistOutput**クラスは、モデルの予想される出力を表します。
+次に、入力と出力をモデルにバインドします。 生成されたコードには、 **mnistInput**および**mnistOutput**ラッパークラスも含まれています。 **MnistInput**クラスは、モデルの予期される入力を表し、 **mnistOutput**クラスはモデルの予想される出力を表します。
 
-モデルの入力オブジェクトを初期化するために呼び出す、 **mnistInput**クラス コンス トラクター、アプリケーションのデータを渡すと、入力データが、モデルが必要ですが、入力の型と一致するかどうかを確認します。 **MnistInput**クラスが必要ですが、 **ImageFeatureValue**ヘルパー メソッドを使用して取得するため、 **ImageFeatureValue**入力します。
+モデルの入力オブジェクトを初期化するには、 **mnistInput**クラスコンストラクターを呼び出し、アプリケーションデータを渡して、入力データがモデルで想定されている入力型と一致していることを確認します。 **MnistInput**クラスは**imagefeaturevalue**を想定しているため、ヘルパーメソッドを使用して、入力の**imagefeaturevalue**を取得します。
 
-含まれる、ヘルパーを使用して関数の**helper.cs**の内容をコピーします、 **InkCanvas**、型に変換**ImageFeatureValue**、私たちのモデルにバインドします。
+**Helper.cs**に含まれているヘルパー関数を使用して、 **system.windows.controls.inkcanvas>** の内容をコピーし、それを**imagefeaturevalue**型に変換して、モデルにバインドします。
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
@@ -141,9 +139,9 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-出力では単純に呼び出して**EvaluateAsync**入力に指定します。 入力内容が初期化されると、呼び出し、モデルの**EvaluateAsync**入力データに対してモデルを評価するメソッド。 **EvaluateAsync**入力をバインドおよびモデル オブジェクトへの出力し、入力にモデルを評価します。
+出力については、指定された入力で**Evaluateasync**を呼び出すだけです。 入力が初期化されたら、モデルの**Evaluateasync**メソッドを呼び出して、入力データに対してモデルを評価します。 **Evaluateasync**は、入力と出力をモデルオブジェクトにバインドし、入力に基づいてモデルを評価します。
 
-モデルは、出力 tensor を返すので、わかりやすいデータ型に変換する最初がどの桁が最も高い確率を特定し、そのいずれかを表示する、返された一覧を解析してされ。
+このモデルでは、出力が返されます。そのため、最初にこれをわかりやすいデータ型に変換し、返されたリストを解析して確率が最も高い数字を特定し、その値を表示します。
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
@@ -167,7 +165,7 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-最後に、私たちを削除する、 **InkCanvas**別の番号を描画するためにユーザーを許可します。
+最後に、 **system.windows.controls.inkcanvas>** をクリアして、ユーザーが別の数値を描画できるようにします。
 
 ```csharp
 private void clearButton_Click(object sender, RoutedEventArgs e)
@@ -177,12 +175,12 @@ private void clearButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="6-launch-the-application"></a>6。アプリケーションを起動します。
+## <a name="6-launch-the-application"></a>6。アプリケーションを起動する
 
-構築し、アプリケーションを起動 (キーを押して**f5 キーを押して**)、私たちに描画される数を認識するようになります、 **InkCanvas**。
+アプリケーションをビルドして起動すると ( **F5**キーを押すと)、 **system.windows.controls.inkcanvas>** で描画された数値を認識できるようになります。
 
-![完全なアプリケーション](../images/get-started4.png)
+![アプリケーションの完了](../images/get-started4.png)
 
-これで初めての Windows の ML アプリケーションを加えた。 Windows の ML を使用する方法を示す他のサンプルをチェック アウト、 [Windows Machine Learning](https://github.com/Microsoft/Windows-Machine-Learning) GitHub のリポジトリ。
+これで、初めての Windows ML アプリケーションを作成できました。 Windows ML の使用方法を示すその他のサンプルについては、GitHub の[Windows Machine Learning](https://github.com/Microsoft/Windows-Machine-Learning)リポジトリを参照してください。
 
 [!INCLUDE [help](../includes/get-help.md)]
