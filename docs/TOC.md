@@ -1,4 +1,5 @@
-# [Windows AI](index.md)
+# [Windows AI](index.yml)
+## [AI ソリューションの比較](./windows-ai-comparison.md)
 ## [Windows Machine Learning](windows-ml/index.md)
 ### チュートリアル
 #### [WinML デスクトップ アプリを作成する (C++)](windows-ml/get-started-desktop.md)

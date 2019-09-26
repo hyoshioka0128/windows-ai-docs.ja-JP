@@ -1,0 +1,114 @@
+### YamlMime:Landing
+title: Windows AI
+summary: 人工知能の能力を駆使して Windows アプリケーションを変革してください。 Windows AI では、複雑な問題に対してインテリジェントなソリューションを提供することによって、お客様とビジネスを強化します。
+metadata:
+  author: mattwojo
+  description: AI の能力を駆使して Windows アプリケーションを変革してください。
+  manager: jken
+  ms.author: mattwoj
+  ms.date: 09/18/2019
+  ms.prod: machine-learning
+  ms.topic: landing-page
+  ms.openlocfilehash: 56f5ba27a5e1ebbe789986a7b4193e5fdf721239
+  ms.sourcegitcommit: 478efb930668f2d16dfa18c9b52853f7e2e6dcd8
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71278481"
+landingContent:
+- title: Windows Machine Learning (WinML)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows Machine Learning の概要
+      url: windows-ml/index.md
+  - linkListType: concept
+    links:
+    - text: 機械学習モデルとは
+      url: windows-ml/what-is-a-machine-learning-model.md
+    - text: ONNX モデルの使用
+      url: windows-ml/get-onnx-model.md
+    - text: Windows ML のパフォーマンスとメモリ
+      url: windows-ml/performance-memory.md
+    - text: チェーン内で複数の ML モデルを実行する
+      url: windows-ml/chaining.md
+  - linkListType: tutorial
+    links:
+    - text: WinML UWP アプリを作成する (C#)
+      url: windows-ml/get-started-uwp.md
+    - text: WinML UWP アプリを作成する (C++)
+      url: windows-ml/get-started-desktop.md
+    - text: WinML UWP アプリを作成する (Python)
+      url: windows-ml/get-started-python.md
+    - text: CNTK を使ってモデルをトレーニングする
+      url: windows-ml/train-model-vs-tools-ai.md
+    - text: PyTorch を使ってモデルをトレーニングする
+      url: windows-ml/train-model-pytorch.md
+    - text: トレーニング済みモデルを ONNX に変換する
+      url: windows-ml/convert-model-winmltools.md
+  - linkListType: reference
+    links:
+    - text: API リファレンス
+      url: windows-ml/api-reference.md
+    - text: コアとなる API (Windows.AI.MachineLearning 名前空間)
+      url: https://docs.microsoft.com/uwp/api/windows.ai.machinelearning
+    - text: カスタム演算子
+      url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/custom-operator
+    - text: WinML のネイティブ API
+      url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis
+    - text: ツールとサンプル
+      url: windows-ml/tools-and-samples.md
+    - text: リリース ノート
+      url: windows-ml/release-notes.md
+    - text: よく寄せられる質問
+      url: windows-ml/faq.md
+- title: Windows Vision Skills
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows Vision Skills の概要
+      url: windows-vision-skills/index.md
+  - linkListType: concept
+    links:
+    - text: 重要な API の概念
+      url: windows-vision-skills/important-api-concepts.md
+  - linkListType: tutorial
+    links:
+    - text: 独自のビジョン スキルを作成する (C#)
+      url: windows-vision-skills/tutorial.md
+    - text: ビジョン スキルの UWP アプリを作成する (C#)
+      url: windows-vision-skills/tutorial1.md
+    - text: ビジョン スキルのデスクトップ アプリを作成する (C++)
+      url: windows-vision-skills/tutorial2.md
+  - linkListType: reference
+    links:
+    - text: API リファレンス
+      url: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
+    - text: サンプル
+      url: windows-vision-skills/samples.md
+- title: Direct Machine Learning (DirectML)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: DirectML の概要
+      url: https://docs.microsoft.com/windows/desktop/direct3d12/dml
+  - linkListType: concept
+    links:
+    - text: DirectML でのバインド
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-binding
+    - text: UAV バリアとリソース状態バリア
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-barriers
+    - text: ストライドを使用してパディングとメモリ レイアウトを表現する
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-strides
+    - text: リソースの有効期間と同期
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-resource-lifetime
+    - text: デバッグ レイヤーの使用
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-debug-layer
+    - text: エラーとデバイス削除の処理
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-errors
+    - text: ヘルパー関数
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-helper-functions
+  - linkListType: reference
+    links:
+    - text: サンプル アプリケーション
+      url: https://docs.microsoft.com/windows/win32/direct3d12/dml-min-app
