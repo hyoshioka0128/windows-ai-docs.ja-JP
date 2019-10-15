@@ -144,3 +144,8 @@
 ### [重要な API の概念](windows-vision-skills/important-api-concepts.md)
 ### [サンプル](windows-vision-skills/Samples.md)
 ### [API リファレンス](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
+## Windows ML コンテナ (Windows Insider Preview)
+### [概要](windows-ml-container/index.md)
+### [はじめに](windows-ml-container/getting-started.md)
+### [Azure IoT Edge の実行時間](windows-ml-container/iot-edge-runtime.md)
+### [API の一覧](windows-ml-container/api-list.md)
