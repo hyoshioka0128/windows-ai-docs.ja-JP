@@ -3,14 +3,14 @@ title: API の一覧
 description: Windows ML コンテナーで使用するためにホワイトリストに登録されている Api を調べる
 ms.date: 10/14/2019
 ms.topic: article
-keywords: windows 10、windows ml コンテナー、コンテナー、iot、エッジ
+keywords: windows 10, windows ml container, container, iot, edge
 ms.localizationpriority: medium
-ms.openlocfilehash: c2f8c7dda49dfd035d00ff51f30056bd6a88973f
-ms.sourcegitcommit: f5945af6d1f534b490eea7860f72804dc1c9fea8
+ms.openlocfilehash: 6567256c71feb0f110cfac71ed239efac3037add
+ms.sourcegitcommit: e08b8ae92e48c1b82bb6f94fefcb32cd817453d8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315546"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72443006"
 ---
 # <a name="api-list"></a>API の一覧
 
@@ -23,10 +23,6 @@ Windows ML コンテナーのサイズが小さいため、コンテナーイメ
 ### <a name="windowsaimachinelearninghttpsdocsmicrosoftcomuwpapiwindowsaimachinelearning"></a>[Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 
 ILearningModelFeatureDescriptor </br> ILearningModelFeatureValue </br> ILearningModelOperatorProvider </br> ITensor </br> ImageFeatureDescriptor </br> ImageFeatureValue </br> LearningModel </br> LearningModelBinding </br> LearningModelDevice </br> LearningModelDeviceKind </br> LearningModelEvaluationResult </br> LearningModelFeatureKind </br> LearningModelSession </br> LearningModelSessionOptions </br> MachineLearningContract </br> MapFeatureDescriptor </br> SequenceFeatureDescriptor </br> TensorBoolean </br> TensorDouble </br> TensorFeatureDescriptor </br> TensorFloat </br> TensorFloat16Bit </br> TensorInt16Bit </br> TensorInt32Bit </br> TensorInt64Bit </br> TensorInt8Bit </br> TensorKind </br> TensorString </br> TensorUInt16Bit </br> TensorUInt32Bit </br> TensorUInt64Bit </br> TensorUInt8Bit
-
-### <a name="windowsaimachinelearningpreviewhttpsdocsmicrosoftcomuwpapiwindowsaimachinelearningpreview"></a>[Windows. AI.](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview)
-
-FeatureElementKindPreview </br> ILearningModelVariableDescriptorPreview </br> ImageVariableDescriptorPreview </br> InferencingOptionsPreview </br> LearningModelBindingPreview </br> LearningModelDescriptionPreview </br> LearningModelDeviceKindPreview </br> LearningModelEvaluationResultPreview </br> LearningModelFeatureKindPreview </br> LearningModelPreview </br> LearningModelVariableDescriptorPreview </br> MachineLearningPreviewContract </br> Map変数記述子プレビュー </br> SequenceVariableDescriptorPreview </br> 「プレビュー」
 
 ## <a name="windowsapplicationmodel"></a>Windows.ApplicationModel
 
@@ -128,7 +124,7 @@ II2cControllerProvider </br> II2cDeviceProvider </br> II2cProvider </br> Provide
 
 ### <a name="windowsdevicespowerhttpsdocsmicrosoftcomuwpapiwindowsdevicespower"></a>[Windows. Devices. Power](https://docs.microsoft.com/uwp/api/Windows.Devices.Power)
 
-バッテリー </br> BatteryReport
+[バッテリー] </br> BatteryReport
 
 ### <a name="windowsdevicespwmhttpsdocsmicrosoftcomuwpapiwindowsdevicespwm"></a>[Pwm](https://docs.microsoft.com/uwp/api/Windows.Devices.Pwm)
 
@@ -144,7 +140,7 @@ Ipwmコントローラープロバイダー </br> IPwmProvider
 
 ### <a name="windowsdevicessensorshttpsdocsmicrosoftcomuwpapiwindowsdevicessensors"></a>[Windows.Devices.Sensors](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
 
-Accelerometer </br> AccelerometerDataThreshold </br> AccelerometerReading </br> AccelerometerReadingChangedEventArgs </br> AccelerometerReadingType </br> AccelerometerShakenEventArgs </br> ActivitySensor </br> ActivitySensorReading </br> ActivitySensorReadingChangeReport </br> ActivitySensorReadingChangedEventArgs </br> ActivitySensorReadingConfidence </br> ActivitySensorTriggerDetails </br> ActivityType </br> 高度計 </br> AltimeterReading </br> AltimeterReadingChangedEventArgs </br> 気圧計 </br> BarometerDataThreshold </br> BarometerReading </br> BarometerReadingChangedEventArgs </br> Compass </br> CompassDataThreshold </br> CompassReading </br> CompassReadingChangedEventArgs </br> Gyrometer </br> GyrometerDataThreshold </br> GyrometerReading </br> GyrometerReadingChangedEventArgs </br> HingeAngleReading </br> HingeAngleSensor </br> HingeAngleSensorReadingChangedEventArgs </br> ISensorDataThreshold </br>  Inclinometer </br> InclinometerDataThreshold </br> InclinometerReading </br> InclinometerReadingChangedEventArgs </br> LightSensor </br> ライト Sensordatathreshold </br> ライト Sensor読み取り </br> LightSensorReadingChangedEventArgs </br> 磁力計 </br> MagnetometerAccuracy </br> MagnetometerDataThreshold </br> MagnetometerReading </br> MagnetometerReadingChangedEventArgs </br> OrientationSensor </br> OrientationSensorReading </br> OrientationSensorReadingChangedEventArgs </br> 万歩計 </br> PedometerDataThreshold </br> PedometerReading </br> PedometerReadingChangedEventArgs </br> PedometerStepKind </br> ProximitySensor </br> ProximitySensorDataThreshold </br> ProximitySensorDisplayOnOffController </br> ProximitySensorReading </br> ProximitySensorReadingChangedEventArgs </br> SensorDataThresholdTriggerDetails </br> SensorOptimizationGoal </br> SensorQuaternion 数 </br> SensorReadingType </br> SensorRotationMatrix </br> SensorType </br> SimpleOrientation </br> SimpleOrientationSensor </br> SimpleOrientationSensorOrientationChangedEventArgs
+Accelerometer </br> AccelerometerDataThreshold </br> AccelerometerReading </br> AccelerometerReadingChangedEventArgs </br> AccelerometerReadingType </br> AccelerometerShakenEventArgs </br> ActivitySensor </br> ActivitySensorReading </br> ActivitySensorReadingChangeReport </br> ActivitySensorReadingChangedEventArgs </br> ActivitySensorReadingConfidence </br> ActivitySensorTriggerDetails </br> ActivityType </br> 高度計 </br> AltimeterReading </br> AltimeterReadingChangedEventArgs </br> 気圧計 </br> BarometerDataThreshold </br> BarometerReading </br> BarometerReadingChangedEventArgs </br> Compass </br> CompassDataThreshold </br> CompassReading </br> CompassReadingChangedEventArgs </br> Gyrometer </br> GyrometerDataThreshold </br> GyrometerReading </br> GyrometerReadingChangedEventArgs </br> HingeAngleReading </br> HingeAngleSensor </br> HingeAngleSensorReadingChangedEventArgs </br> ISensorDataThreshold </br>  傾斜計 </br> InclinometerDataThreshold </br> InclinometerReading </br> InclinometerReadingChangedEventArgs </br> LightSensor </br> ライト Sensordatathreshold </br> ライト Sensor読み取り </br> LightSensorReadingChangedEventArgs </br> 磁力計 </br> MagnetometerAccuracy </br> MagnetometerDataThreshold </br> MagnetometerReading </br> MagnetometerReadingChangedEventArgs </br> OrientationSensor </br> OrientationSensorReading </br> OrientationSensorReadingChangedEventArgs </br> 万歩計 </br> PedometerDataThreshold </br> PedometerReading </br> PedometerReadingChangedEventArgs </br> PedometerStepKind </br> ProximitySensor </br> ProximitySensorDataThreshold </br> ProximitySensorDisplayOnOffController </br> ProximitySensorReading </br> ProximitySensorReadingChangedEventArgs </br> SensorDataThresholdTriggerDetails </br> SensorOptimizationGoal </br> SensorQuaternion 数 </br> SensorReadingType </br> SensorRotationMatrix </br> SensorType </br> SimpleOrientation </br> SimpleOrientationSensor </br> SimpleOrientationSensorOrientationChangedEventArgs
 
 ### <a name="windowsdevicessensorscustomhttpsdocsmicrosoftcomuwpapiwindowsdevicessensorscustom"></a>[Windows. デバイス... カスタム](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Custom)
 
@@ -174,7 +170,7 @@ WiFiAccessStatus </br> WiFiAdapter </br> WiFiAvailableNetwork </br> WiFiConnecti
 
 ### <a name="windowsfoundationhttpsdocsmicrosoftcomuwpapiwindowsfoundation"></a>[Windows.Foundation](https://docs.microsoft.com/uwp/api/Windows.Foundation)
 
-AsyncActionCompletedHandler </br> Asyncaction進行 Shandand氏 </br> AsyncActionWithProgressCompletedHandler </br> AsyncOperationCompletedHandler </br> AsyncOperationProgressHandler </br> AsyncOperationWithProgressCompletedHandler </br> AsyncStatus </br> DateTime </br> 遅延 </br> DeferralCompletedHandler </br> ハンドラー </br> EventRegistrationToken </br> 見つかり Ationcontract </br> GuidHelper </br> HResult </br> IAsyncAction </br> IAsyncActionWithProgress </br> IAsyncInfo </br> IAsyncOperationWithProgress </br> IAsyncOperation </br> Windows.foundation.iclosable </br> IGetActivationFactory </br> IMemoryBuffer </br> IMemoryBufferReference </br> IPropertyValue </br> IReferenceArray </br> IReference </br> IStringable </br> IWwwFormUrlDecoderEntry </br> MemoryBuffer </br> ポイント </br> PropertyType </br> PropertyValue </br> Rect </br> サイズ </br> TimeSpan </br> Windows.foundation.typedeventhandler<tsender </br> UniversalApiContract </br> Uri </br> WwwFormUrlDecoder </br> WwwFormUrlDecoderEntry
+AsyncActionCompletedHandler </br> Asyncaction進行 Shandand氏 </br> AsyncActionWithProgressCompletedHandler </br> AsyncOperationCompletedHandler </br> AsyncOperationProgressHandler </br> AsyncOperationWithProgressCompletedHandler </br> AsyncStatus </br> DateTime </br> 遅延 </br> DeferralCompletedHandler </br> ハンドラー </br> EventRegistrationToken </br> 見つかり Ationcontract </br> GuidHelper </br> HResult </br> IAsyncAction </br> IAsyncActionWithProgress </br> IAsyncInfo </br> IAsyncOperationWithProgress </br> IAsyncOperation </br> Windows.foundation.iclosable </br> IGetActivationFactory </br> IMemoryBuffer </br> IMemoryBufferReference </br> IPropertyValue </br> IReferenceArray </br> IReference </br> IStringable </br> IWwwFormUrlDecoderEntry </br> MemoryBuffer </br> ポイント </br> PropertyType </br> PropertyValue </br> Rect </br> Size </br> TimeSpan </br> Windows.foundation.typedeventhandler<tsender </br> UniversalApiContract </br> URI </br> WwwFormUrlDecoder </br> WwwFormUrlDecoderEntry
 
 ### <a name="windowsfoundationcollectionshttpsdocsmicrosoftcomuwpapiwindowsfoundationcollections"></a>[Windows. Foundation. コレクション](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections)
 
@@ -196,7 +192,7 @@ Matrix3x2 </br> Matrix4x4 </br> 航空 </br> Quaternion </br> 的 </br> Vector2 
 
 ### <a name="windowsglobalizationhttpsdocsmicrosoftcomuwpapiwindowsglobalization"></a>[Windows.Globalization](https://docs.microsoft.com/uwp/api/Windows.Globalization)
 
-ApplicationLanguages </br> 予定表 </br> CalendarIdentifiers </br> ClockIdentifiers </br> CurrencyAmount </br> CurrencyIdentifiers </br> DayOfWeek </br> GeographicRegion </br> [言語] </br> LanguageLayoutDirection </br> NumeralSystemIdentifiers
+ApplicationLanguages </br> カレンダー </br> CalendarIdentifiers </br> ClockIdentifiers </br> CurrencyAmount </br> CurrencyIdentifiers </br> DayOfWeek </br> GeographicRegion </br> 言語 </br> LanguageLayoutDirection </br> NumeralSystemIdentifiers
 
 ### <a name="windowsglobalizationcollationhttpsdocsmicrosoftcomuwpapiwindowsglobalizationcollation"></a>[Windows. グローバリゼーション. 照合順序](https://docs.microsoft.com/uwp/api/Windows.Globalization.Collation)
 
@@ -249,7 +245,7 @@ AudioBuffer </br> AudioBufferAccessMode </br> AudioFrame </br> AudioProcessing <
 
 ### <a name="windowsnetworkinghttpsdocsmicrosoftcomuwpapiwindowsnetworking"></a>[Windows. ネットワーク](https://docs.microsoft.com/uwp/api/Windows.Networking)
 
-DomainNameType </br> EndpointPair </br> HostName </br> HostNameSortOptions </br> HostNameType 場合
+DomainNameType </br> EndpointPair </br> ホスト名 </br> HostNameSortOptions </br> HostNameType 場合
 
 ### <a name="windowsnetworkingbackgroundtransferhttpsdocsmicrosoftcomuwpapiwindowsnetworkingbackgroundtransfer"></a>[Windows. ネットワーク. BackgroundTransfer](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer)
 
@@ -379,7 +375,7 @@ PreallocatedWorkItem </br> SignalHandler </br> SignalNotifier
 
 ### <a name="windowssystemuserhttpsdocsmicrosoftcomuwpapiwindowssystemuser"></a>[Windows. system.string](https://docs.microsoft.com/uwp/api/Windows.System.User)
 
-User </br> UserAuthenticationStatus </br> UserAuthenticationStatusChangeDeferral </br> Userauthenticationstatus/Eventargs </br> UserChangedEventArgs </br> UserDeviceAssociation </br> UserDeviceAssociationChangedEventArgs </br> UserPicker </br> UserPictureSize </br> UserType </br> UserWatcher </br> UserWatcherStatus </br> UserWatcherUpdateKind </br> VirtualKey </br> VirtualKeyModifiers
+ユーザー </br> UserAuthenticationStatus </br> UserAuthenticationStatusChangeDeferral </br> Userauthenticationstatus/Eventargs </br> UserChangedEventArgs </br> UserDeviceAssociation </br> UserDeviceAssociationChangedEventArgs </br> UserPicker </br> UserPictureSize </br> UserType </br> UserWatcher </br> UserWatcherStatus </br> UserWatcherUpdateKind </br> VirtualKey </br> VirtualKeyModifiers
 
 ## <a name="windowsui"></a>Windows.UI
 

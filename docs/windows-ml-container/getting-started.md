@@ -5,14 +5,14 @@ ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10、windows ml コンテナー、ml、ai、コンテナー、iot、エッジ
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a1708824090bade3ab05773063198b482b0b30e
-ms.sourcegitcommit: f5945af6d1f534b490eea7860f72804dc1c9fea8
+ms.openlocfilehash: 729d348a5606b97fd493382609919dac730edc76
+ms.sourcegitcommit: e08b8ae92e48c1b82bb6f94fefcb32cd817453d8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315526"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72443022"
 ---
-# <a name="getting-started"></a>作業の開始
+# <a name="getting-started"></a>開始するには
 
 Windows ML コンテナーは、IoT および Windows ML 開発の基礎を理解している開発者が使用することを意図しています。 Windows ML の使用方法の詳細については、 [WINDOWS ml のドキュメント](../windows-ml/index.md)を参照してください。
 
@@ -82,7 +82,7 @@ Windows ML コンテナーがプレビュー段階にある間、 [Windows ヘ�
 #### <a name="gpu-requirements"></a>GPU の要件
 
 
-|製造元   |Architecture        |一般的な顧客向け GPU 名  |
+|Vendor (ベンダー)   |Architecture        |一般的な顧客向け GPU 名  |
 |---------|--------------------|-----------------------------------|
 |AMD      | GCN 4 以降     |Radeon RX 400 シリーズ以降、または Radeon Pro WX シリーズ|
 |Intel    | Kaby Lake 以降 |Intel HD Graphics 600 シリーズ以降 |
@@ -90,7 +90,7 @@ Windows ML コンテナーがプレビュー段階にある間、 [Windows ヘ�
 
 #### <a name="graphics-driver-requirements"></a>グラフィックスドライバーの要件
 
-|製造元|最小ドライバーバージョン  |
+|Vendor (ベンダー)|最小ドライバーバージョン  |
 |------|--------------------|
 |AMD   |26.20.12002.65 |
 |Intel |26.20.100.6812 |
@@ -127,18 +127,18 @@ dism /online /Enable-Feature /FeatureName:Containers
 3.  Docker と dockerd .exe の夜間ビルドバージョンをダウンロードします。
 
 ```console
-C:\Windows\system32>curl.exe -o %windir%\system32\dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
+curl.exe -o %windir%\system32\dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
 ```
 ```console
-C:\Windows\system32>curl.exe -o %windir%\system32\docker.exe https://master.dockerproject.org/windows/x86_64/docker.exe
+curl.exe -o %windir%\system32\docker.exe https://master.dockerproject.org/windows/x86_64/docker.exe
 ```
 
 Docker サービスを登録して開始します。
 
 ```console
-C:\Windows\system32>dockerd.exe --register-service
+dockerd.exe --register-service
 
-C:\Windows\system32>net start docker
+net start docker
 ```
 
 次の出力メッセージが表示されます。
@@ -151,7 +151,7 @@ The Docker Engine service was started successfully.
 4.  次のコマンドを使用して、Docker が正しく実行されていることを確認できます。
 
 ```console
-C:\Windows\system32>docker version
+docker version
 ```
 
 これにより、次の出力メッセージが生成されます。
@@ -204,7 +204,7 @@ windowsml           latest              a9d5d08d079f        25 seconds ago      
 7.  次のコマンドを使用して https://github.com/microsoft/Windows-Machine-Learning/releases/tag/1.2.1.1 から WinMLRunner v 1.2.1.1 をダウンロードします。
 
 ```console
-C:\tgz>curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/1.2.1.1/WinMLRunner.v1.2.1.1.zip
+curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/1.2.1.1/WinMLRunner.v1.2.1.1.zip
 ```
 
 次に、.zip を現在のフォルダーに解凍します。
@@ -212,7 +212,7 @@ C:\tgz>curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-L
 8.  次のコマンドを使用して https://github.com/microsoft/Windows-Machine-Learning/tree/1.2.1.1/SharedContent/models から SqueezeNet onnx サンプルをダウンロードします。
 
 ```console
-C:\tgz>curl -o SqueezeNet.onnx -L https://github.com/microsoft/Windows-Machine-Learning/raw/1.2.1.1/SharedContent/models/SqueezeNet.onnx
+curl -o SqueezeNet.onnx -L https://github.com/microsoft/Windows-Machine-Learning/raw/1.2.1.1/SharedContent/models/SqueezeNet.onnx
 ```
 
 9.  Dockerfile を作成して、インポートした Windows ML コンテナーイメージに必要なファイルをコピーします。
@@ -224,7 +224,9 @@ echo FROM windowsml:latest               >  Dockerfile
 echo WORKDIR C:/App                      >> Dockerfile
 echo COPY ./x64/WinMLRunner.exe C:/App/  >> Dockerfile
 echo COPY ./SqueezeNet.onnx C:/App/      >> Dockerfile
+```
 
+```console
 C:\tgz>type Dockerfile
 FROM windowsml:latest
 WORKDIR C:/App
@@ -282,7 +284,7 @@ Docker を使用して Windows ML コンテナーを実行するには、いく�
 12. コンテナーのコマンドラインから、CPU を使用して WinMLRunner を実行します。
 
 ```console
-C:\App>WinMLRunner.exe -model C:/App/SqueezeNet.onnx -cpu
+WinMLRunner.exe -model C:/App/SqueezeNet.onnx -cpu
 ```
 
 次のような出力が表示されます。
@@ -319,7 +321,7 @@ Evaluating (device = CPU, iteration = 1, inputBinding = CPU, inputDataType = Ten
 13. また、GPU を使用して WinMLRunner を実行することもできます。 @No__t-0 のコマンドライン引数を使用して、AMD Radeon、Nvidia、または Intel のいずれかを指定します。
 
 ```console
-C:\App>WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/intel]
+WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/intel]
 ```
 
 ## <a name="build-apps-the-for-windows-ml-container"></a>Windows ML コンテナー用のアプリをビルドする
@@ -368,7 +370,7 @@ Install-Package Microsoft.Windows.CppWinRT -Version 2.0.190730.2
     1. プロジェクトを右クリックします。
     1. プロパティの選択
     1. ダイアログボックスで、[リンカー-> 入力] を選択します。
-    1. @No__t-0 を含むように追加の依存関係を更新します。 以下に例を示します。
+    1. @No__t-0 を含むように追加の依存関係を更新します。 次に、例を示します。
         1. `windowscoreheadless.lib;%(...AdditionalDependencies...)`
-        
+
 ![vsproj3](./images/vs_project3.png)
