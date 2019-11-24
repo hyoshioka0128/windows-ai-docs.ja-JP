@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/16/2019
 ms.locfileid: "72443022"
 ---
-# <a name="getting-started"></a>開始するには
+# <a name="getting-started"></a>概要
 
 Windows ML コンテナーは、IoT および Windows ML 開発の基礎を理解している開発者が使用することを意図しています。 Windows ML の使用方法の詳細については、 [WINDOWS ml のドキュメント](../windows-ml/index.md)を参照してください。
 
@@ -24,7 +24,7 @@ Windows ホストの Insider リリースをインストールしたら、コマ
 
 ![winver](./images/winver.png)
 
-上記の例では、ホストバージョンは `18999.1` です。
+上記の例では、ホストバージョンは `18999.1`です。
 
 ### <a name="host-os-and-container-version-matching-requirements"></a>ホスト OS とコンテナーバージョンの一致要件
 
@@ -110,7 +110,7 @@ GPU またはドライバーが上記の要件を満たしていない場合、�
 
 ![解決](./images/troubleshoot.png)
 
-最小バージョン要件を満たす Windows Update からグラフィックスドライバーをダウンロードできない場合は、システムの DxDiag 情報が添付されていることを電子メールで @no__t してください。 DxDiag 情報を実行して保存する手順については、[このサポートページを参照してください](https://support.microsoft.com/help/4028644/windows-open-and-run-dxdiagexe)。
+最小バージョン要件を満たしている Windows Update からグラフィックスドライバーをダウンロードできない場合は、システムの DxDiag 情報が添付されていることを電子メールで winmlc-questions@microsoft.com してください。 DxDiag 情報を実行して保存する手順については、[このサポートページを参照してください](https://support.microsoft.com/help/4028644/windows-open-and-run-dxdiagexe)。
 
 ## <a name="set-up-and-test-a-basic-environment"></a>基本環境のセットアップとテスト
 
@@ -235,7 +235,7 @@ COPY ./SqueezeNet.onnx C:/App/
 ```
 
 
-10. Dockerfile に基づいて、`docker build command` の新しいコンテナーを作成します。
+10. `docker build command`を使用して、Dockerfile に基づいて新しいコンテナーを作成します。
 
 ```console
 C:\tgz>docker build -t winmlrunner:latest .
@@ -274,10 +274,10 @@ docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F
 Docker を使用して Windows ML コンテナーを実行するには、いくつかの重要な引数を指定する必要があります。
 
 - `-it`  
-    対話型シェルコンポーネントが `stdin` に転送し、`tty` を使用できるようにするために使用します。 この引数を省略した場合、コマンドラインインターフェイスは正常に機能しません。
+    対話型シェルコンポーネントが `stdin` を転送し、`tty`を使用できるようにするために使用します。 この引数を省略した場合、コマンドラインインターフェイスは正常に機能しません。
 - `--isolation process` は、コンテナーの種類をプロセス分離コンテナーとして指定します。
-- `--device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599` は、コンテナーに公開するデバイスのクラス GUID を指定します。 `class/5B45201D-F2F2-4F3B-85BB-30FF1F953599` は `GUID_DEVINTERFACE_DISPLAY_ADAPTER` を表します。これにより、DirectX Gpu が有効になります。
-- `winmlrunner:latest` は、前の手順で作成された、実行するイメージを指定します。 これには、@no__t 0 のコマンドで指定したリポジトリの名前とタグ、またはイメージのイメージ ID/ハッシュを指定できます。 タグ名として**latest**を使用した場合は、省略できます。
+- `--device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599` は、コンテナーに公開するデバイスのクラス GUID を指定します。 `class/5B45201D-F2F2-4F3B-85BB-30FF1F953599` は `GUID_DEVINTERFACE_DISPLAY_ADAPTER`を参照します。これにより、DirectX Gpu が有効になります。
+- `winmlrunner:latest` は、前の手順で作成した、実行するイメージを指定します。 これには、`docker tag` コマンドで指定したリポジトリ名とタグ、またはイメージのイメージ ID/ハッシュを指定できます。 タグ名として**latest**を使用した場合は、省略できます。
 - `cmd /k`  
     これは、docker がコンテナー内で実行するコマンドです。
 
@@ -318,7 +318,7 @@ Evaluating (device = CPU, iteration = 1, inputBinding = CPU, inputDataType = Ten
 ```
 これで、Windows ML コンテナーを使用するように環境が正しくセットアップされました。
 
-13. また、GPU を使用して WinMLRunner を実行することもできます。 @No__t-0 のコマンドライン引数を使用して、AMD Radeon、Nvidia、または Intel のいずれかを指定します。
+13. また、GPU を使用して WinMLRunner を実行することもできます。 `-GPUAdapterName` コマンドライン引数を使用して、AMD Radeon、Nvidia、または Intel のいずれかを指定します。
 
 ```console
 WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/intel]
@@ -331,7 +331,7 @@ WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/int
 開始するには、前の手順に従って Visual Studio 2019 がセットアップおよび構成されていることを確認します。 その後、次のサンプルを試してみてください。
 
 - [Customvision](https://github.com/imingc/Windows-Machine-Learning/tree/winml_container/Samples/CustomVision)。 このサンプルでは、 [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)によってトレーニングされたモデルを使用します。 トレーニング済みのモデルは[ONNX ファイルとしてエクスポート](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml)され、コンテナー内で実行されるサンプルアプリの一部として含まれます。
-- [SqueezeNetObjectDetection](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection)。 このアプリ (cpp および c @ no__t-0 のみ) は、SqueezeNet モデルを使用してイメージ内の主要なオブジェクトを検出します。
+- [SqueezeNetObjectDetection](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection)。 このアプリ (cpp および c\# のみ) では、SqueezeNet モデルを使用してイメージ内の主要なオブジェクトを検出します。
 
 ### <a name="create-a-visual-studio-2019-c-project-from-scratch"></a>Visual Studio 2019 C#プロジェクトを最初から作成する
 
@@ -339,7 +339,7 @@ Windows ML コンテナーは、サイズが小さいため、 [Windows api の�
 
 ヘッドレス WinRT API コントラクトを使用するには、次のようにします。
 
-1. Visual Studio 2019 で、新しい**C @ No__t Console App (.Net Core)** プロジェクトを作成します。
+1. Visual Studio 2019 で、新しい**C\# Console App (.Net Core)** プロジェクトを作成します。
 
 ![vsproj](./images/vs_project1.png)
 
@@ -366,11 +366,11 @@ Install-Package Microsoft.Windows.SDK.Headless.Contracts -Prerelease
 Install-Package Microsoft.Windows.CppWinRT -Version 2.0.190730.2
 ```
 
-4. @No__t 使用するようにプロジェクトを更新する-0:
+4. `windowscoreheadless.lib`を使用するようにプロジェクトを更新します。
     1. プロジェクトを右クリックします。
     1. プロパティの選択
     1. ダイアログボックスで、[リンカー-> 入力] を選択します。
-    1. @No__t-0 を含むように追加の依存関係を更新します。 次に、例を示します。
+    1. 追加の依存関係を更新して、`windowscoreheadless.lib`を含めます。 次に、例を示します。
         1. `windowscoreheadless.lib;%(...AdditionalDependencies...)`
 
 ![vsproj3](./images/vs_project3.png)

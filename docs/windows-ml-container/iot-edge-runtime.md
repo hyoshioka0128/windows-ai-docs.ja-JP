@@ -3,7 +3,7 @@ title: Azure IoT Edge ランタイム
 description: Azure IoT Edge を使用してデバイスに Windows ML コンテナーを追加する方法について説明します
 ms.date: 10/14/2019
 ms.topic: article
-keywords: windows 10、windows ml コンテナー、コンテナー、iot、エッジ
+keywords: windows 10, windows ml container, container, iot, edge
 ms.localizationpriority: medium
 ms.openlocfilehash: 4c8f327505216321a0ff5a1939e25d4fba6a8cf2
 ms.sourcegitcommit: f5945af6d1f534b490eea7860f72804dc1c9fea8
@@ -38,7 +38,7 @@ ms.locfileid: "72315406"
 - Windows ML コンテナーの基本イメージ*をプルする (Insider ホストのバージョンに合わせてタグを変更する*) には、次のコマンドを使用します。
     - `docker pull mcr.microsoft.com/windows/ml/insider:10.0.18999.1`
     - `docker tag mcr.microsoft.com/windows/ml/insider:10.0.18999.1 windowsml:latest`
-- Azure IoT Edge を `C:\iotedge` に複製します。
+- Azure IoT Edge を `C:\iotedge`に複製します。
     - `cd /d c:\`
     - `git clone https://github.com/Azure/iotedge.git`
 
@@ -50,7 +50,7 @@ ms.locfileid: "72315406"
 - `dotnet publish -r win-x64`
 - `cd bin\Debug\netcoreapp2.1\win-x64\`
 
-- 次のようなコンテンツを含む Dockerfile を作成し @no__t 0 に保存します。
+- 次のようなコンテンツを含む Dockerfile を作成し、`c:\iotedge\edge-hub\src\Microsoft.Azure.Devices.Edge.Hub.Service\bin\Debug\netcoreapp2.1\win-x64`に保存します。
 
     ```console
     FROM windowsml:latest
@@ -98,19 +98,19 @@ Windows Insider host で Azure IoT Edge および Windows ML Insider Preview コ
 ## <a name="configure-iot-edge-in-the-azure-iot-hub-portal"></a>Azure IoT Hub ポータルでの IoT Edge の構成
 
 - Azure IoT Hub に IoT Edge デバイスを作成します。
-    ![iotedge01 @ no__t-1
+    ![iotedge01](./images/iotedge01.png)
 
 - デバイスに**Testdevice**という名前を指定し、[対称キー] を選択します。
-    ![iotedge02 @ no__t-1
+    ![iotedge02](./images/iotedge02.png)
 
 - **[モジュールの設定]** を選択します。
-    ![iotedge03 @ no__t-1
+    ![iotedge03](./images/iotedge03.png)
 
 - プライベートに構築されたモジュールがプッシュされたコンテナーレジストリの詳細を指定します。
-    ![iotedge04 @ no__t-1
+    ![iotedge04](./images/iotedge04.png)
 
 - [Set Modules] \ (モジュールの設定 \) ページの [edge**ランタイム設定の構成**] ボタンをクリックし、[edge Hub] と [edge エージェント] を、プライベートコンテナーを発行した場所に設定します。
-    ![iotedge05 @ no__t-1
+    ![iotedge05](./images/iotedge05.png)
 
 - **[保存]** ボタンを選択します。
 - 忘れずに次の **>** を選択してください。
@@ -127,21 +127,21 @@ Windows Insider host で Azure IoT Edge および Windows ML Insider Preview コ
 
 ### <a name="download-and-modify-installation-powershell-script"></a>インストール powershell スクリプトをダウンロードして変更する
 
-- @No__t-0 のコピーをローカルに保存します。このコマンドは、*管理者特権*のプロンプトから実行します。
+- `IoTEdgeSecurityDaemon.ps1` のコピーをローカルに保存します。このコマンドは、*管理者特権*のプロンプトから実行します。
 
 ```console
 curl -o c:\IotEdgeSecurityDaemon.ps1 -L  https://raw.githubusercontent.com/Azure/iotedge/1.0.8/scripts/windows/setup/IotEdgeSecurityDaemon.ps1
 ```
 
-- @No__t-0 を変更してビルドバージョンの制約を無効にする
--   @No__t-0 関数で、次の行をコメントアウトします。
+- ビルドバージョンの制約を無効にするように `IoTEdgeSecurityDaemon.ps1` を変更する
+-   `Initialize-IoTedge` 関数で、次の行をコメントアウトします。
 
 ```console
  #   if (-not (Setup-Environment -ContainerOs $ContainerOs -SkipArchCheck -SkipBatteryCheck)) {
  #       return
  #   }
 ```
--   @No__t-0 関数で、次の行をコメントアウトします。
+-   `Install-Packages` 関数で、次の行をコメントアウトします。
 
 ```console
 #    if (-not (Setup-Environment -ContainerOs $ContainerOs -SkipArchCheck:$SkipArchCheck -SkipBatteryCheck:$SkipBatteryCheck)) {
