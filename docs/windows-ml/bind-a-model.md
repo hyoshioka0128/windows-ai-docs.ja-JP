@@ -5,12 +5,12 @@ ms.date: 5/29/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: abffa39c066abb49bf74d528722a29432c2543b2
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.openlocfilehash: a2f83c0b3eedc64019e6c60fbc3d14cdb573a524
+ms.sourcegitcommit: 81bd558d96d56735d49d522883957ce4b09f00cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70156183"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216965"
 ---
 # <a name="bind-a-model"></a>モデルを作成する
 
@@ -30,10 +30,10 @@ ms.locfileid: "70156183"
 
 Windows ML は、 [LearningModelFeatureKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind)で列挙されるすべての ONNX 機能の種類をサポートしています。 これらは、さまざまな特徴記述子クラスにマップされます。
 
-* 次のようになります。[TensorFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
-* **シーケンス**:[SequenceFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor)
-* **マップ**:[MapFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor)
-* **イメージ**:[ImageFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)
+* この**ように**し[てください。](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
+* **Sequence**: [sequencefeaturedescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor)
+* **Map**: [mapfeaturedescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor)
+* **イメージ**: [imagefeaturedescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)
 
 ### <a name="tensors"></a>Tensors
 
@@ -45,11 +45,11 @@ Tensors は多次元配列であり、最も一般的なのは、32ビットの�
 
 ### <a name="maps"></a>マップ
 
-マップは、情報のキーと値のペアです。 通常、分類モデルは、ラベル付けされた各分類名の float 確率を表す文字列/浮動小数点マップを返します。 たとえば、画像の犬の組み合わせを予測しようとするモデルの出力は、のよう`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`になります。
+マップは、情報のキーと値のペアです。 通常、分類モデルは、ラベル付けされた各分類名の float 確率を表す文字列/浮動小数点マップを返します。 たとえば、画像の犬の組み合わせを予測しようとしているモデルの出力が `["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`されている可能性があります。
 
 #### <a name="scalars"></a>スカラー
 
-ほとんどのマップとシーケンスは、スカラー値を持ちます。 これらは、保存場所がゼロ (0) であることを示しています。 この場合、マップまたはシーケンスはスカラー型になります。 最も一般的なの`float`はです。 たとえば、マップする文字列は次のようになります。
+ほとんどのマップとシーケンスは、スカラー値を持ちます。 これらは、保存場所がゼロ (0)**であること**を示しています。 この場合、マップまたはシーケンスはスカラー型になります。 最も一般的なのは `float`です。 たとえば、マップする文字列は次のようになります。
 
 ```cs
 MapFeatureDescriptor.KeyKind == TensorKind.String
@@ -57,11 +57,11 @@ MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
 MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size == 0
 ```
 
-実際のマップ機能の値はに`IMap<string, float>`なります。
+実際のマップ機能の値は `IMap<string, float>`になります。
 
 #### <a name="sequence-of-maps"></a>マップのシーケンス
 
-一連のマップは、キーと値のペアのベクターにすぎません。 たとえば、文字列から浮動小数点数へのマップのシーケンスは型`IVector<IMap<string, float>>`になります。 犬の予測`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`の上記の出力は、一連のマップの一例です。
+一連のマップは、キーと値のペアのベクターにすぎません。 たとえば、文字列から浮動小数点数へのマップのシーケンスは `IVector<IMap<string, float>>`型になります。 上記の犬の組み合わせの予測 `["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]` は、一連のマップの一例です。
 
 ### <a name="images"></a>画像
 
@@ -75,9 +75,9 @@ MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size ==
 
 ほとんどのモデルでは次の形式が使用されますが、これはすべてのモデルに対して汎用的ではありません。
 
-* **BitmapPixelFormat**:Bgr8
-* **イメージ。 Colorspace ガンマ**:SRGB
-* **NominalPixelRange**:NominalRange_0_255
+* **BitmapPixelFormat**: Bgr8
+* **イメージ。 Colorspace ガンマ**: SRGB
+* **NominalPixelRange**: NominalRange_0_255
 
 #### <a name="tensorization"></a>すべてのものを
 
@@ -85,10 +85,10 @@ MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size ==
 
 Windows ML では、"NCHW tensors" という形式で、イメージが32ビットの浮動小数点数に変換されます。
 
-* **N**:バッチサイズ (またはイメージの数)。 Windows ML では、現在、バッチサイズ N の1がサポートされています。
-* **C**:チャネル数 (Gray8 の場合は1、Bgr8 の場合は 3)。
-* **H**:上下.
-* **W**:幅。
+* **N**: バッチサイズ (またはイメージの数)。 Windows ML では、現在、バッチサイズ N の1がサポートされています。
+* **C**: チャネル数 (Gray8 の場合は1、Bgr8 の場合は 3)。
+* **H**: Height。
+* **W**: Width。
 
 イメージの各ピクセルは、0-255 の範囲に格納され、32ビットの浮動小数点数にパックされる8ビットのカラー番号です。
 
@@ -100,18 +100,21 @@ Windows ML では、"NCHW tensors" という形式で、イメージが32ビッ�
 
     **Imagefeaturevalue**を使用して、画像を入力および出力としてバインドすることをお勧めします。これは、変換と変換の両方が処理されるため、イメージはモデルの必要なイメージ形式と一致するためです。 現在サポートされているモデル形式の種類は**Gray8**、 **Rgb8**、および**Bgr8**で、現在サポートされているピクセル範囲は0-255 です。
 
-    Imagefeaturevalue を作成するには、静的なメソッド[Imagefeaturevalue. CreateFromVideoFrame](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe)を使用します。
+    **Imagefeaturevalue**を作成するには、静的なメソッド[Imagefeaturevalue. CreateFromVideoFrame](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe)を使用します。
 
     モデルで必要な形式を確認するために、WinML は次のロジックと優先順位を使用します。
 
     1. [Bind (String, Object, IPropertySet) は、](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_)すべてのイメージ設定を上書きします。
     2. モデルのメタデータはチェックされ、使用可能な場合は使用されます。
-    3. モデルメタデータが指定されておらず、呼び出し元が指定したプロパティがない場合、ランタイムは最適な照合を試みます。 このようにしても、NCHW (4 次元の float32, N = = 1) のように見える場合、ランタイムはチャネル数に応じて**Gray8**または**Bgr8**のいずれかを想定します。
+    3. モデルメタデータが指定されておらず、呼び出し元が指定したプロパティがない場合、ランタイムは最適な照合を試みます。 
+    * このようにした場合、NCHW (4 次元の float32, N = = 1) のように見えますが、ランタイムはチャネル数に応じて、 **Gray8** (c = = 1) または**Bgr8** (c = = 3) のいずれかを想定します。
+    * NominalRange_0_255 が想定されます
+    * SRGB が想定されます
 
     Bind に渡すことができる省略可能なプロパティがいくつかあります[(String、Object、IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_)。
 
-    * [Bitmapbounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds):指定されている場合、これらは、モデルにイメージを送信する前に適用するトリミング境界です。
-    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat):指定した場合、イメージの変換中にモデルのピクセル形式として使用されるピクセル形式になります。
+    * [Bitmapbounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds): 指定されている場合、これらは、モデルにイメージを送信する前に適用するトリミング境界です。
+    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat): 指定されている場合、これはイメージ変換中にモデルのピクセル形式として使用されるピクセル形式です。
 
     イメージ図形の場合、モデルでは、実行する特定の図形 (たとえば、SqueezeNet が224224を受け取る) を指定することも、モデルで任意の図形イメージの自由ディメンションを指定することもできます (多くのスタイル転送タイプのモデルは可変サイズのイメージを使用できます)。 呼び出し元は、 **Bitmapbounds**を使用して、使用するイメージのセクションを選択できます。 指定しない場合、ランタイムはイメージをモデルサイズ (縦横比を考慮) にスケーリングし、次にセンタートリミングします。  
 
@@ -145,7 +148,7 @@ private void BindModel(
 
 ## <a name="see-also"></a>関連項目
 
-* 先の：[セッションを作成する](create-a-session.md)
-* 次の手順:[モデルの入力を評価する](evaluate-model-inputs.md)
+* 前:[セッションを作成する](create-a-session.md)
+* 次:[モデル入力を評価し](evaluate-model-inputs.md)ます
 
 [!INCLUDE [help](../includes/get-help.md)]
