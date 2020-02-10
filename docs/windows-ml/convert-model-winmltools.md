@@ -1,55 +1,55 @@
 ---
 author: wschin
-title: ML モデルを WinMLTools で ONNX に変換します。
+title: WinMLTools で ML モデルを ONNX に変換する
 description: WinMLTools を使用して ML モデルを ONNX 形式に変換する方法について説明します。
 ms.author: wechi
 ms.date: 4/18/2019
 ms.topic: article
-keywords: windows 10、windows の machine learning、WinML、WinMLTools、ONNX、ONNXMLTools、scikit、学習、Core ML、Keras
+keywords: Windows 10, Windows Machine Learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
 ms.openlocfilehash: 76d3436cf52a8e658881e7b8cbdd437a53a00bb1
 ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/23/2019
 ms.locfileid: "66180864"
 ---
-# <a name="convert-ml-models-to-onnx-with-winmltools"></a>ML モデルを WinMLTools で ONNX に変換します。
+# <a name="convert-ml-models-to-onnx-with-winmltools"></a>WinMLTools で ML モデルを ONNX に変換する
 
-[WinMLTools](https://pypi.org/project/winmltools/) ONNX にさまざまなトレーニング フレームワークで作成された機械学習モデルを変換することができます。 拡張機能は[ONNXMLTools](https://github.com/onnx/onnxmltools)と[TF2ONNX](https://github.com/onnx/tensorflow-onnx) Windows ML で使用するために ONNX モデルを変換します。
+[WinMLTools](https://pypi.org/project/winmltools/) を使用すると、さまざまなトレーニング フレームワークで作成された機械学習モデルを ONNX に変換できます。 これは、モデルを ONNX に変換して Windows ML で使用できるようにするための [ONNXMLTools](https://github.com/onnx/onnxmltools) および [TF2ONNX](https://github.com/onnx/tensorflow-onnx) の拡張機能です。
 
-現在、WinMLTools には、次のフレームワークからの変換がサポートされています。
+WinMLTools は現在、次のフレームワークからの変換をサポートしています。
 
-- Apple の Core ML
+- Apple Core ML
 - Keras
-- scikit、について説明します
-- lightgbm
-- xgboost
-- libSVM
-- TensorFlow (試験段階)
+- scikit-learn
+- LightGBM
+- XGBoost
+- LibSVM
+- TensorFlow (試験的)
 
-その他の ML フレームワークからエクスポートする方法についてを参照してください、 [ONNX チュートリアル](https://github.com/onnx/tutorials)GitHub でします。
+ほかの ML フレームワークからエクスポートする方法については、GitHub の [ONNX チュートリアル](https://github.com/onnx/tutorials)を参照してください。
 
-この記事に WinMLTools を使用する方法について説明します。
+この記事では、WinMLTools を使用して以下を行う方法について説明します。
 
-- ONNX Core ML モデルに変換します。
-- 変換 scikit-に ONNX モデルを説明します。
-- TensorFlow モデルを ONNX に変換します。
-- 適用後のトレーニング ONNX モデルに量子化の重み
-- 16 ビットの浮動小数点モデル精度のモデルをポイントする浮動小数点を変換します。
-- カスタムの ONNX オペレーターを作成します。
+- Core ML モデルを ONNX に変換する
+- scikit-learn モデルを ONNX に変換する
+- TensorFlow モデルを ONNX に変換する
+- トレーニング後の重みの量子化を ONNX モデルに適用する
+- 浮動小数点モデルを 16 ビット浮動小数点精度モデルに変換する
+- カスタムの ONNX 演算子を作成する
 
 >[!NOTE]
->[WinMLTools の最新バージョン](https://pypi.org/project/winmltools/1.3.0/)ONNX opsets 7 と 8 でそれぞれ指定された ONNX バージョン 1.2.2 および 1.3 への変換をサポートしています。 ツールの以前のバージョンでは、ONNX 1.3 のサポートはありません。
+>[最新バージョンの WinMLTools](https://pypi.org/project/winmltools/1.3.0/) では、ONNX バージョン 1.2.2 (ONNX opset 7) および ONNX バージョン 1.3 (ONNX opset 8) への変換がサポートされています。 以前のバージョンのツールでは、ONNX 1.3 がサポートされません。
 
 ## <a name="install-winmltools"></a>WinMLTools のインストール
 
-WinMLTools は Python パッケージ (**winmltools**) Python バージョン 2.7 および 3.6 をサポートします。 データ サイエンス プロジェクトを扱う場合は、Anaconda などのサイエンス向けの Python ディストリビューションをインストールすることをお勧めします。
+WinMLTools は、Python バージョン 2.7 および 3.6 をサポートする Python パッケージ (**winmltools**) です。 データ サイエンス プロジェクトを扱う場合は、Anaconda などのサイエンス向けの Python ディストリビューションをインストールすることをお勧めします。
 
 > [!NOTE]
-> WinMLTools は、Python 3.7 を現在サポートしていません。
+> WinMLTools は現在、Python 3.7 をサポートしていません。
 
-WinMLTools に依存して、[標準的な Python パッケージのインストール処理](https://packaging.python.org/installing/)します。 Python 環境から次のコマンドを実行します。
+WinMLTools は、[Python パッケージの標準のインストール手順](https://packaging.python.org/installing/)に従っています。 Python 環境から次のコマンドを実行します。
 
 ```console
 pip install winmltools
@@ -57,37 +57,37 @@ pip install winmltools
 
 WinMLTools には次の依存関係があります。
 
-- **numpy** v1.10.0 +
-- **protobuf** v.3.6.0+
-- **onnx** v1.3.0 +
-- **onnxmltools** v1.3.0 +
-- **tf2onnx** v0.3.2+
+- **numpy** v1.10.0 以降
+- **protobuf** v.3.6.0 以降
+- **onnx** v1.3.0 以降
+- **onnxmltools** v 1.3.0 以降
+- **tf2onnx** v0.3.2 以降
 
-依存パッケージを更新するには、実行、`pip`コマンドと、`-U`引数。
+依存パッケージを更新するには、`pip` コマンドに `-U` 引数を付けて実行してください。
 
 ```console
 pip install -U winmltools
 ```
 
-さまざまなコンバーターは、さまざまなパッケージをインストールする必要があります。
+コンバーターが異なる場合は、別のパッケージをインストールする必要があります。
 
-**Libsvm**、ダウンロードできる**libsvm ホイール**web のさまざまなソースからです。 1 つの例をご覧、[カリフォルニア大学アーバイン校の web サイト](https://www.lfd.uci.edu/~gohlke/pythonlibs/#libsvm)します。
+**libsvm** については、さまざまな Web ソースから **libsvm wheel** をダウンロードできます。 一例は[カリフォルニア大学アーバイン校の Web サイト](https://www.lfd.uci.edu/~gohlke/pythonlibs/#libsvm)にあります。
 
-**Coremltools**、現在 Apple が Windows 上の Core ML パッケージを配布できません。 ソースからインストールすることができます。
+**coremltools** については、Apple は Windows への Core ML パッケージの配布を現在行いません。 次のソースからインストールできます。
 
 ```console
 pip install git+https://github.com/apple/coremltools
 ```
 
-次の[onnxmltools](https://github.com/onnx/onnxmltools)について詳しくは、GitHub の**onnxmltools**依存関係。
+**onnxmltools** の依存関係について詳しくは、GitHub の [onnxmltools](https://github.com/onnx/onnxmltools) をご覧ください。
 
-パッケージ固有のドキュメントで WinMLTools を使用する方法の詳細を確認できます、`help`関数。
+WinMLTools の使い方について詳しくは、`help` 機能でパッケージ固有のドキュメントをご覧ください。
 
 ```console
 help(winmltools)
 ```
 
-## <a name="convert-core-ml-models"></a>コア ML モデルを変換します。
+## <a name="convert-core-ml-models"></a>Core ML モデルを変換する
 
 ここでは、サンプルの Core ML モデル ファイルのパスが *example.mlmodel* であると想定します。
 
@@ -102,9 +102,9 @@ model_onnx = convert_coreml(model_coreml, 7, name='ExampleModel')
 ~~~
 
 > [!NOTE]
-> Convert_coreml() への呼び出しでは、2 番目のパラメーターは、target_opset と既定の名前空間の演算子のバージョン番号を参照して`ai.onnx`します。 これらの演算子の詳細を参照してください[ここ](https://github.com/onnx/onnx/blob/master/docs/Operators.md)します。 このパラメーターは WinMLTools、(バージョン 1.2.2 および 1.3 がサポートされている現在) 別の ONNX バージョンを対象とする開発者の最新バージョンで利用できます。 Windows で実行するモデルに変換する 10 年 2018年 10 月の更新を使用`target_opset`7 (ONNX v1.2.2)。 使用したモデルを WinML が受け入れるの Windows 10 ビルド 17763 より大きい、 `target_opset` 7 および 8 (ONNX v.1.3)。 [リリース ノート](release-notes.md)セクションには、さまざまなビルドでサポートされている WinML min と max ONNX バージョンも含まれています。
+> convert_coreml() の呼び出しの 2 番目のパラメーターは target_opset で、既定の名前空間 `ai.onnx` の演算子のバージョン番号を参照します。 これらの演算子の詳細については、[こちら](https://github.com/onnx/onnx/blob/master/docs/Operators.md)を参照してください。 このパラメーターは、最新バージョンの WinMLTools でのみ使用でき、開発者はさまざまな ONNX バージョンをターゲットにすることができます (現時点では、バージョン 1.2.2 と 1.3 がサポートされています)。 Windows 10 October 2018 Update で実行されるようにモデルを変換するには、`target_opset` 7 (ONNX v 1.2.2) を使用します。 Windows 10 の 17763 より後のビルドの場合、WinML は `target_opset` 7 と 8 (ONNX 1.3) のモデルを受け入れます。 [リリース ノート](release-notes.md)のセクションには、さまざまなビルドで WinML によってサポートされている ONNX の最小バージョンと最大バージョンも記載されています。
 
-`model_onnx` ONNX [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176)オブジェクト。 これは 2 つの異なる形式で保存できます。
+`model_onnx` は ONNX の [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176) オブジェクトです。 これは 2 つの異なる形式で保存できます。
 
 ~~~python
 from winmltools.utils import save_model
@@ -116,21 +116,21 @@ save_text(model_onnx, 'example.txt')
 ~~~
 
 > [!NOTE]
->Core MLTools が Apple によって提供された Python パッケージが Windows でご利用いただけません。 このパッケージを Windows にインストールする必要がある場合は、リポジトリからパッケージを直接インストールしてください。
+>CoreMLTools は Apple から提供される Python パッケージですが、Windows 向けには用意されていません。 このパッケージを Windows にインストールする必要がある場合は、リポジトリからパッケージを直接インストールしてください。
 
 ```console
 pip install git+https://github.com/apple/coremltools
 ```
 
-## <a name="convert-core-ml-models-with-image-inputs-or-outputs"></a>イメージの入力または出力の Core ML モデルを変換します。
+## <a name="convert-core-ml-models-with-image-inputs-or-outputs"></a>画像の入力または出力を使用して Core ML モデルを変換する
 
-ONNX でイメージの種類の不足、Core ML イメージ モデル (入力または出力としてイメージを使用してモデル) に変換するいくつかの処理前および処理後の手順が必要です。
+ONNX には画像を表す型がないため、Core ML の画像モデル (画像を入力または出力として使うモデル) を変換するには、前処理と後処理の手順が必要になります。
 
-前処理の目的は、入力画像を ONNX のテンソルとして適切な形式にすることです。 たとえば、*X* が [C, H, W] という形状の Core ML の画像入力であるとします。 ONNX では、変数 *X* は同じ形状の浮動小数点テンソルとなり、*X*[0, :, :]/*X*[1, :, :]/*X*[2, :, :] に画像の赤/緑/青チャネルが格納されます。 コア ML でのイメージをグレースケールでは、その形式には [1, H、W]-tensors ONNX でチャネルを 1 つのみがあるので。
+前処理の目的は、入力画像を ONNX のテンソルとして適切な形式にすることです。 たとえば、*X* が [C, H, W] という形状の Core ML の画像入力であるとします。 ONNX では、変数 *X* は同じ形状の浮動小数点テンソルとなり、*X*[0, :, :]/*X*[1, :, :]/*X*[2, :, :] に画像の赤/緑/青チャネルが格納されます。 Core ML のグレー スケール画像については、ONNX での形式は [1, H, W] テンソルになります。これはチャネルが 1 つしかないためです。
 
-元の Core ML モデルの出力が画像の場合は、ONNX の出力の浮動小数点テンソルを手動で画像に変換します。 基本的な手順は 2 つあります。 最初の手順として、255 より大きい値を 255 に切り詰め、すべての負の値を 0 に変更します。 2 番目の手順として、すべてのピクセル値を整数に丸めます (0.5 を加えてから小数点以下を切り捨てます)。 コア ML モデルでは、(たとえば、RGB または BGR) 出力チャネルの順序が示されます。 適切な画像出力を生成するには、転置やシャッフルによって目的の形式を回復する必要がある場合があります。
+元の Core ML モデルの出力が画像の場合は、ONNX の出力の浮動小数点テンソルを手動で画像に変換します。 基本的な手順は 2 つあります。 最初の手順として、255 より大きい値を 255 に切り詰め、すべての負の値を 0 に変更します。 2 番目の手順として、すべてのピクセル値を整数に丸めます (0.5 を加えてから小数点以下を切り捨てます)。 出力のチャネル順序 (RGB、BGR など) は Core ML モデルに示されています。 適切な画像出力を生成するには、転置やシャッフルによって目的の形式を回復する必要がある場合があります。
 
-ここで、ONNX と Core ML の形式の違いを示す実際の変換の例として、[GitHub](https://github.com/likedan/Awesome-CoreML-Models) からダウンロードできる FNS-Candy という Core ML モデルを見てみましょう。 Python 環境で後続のすべてのコマンドが実行されることに注意してください。
+ここで、ONNX と Core ML の形式の違いを示す実際の変換の例として、[GitHub](https://github.com/likedan/Awesome-CoreML-Models) からダウンロードできる FNS-Candy という Core ML モデルを見てみましょう。 以降のコマンドはすべて Python 環境で実行します。
 
 まず、Core ML モデルを読み込み、入力形式と出力形式を調べます。
 
@@ -164,7 +164,7 @@ output {
 ...
 ~~~
 
-この場合、入力と出力の両方は 720 x 720 BGR-イメージです。 次の手順では、WinMLTools を使って Core ML モデルを変換します。
+この場合、入力と出力はどちらも 720x720 の BGR 画像です。 次の手順では、WinMLTools を使って Core ML モデルを変換します。
 
 ~~~python
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
@@ -172,7 +172,7 @@ from winmltools import convert_coreml
 model_onnx = convert_coreml(model_coreml, 7, name='FNSCandy')
 ~~~
 
-モデルの入力を表示し、出力に ONNX 形式に別の方法では、次のコマンドを使用します。
+ONNX でのモデルの入力形式と出力形式を確認する別の方法として、次のコマンドを使用できます。
 
 ~~~python
 model_onnx.graph.input # Print out the ONNX input tensor's information
@@ -234,7 +234,7 @@ model_onnx.graph.output # Print out the ONNX output tensor's information
 
 ご覧のように、生成される形式は元のモデルの入力形式と同じです。 ただし、これは画像ではありません。画像では、ピクセル値が不動小数点数ではなく整数になります。 再び画像に変換するには、255 より大きい値を 255 に切り詰め、負の値を 0 に変更し、すべての少数を整数に丸めます。
 
-## <a name="convert-scikit-learn-models"></a>変換 scikit-モデルを説明します。
+## <a name="convert-scikit-learn-models"></a>scikit-learn モデルを変換する
 
 次のコード スニペットでは、scikit-learn で線形サポート ベクトル マシンをトレーニングし、モデルを ONNX に変換します。
 
@@ -279,9 +279,9 @@ linear_svr_onnx = convert_sklearn(linear_svr, 7, name='LinearSVR',
                                   initial_types=[('input', FloatTensorType([1, 2]))])
 ~~~
 
-以前と同様`convert_sklearn`、scikit を受け取る-最初の引数としてのモデルについて説明しますと、`target_opset`の 2 番目の引数。 ユーザーは、`LinearSVC` を `RandomForestClassifier` などの他の scikit-learn モデルに置き換えることができます。 注意してください[mlgen](mlgen.md)を使用して、`name`クラス名と変数を生成するパラメーター。 `name` が指定されていない場合は GUID が生成されますが、これは C++/C# などの言語の名前付け規則に準拠しません。
+以前と同様に、`convert_sklearn` は最初の引数として scikit-learn モデルを使用し、2 番目の引数として `target_opset` を使用します。 ユーザーは、`LinearSVC` を `RandomForestClassifier` などの他の scikit-learn モデルに置き換えることができます。 [mlgen](mlgen.md) では、`name` パラメーターを使ってクラス名と変数を生成することに注意してください。 `name` が指定されていない場合は GUID が生成されますが、これは C++/C# などの言語の名前付け規則に準拠しません。
 
-## <a name="convert-scikit-learn-pipelines"></a>Scikit の変換のパイプラインについて説明します
+## <a name="convert-scikit-learn-pipelines"></a>scikit-learn パイプラインを変換する
 
 次に、scikit-learn パイプラインを ONNX に変換する方法を示します。
 
@@ -353,9 +353,9 @@ loaded_onnx_model = load_model('another_pipeline.onnx')
 print(another_pipeline_onnx)
 ~~~
 
-## <a name="convert-tensorflow-models"></a>TensorFlow モデルを変換します。
+## <a name="convert-tensorflow-models"></a>TensorFlow モデルを変換する
 
-次のコードは、固定された TensorFlow モデルからモデルを変換する方法の例です。 TensorFlow モデルの名前の出力を使用可能なを取得するために、使用することができます、 [summarize_graph ツール](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/graph_transforms)します。
+次のコードは、固定された TensorFlow モデルからモデルを変換する方法の例です。 TensorFlow モデルの使用可能な出力名を取得するために、[summarize_graph ツール](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/graph_transforms)を使用できます。
 
 ~~~python
 import winmltools
@@ -374,16 +374,16 @@ with tf.Session(graph=g) as sess:
   winmltools.save_model(converted_model)
 ~~~
 
-WinMLTools コンバーターを使用して`tf2onnx.tfonnx.process_tf_graph`で[TF2ONNX](https://github.com/onnx/tensorflow-onnx)します。
+WinMLTools コンバーターは、[TF2ONNX](https://github.com/onnx/tensorflow-onnx) の `tf2onnx.tfonnx.process_tf_graph` を使用します。
 
-## <a name="convert-to-floating-point-16"></a>浮動小数点 16 への変換します。
+## <a name="convert-to-floating-point-16"></a>浮動小数点 16 に変換する
 
-WinMLTools 浮動小数点浮動に 32 ポイント 16 の表現で表されるモデルの変換をサポートしています (IEEE 754 半分)、実質的に半分のサイズを減らすことで、モデルを圧縮します。
+WinMLTools は、浮動小数点 32 で表されたモデルを浮動小数点 16 表現 (IEEE 754 半精度) に変換することをサポートしており、サイズを半分に減らすことでモデルを効果的に圧縮します。
 
 > [!NOTE]
-> 16 の浮動小数点モデルに変換すると、精度が失われる可能性があります。 アプリケーションに展開する前に、モデルの精度を確認することを確認します。
+> モデルを浮動小数点 16 に変換すると、精度が低下する可能性があります。 アプリケーションにデプロイする前に、モデルの精度を確認してください。
 
-次には、ONNX のバイナリ ファイルから直接変換する場合、完全な例を示します。
+ONNX バイナリ ファイルから直接変換する場合の例を次に示します。
 
 ~~~python
 from winmltools.utils import convert_float_to_float16
@@ -393,16 +393,16 @@ new_onnx_model = convert_float_to_float16(onnx_model)
 save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
 
-`help(winmltools.utils.convert_float_to_float16)`、このツールの詳細を見つけることができます。 浮動小数点 16 WinMLTools で現在のみに準拠して[IEEE 754 浮動ポイント標準 (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)します。
+`help(winmltools.utils.convert_float_to_float16)` を使用すると、このツールの詳細な情報を確認できます。 WinMLTools の浮動小数点 16 は、現在、[IEEE 754 浮動小数点標準 (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) のみに準拠しています。
 
 ## <a name="post-training-weight-quantization"></a>トレーニング後の重みの量子化
 
-WinMLTools には、8 ビット整数表現に浮動小数点 32 で表されるモデルの圧縮もサポートしています。 モデルに応じて最大 75% のディスク フット プリントの削減これが生成されます。 この短縮は、後のトレーニングと呼ばれる手法によって行われます。 加重量子化、場所、モデルが分析され、ストアド tensor 重みは、32 ビット浮動小数点データから 8 ビットのデータに削減されます。
+WinMLTools では、浮動小数点 32 で表されたモデルを、8 ビットの整数表現に圧縮することもサポートされています。 これにより、モデルに応じて最大 75% のディスク使用量が削減される可能性があります。 この削減は、トレーニング後の重みの量子化と呼ばれる手法によって行われます。この手法では、モデルが分析され、格納されたテンソルの重みが 32 ビットの浮動小数点データから 8 ビット データに縮小されます。
 
 > [!NOTE]
-> 量子化の重みのトレーニング後、結果として得られるモデルの精度が失われる可能性があります。 アプリケーションに展開する前に、モデルの精度を確認することを確認します。
+> トレーニング後の重みの量子化により、結果として得られるモデルの精度が失われる可能性があります。 アプリケーションにデプロイする前に、モデルの精度を確認してください。
 
-ONNX のバイナリ ファイルから直接変換する方法を示す完全な例を次に示します。
+以下は、ONNX バイナリ ファイルから直接変換する方法を示す例です。
 
 ```python
 import winmltools
@@ -412,21 +412,21 @@ packed_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequant
 winmltools.save_model(packed_model, 'quantized.onnx')
 ```
 
-ここではいくつかの情報への入力パラメーターについて`quantize`:
+`quantize` への入力パラメーターに関する情報を以下に示します。
 
-- `per_channel` :場合に設定`True`、この直線的に [n、h、w] の形式で初期化された各 tensor の各チャネルの量子化されます。 既定では、このパラメーターに設定`True`します。
-- `nbits` :量子化された値を表すビット数。 現在 8 ビットのみがサポートされています。
-- `use_dequantize_linear` :場合設定`True`、Conv 演算子 [n、h、w] の形式で初期化された tensors 内の各チャンネルを dequantize これは直線的にします。 既定では、この設定は`True`します。
+- `per_channel`:`True` に設定すると、初期化されたテンソルごとに各チャネルが、[n, c, h, w] の形式で線形に量子化されます。 既定では、このパラメーターは `True` に設定されます。
+- `nbits`:量子化された値を表すビット数。 現在は 8 ビットのみがサポートされています。
+- `use_dequantize_linear`:`True` に設定すると、Conv 演算子に対して初期化されたテンソルの各チャネルが、[n, c, h, w] の形式で線形に量子化解除されます。 既定では、これは `True` に設定されます。
 
-## <a name="create-custom-onnx-operators"></a>カスタムの ONNX オペレーターを作成します。
+## <a name="create-custom-onnx-operators"></a>カスタムの ONNX 演算子を作成する
 
-カスタムを埋め込むにはカスタム演算子関数を記述することができます、Keras の Core ML モデルに変換するときに[演算子](https://github.com/onnx/onnx/blob/master/docs/Operators.md)ONNX グラフにします。 変換中は、コンバーターが、Keras レイヤーまたは ONNX オペレーターに Core ML LayerParameter を変換する関数を呼び出すし、演算子のノード全体のグラフに接続します。
+Keras モデルまたは Core ML モデルから変換する場合は、カスタムの演算子関数を記述して、カスタム[演算子](https://github.com/onnx/onnx/blob/master/docs/Operators.md)を ONNX グラフに埋め込むことができます。 変換中、コンバーターは、Keras レイヤーまたは Core ML LayerParameter を ONNX 演算子に変換する関数を呼び出した後、演算子ノードをグラフ全体に接続します。
 
-1. ONNX サブグラフの構築用のカスタム関数を作成します。
-2. 呼び出す`winmltools.convert_keras`または`winmltools.convert_coreml`カスタム関数をカスタム レイヤー名のマップを使用します。
-3. 該当する場合は、推論ランタイムのカスタムのレイヤーを実装します。  
+1. ONNX サブグラフの作成用のカスタム関数を作成します。
+2. カスタム関数へのカスタム レイヤー名のマップを使用して、`winmltools.convert_keras` または `winmltools.convert_coreml` を呼び出します。
+3. 必要に応じて、推論ランタイム用のカスタム レイヤーを実装します。  
 
-次の例では、Keras のしくみを説明します。
+次の例は、Keras での動作を示しています。
 
 ~~~python
 # Define the activation layer.

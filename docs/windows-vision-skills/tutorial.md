@@ -1,74 +1,74 @@
 ---
-title: 独自のビジョンスキルを作成C#するC++(/)
-description: このチュートリアルを使用して、独自の Windows ビジョンスキルを作成する方法について説明します。
+title: 独自のビジョン スキルを作成する (C#/C++)
+description: このチュートリアルでは、独自の Windows Vision Skills を作成する方法について説明します。
 ms.author: lobourre
 ms.date: 8/26/2019
 ms.topic: article
-keywords: windows 10、windows ai、windows ビジョンのスキル
+keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
 ms.openlocfilehash: 0b61a7261b04d8e01a3ca8ce5e9acd8a770f1cdf
 ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/29/2019
 ms.locfileid: "70156218"
 ---
-# <a name="tutorial-create-your-own-windows-vision-skill-c"></a>チュートリアル:独自の Windows ビジョンスキルを作成C#する ()
+# <a name="tutorial-create-your-own-windows-vision-skill-c"></a>チュートリアル: 独自の Windows Vision Skills を作成する (C#)
 
 > [!NOTE]
-> 一部の情報はプレリリース版の製品に関連していますが、製品版のリリース前に大幅に変更されている可能性があります。 Microsoft は、ここで提供される情報に関して、明示または黙示を問わず、いかなる保証も行いません。
+> 一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
 
-カスタムビジョンソリューションが既にある場合、このチュートリアルでは、 [SkillInterfacePreview][SkillInterfacePreview] base API を拡張して、ソリューションを Windows ビジョンのスキルでラップする方法を示します。
+カスタム ビジョン ソリューションがすでに存在する場合、このチュートリアルは、[Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] ベースの API を拡張することによってそのソリューションを Windows Vision Skills 内にラップする方法を示します。
 
-次のものを活用する face センチメント analyzer のスキルを構築してみましょう。
+では、次のものを活用する顔の感情アナライザー スキルを構築します。
 
-- [FaceAnalysis](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis) Api と[Windows. AI e ラーニング](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)api
-- 顔イメージからセンチメントを推測する、ONNX 形式の機械学習モデル
+- [Windows.Media.FaceAnalysis](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis) および [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) API
+- 顔の画像から感情を推測する ONNX 形式の機械学習モデル
 
-このスキルには次のものが必要です。
+このスキルでは、以下を取得します。
 
-- 入力イメージ
+- 入力画像
 
-次のように出力されます。
+そして、以下を出力します。
 
-- 評価される各センチメントの範囲 [0, 1] の1つの精度スコア値
-- [0, 1] の範囲に含まれる float 値のうち、面の境界ボックスの相対座標: 左 (x、y)、上 (x、y)、右 (x、y)、下 (x、y) を定義します。
+- 評価する各感情に関する [0,1] の範囲にある単精度スコア値のテンソル
+- 顔のバウンディングボックスの相対座標を定義する [0,1] の範囲にある浮動小数値のテンソル: 左 (x,y)、上 (x,y)、右 (x,y)、および下 (x,y)
 
-![FaceSentimentAnalysis のスキルの入力と出力の例の図](../images/vision-skills-FaceSentimentAnalysis.png)
+![FaceSentimentAnalysis スキルの入力および出力例の図](../images/vision-skills-FaceSentimentAnalysis.png)
 
-この例のC#およびC++/WinRT バージョンの完全なソースコードは、サンプル GitHub リポジトリで入手できます。
+この例の C# および C++/WinRT バージョンの完全なソース コードは、次のサンプル GitHub リポジトリで入手できます。
 
-- [C#スキルの例](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)
+- [C# のスキルの例](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)
 - [C++/WinRT のスキルの例](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp)
 
-このチュートリアルでは、次の手順について説明します。
+このチュートリアルでは、次のことについて説明します。
 
-1. Windows ビジョンのスキルに必要な[主なインターフェイスの実装](#CreateMainClasses)
-2. NuGet パッケージを生成するため[の. nuspec の作成](#CreateNuspec)
-3. ファイルの難読化と難読化を解除[して](#Obfuscation)、コンテンツを隠す
+1. Windows Vision Skills に必要な[主要なインターフェイスの実装](#CreateMainClasses)
+2. NuGet パッケージを生成するための [.nuspec の作成](#CreateNuspec)
+3. ファイルの内容を隠すための[難読化および難読化解除](#Obfuscation)の各ファイル
 
 ## <a name="prerequisites"></a>前提条件
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)(または Visual Studio 2017、バージョン15.7.4 以降)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (または Visual Studio 2017 バージョン 15.7.4 以降)
 - Windows 10 バージョン 1809 以降
-- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)バージョン1809以降
-- [SkillInterfacePreview NuGet パッケージ](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)の場合は、
+- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) バージョン 1809 以降
+- [Microsoft.AI.Skills.SkillInterfacePreview NuGet パッケージ](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
 
-## 1. 主要なスキルクラスを作成して実装する<a name="CreateMainClasses"></a>
+## 1.主要なスキル クラスを作成して実装する <a name="CreateMainClasses"></a>
 
-最初に、主要なスキルクラスを実装する必要があります (詳細については、「 [API の重要な概念](important-api-concepts.md)」を参照してください)。
+まず、次の主要なスキル クラスを実装する必要があります (詳細については、「[API の重要な概念](important-api-concepts.md)」を参照)。
 
-- [Isの記述子](#ISkillDescriptor)
-- [Isのバインド](#ISkillBinding)
+- [ISkillDescriptor](#ISkillDescriptor)
+- [ISkillBinding](#ISkillBinding)
 - [ISkill](#ISkill)
 
-Visual Studio でカスタムビジョンソリューションを開きます。
+Visual Studio でカスタム ビジョン ソリューションを開きます。
 
-### a. Isの記述子<a name="ISkillDescriptor"></a>
+### a。 ISkillDescriptor <a name="ISkillDescriptor"></a>
 
-スキルに関する情報を提供する[isの記述子][ISkillDescriptor]から継承されたスキル記述子クラスを作成して実装し、サポートされる実行デバイス (CPU、GPU など) の一覧を提供し、そのスキルのファクトリオブジェクトとして機能します。
+スキルに関する情報や、サポートされる実行デバイス (CPU や GPU など) の一覧を提供し、スキルのファクトリ オブジェクトとして機能する、[ISkillDescriptor][ISkillDescriptor] から継承されたスキル記述子クラスを作成して実装します。
 
-1. [SkillInterfacePreview][SkillInterfacePreview]名前空間をインポートし、 [is descriptor][ISkillDescriptor]インターフェイスからクラスを派生させます。
+1. [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] 名前空間をインポートし、[ISkillDescriptor][ISkillDescriptor] インターフェイスからクラスを派生させます。
 
     ```csharp
     ...
@@ -81,7 +81,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-2. スキルに必要な入力と出力の説明を保持する2つのメンバー変数を作成します。 次に、記述子のコンストラクターで、入力と出力の機能記述子を使用してそれを入力します。 また、スキルの必要な説明プロパティをすべて提供する*Skillinformation*オブジェクトを作成します。
+2. スキルに必要な入力と出力の説明を保持する 2 つのメンバー変数を作成します。 次に、記述子のコンストラクターで、入力および出力特徴の記述子に応じてそれらの変数に入力します。 さらに、スキルの必要なすべての説明プロパティを提供する *SkillInformation* オブジェクトを作成します。
 
     ```csharp
     ...
@@ -144,7 +144,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
 
     ```
 
-3. 使用可能なサポートされている実行デバイスを検索する必須メソッドを実装して、スキルを実行してコンシューマーに返します。 この例では、D3D バージョン12以降をサポートする CPU とすべての DirectX デバイスを返します。
+3. スキルを実行するための利用可能なサポートされる実行デバイスを探し、それをコンシューマーに返す必要なメソッドを実装します。 ここでは、D3D バージョン 12 以降をサポートしている CPU およびすべての DirectX デバイスを返します。
 
     ```csharp
     public IAsyncOperation<IReadOnlyList<ISkillExecutionDevice>> GetSupportedExecutionDevicesAsync()
@@ -171,7 +171,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
 
 4. スキルをインスタンス化するために必要なメソッドを実装します。
 
-    - 次のいずれかの方法で、最適なデバイスを選択します。
+    - どちらかのメソッドで、最適な利用可能デバイスを選択します。
 
         ```csharp
         public IAsyncOperation<ISkill> CreateSkillAsync()
@@ -201,7 +201,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
         }
         ```
 
-    - もう1つは、指定された実行デバイスを使用します。
+    - もう一方で、指定された実行デバイスを使用します。
 
         ```csharp
         public IAsyncOperation<ISkill> CreateSkillAsync(ISkillExecutionDevice executionDevice)
@@ -216,11 +216,11 @@ Visual Studio でカスタムビジョンソリューションを開きます。
         }
         ```
 
-### b. **Isのバインド**<a name="ISkillBinding"></a>
+### b. **ISkillBinding** <a name="ISkillBinding"></a>
 
-使用され、スキルによって生成される入力変数と出力変数を格納する、 [isて binding][ISkillBinding]インターフェイスから継承されたスキルバインドクラスを作成して実装します。
+スキルによって使用および生成される入力および出力変数を含む、[ISkillBinding][ISkillBinding] インターフェイスから継承されたスキル バインド クラスを作成して実装します。
 
-1. [SkillInterfacePreview][SkillInterfacePreview]名前空間をインポートし、 [is binding][ISkillBinding]インターフェイスおよび必要なコレクション型からクラスを派生させます。
+1. [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] 名前空間をインポートし、[ISkillBinding][ISkillBinding] インターフェイスとその必要なコレクション型からクラスを派生させます。
 
     ```csharp
     ...
@@ -233,15 +233,15 @@ Visual Studio でカスタムビジョンソリューションを開きます。
 
     ```
 
-2. 最初に2つのメンバー変数を作成します。
+2. 最初に、次の 2 つのメンバー変数を作成します。
 
-    - 1つは、"InputImage" という名前の入力イメージ機能を保持するために、基本インターフェイスに用意されているヘルパークラス[VisionSkillBindingHelper][VisionSkillBindingHelper]です。
+    - 1 つは、"InputImage" という名前の入力画像の特徴を保持するために基本インターフェイスで提供されるヘルパー クラス [VisionSkillBindingHelper][VisionSkillBindingHelper] です。
 
     ```csharp
     private VisionSkillBindingHelper m_bindingHelper = null;
     ```
 
-    - もう1つは、スキルクラスの後半で、コンストラクターの引数として指定された LearningModelSession に渡すために使用される LearningModelBinding を保持します。
+    - もう一方は、後でスキル クラスでコンストラクターへの引数として指定される LearningModelSession に渡すために使用される LearningModelBinding を保持します。
 
     ```csharp
     // WinML related member variables
@@ -265,7 +265,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     IEnumerator IEnumerable.GetEnumerator() => m_bindingHelper.AsEnumerable().GetEnumerator();
     ```
 
-    とは、コンストラクターを実装します。 コンストラクターは*内部*にあることに注意してください。このパラダイムでは、Isare Binding インスタンスはスキルによって作成されるため、スタンドアロンコンストラクターを公開することはできません。
+    次に、コンストラクターを実装します。 コンストラクターが *internal* であることに注意してください。このパラダイムでは、ISkillBinding インスタンスはスキルによって作成されるため、スタンドアロン コンストラクターを公開すべきではありません。
 
     ```csharp
      // Constructor
@@ -281,7 +281,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-3. スキルによって出力されるセンチメント型の読み取りを容易にする列挙型を作成する
+3. スキルによって出力される感情の種類の読み取りを容易にする列挙型を作成します。
 
     ```csharp
     /// Defines the set of possible emotion label scored by this skill
@@ -298,7 +298,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     };
     ```
 
-4. バインドに対する get 操作と set 操作を容易にするオプションの追加メソッドを実装する
+4. バインドの取得および設定操作を容易にするオプションの追加メソッドを実装します。
 
     ```csharp
     /// Returns whether or not a face is found given the bound outputs
@@ -366,11 +366,11 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-### c. **Iskill**<a name="ISkill"></a>
+### c. **ISkill** <a name="ISkill"></a>
 
-[Iskill][ISkill]インターフェイスから継承されたスキルクラスを作成して実装します。このクラスは、スキルロジックを実行し、入力のセットを指定して出力を生成します。 また、ISkillBinding 派生元のファクトリオブジェクトとしても機能します。
+スキル ロジックを実行し、指定された一連の入力から出力を生成する、[ISkill][ISkill] インターフェイスから継承されたスキル クラスを作成して実装します。 また、これは ISkillBinding 派生クラスのファクトリ オブジェクトとしても機能します。
 
-1. [SkillInterfacePreview][SkillInterfacePreview]名前空間をインポートし、 [iskill][ISkill]インターフェイスからクラスを派生させます。
+1. [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] 名前空間をインポートし、[ISkill][ISkill] インターフェイスからクラスを派生させます。
 
     ```csharp
     ...
@@ -382,15 +382,15 @@ Visual Studio でカスタムビジョンソリューションを開きます。
         ...
     ```
 
-2. 最初に2つのメンバー変数を作成します。
+2. 最初に、次の 2 つのメンバー変数を作成します。
 
-    - 1つは、FaceDetector を保持して入力イメージ上の顔を検索するためのものです。
+    - 1 つは、入力画像の顔を見つける FaceDetector を保持するためのものです。
 
     ```csharp
     private FaceDetector m_faceDetector = null;
     ```
 
-    - もう1つは、センチメント分析モデルの評価に使用される LearningModelSession を保持するためのものです。
+    - もう 1 つは、感情分析モデルを評価するために使用される LearningModelSession を保持するためのものです。
 
     ```csharp
     private LearningModelSession m_winmlSession = null;
@@ -403,7 +403,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     public ISkillExecutionDevice Device { get; private set; }
     ```
 
-    とは、コンストラクターと静的ファクトリメソッドを実装します。 コンストラクターが*プライベート*で、ファクトリメソッドが*内部*にあることに注意してください。このパラダイムでは、ISkill インスタンスはスキル記述子によって作成されるため、スタンドアロンコンストラクターを公開することはできません。
+    次に、コンストラクターと静的ファクトリ メソッドを実装します。 コンストラクターが *private* であり、ファクトリ メソッドが *internal* であることに注意してください。このパラダイムでは、ISkill インスタンスはスキル記述子によって作成されるため、スタンドアロン コンストラクターを公開すべきではありません。
 
     ```csharp
      // Constructor
@@ -440,7 +440,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-3. 次に、Isをバインドするファクトリメソッドを実装します。
+3. 次に、ISkillBinding ファクトリ メソッドを実装します。
 
     ```csharp
     // ISkillBinding Factory method
@@ -455,7 +455,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-4. 現在実装されているものは、基本インターフェイスで宣言された EvaluateAsync () メソッドを使用したスキルの核となるロジックです。 まず、いくつかの正常性チェックを行い、設定する出力機能を取得します。
+4. この段階で、まだ実装されていないものは、基本インターフェイスで宣言されている EvaluateAsync() メソッドを経由したスキルのコア ロジックだけです。 まず、何らかのサニティ チェックを実行し、設定するための出力特徴を取得します。
 
     ```csharp
     // Skill core logic
@@ -491,9 +491,9 @@ Visual Studio でカスタムビジョンソリューションを開きます。
             ...
     ```
 
-    この特定のスキルは、次の2つの手順で進行します。
+    その後、この特定のスキルは次の 2 つの手順で処理を続行します。
 
-    - **手順 1**:画像に対して FaceDetector を実行し、顔の境界ボックスを取得します。
+    - **手順 1**:画像に対して FaceDetector を実行し、顔のバウンディングボックスを取得します。
 
     ```csharp
             ...
@@ -502,7 +502,7 @@ Visual Studio でカスタムビジョンソリューションを開きます。
             ...
     ```
 
-    - **手順 2**:顔が検出された場合は、境界ボックスを調整し、使いやすさのためにその座標を正規化し、センチメントを使用してイメージのその部分の分析を続行します。 推論が完了したら、結果として返される可能性がある各センチメントのスコアを更新します。
+    - **手順 2**: 顔が検出された場合は、バウンディングボックスを調整し、その座標を使いやすいように正規化した後、Windows.AI.MachineLearning を使用して画像のその部分の感情分析を続行します。 推論が完了したら、結果として返される可能性のある各感情のスコアを更新します。
 
     ```csharp
             ...
@@ -559,17 +559,17 @@ Visual Studio でカスタムビジョンソリューションを開きます。
     }
     ```
 
-## 2. スキルを NuGet にパッケージ化する<a name="CreateNuspec"></a>
+## 2.スキルを NuGet にパッケージ化する <a name="CreateNuspec"></a>
 
-残りのことは、スキルをコンパイルしてスキルから NuGet パッケージを作成し、アプリケーションがそれを取り込むことができるようにすることです。
+後は、スキルをコンパイルし、そのスキルから NuGet パッケージを作成してアプリケーションが取り込めるようにするだけです。
 
-([*NuGet パッケージの詳細についてはこちらを参照してください*](https://docs.microsoft.com/nuget/what-is-nuget))
+([*NuGet パッケージの詳細については、ここを参照*](https://docs.microsoft.com/nuget/what-is-nuget))
 
-NuGet パッケージを作成するには、次のような*nuspec*ファイルを[Git リポジトリの元のファイル](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec)に書き込む必要があります。 このファイルは、次の2つの主要なセクションで構成されています。
+NuGet パッケージを作成するには、次のような *.nuspec* ファイルを作成する必要があります ([Git リポジトリの元のファイルを参照](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec))。 このファイルは、次の 2 つの主なセクションで構成されています。
 
-- **メタデータ**:この部分には、名前、説明、作成者と所有者、ライセンス、および依存関係が含まれています。 この例では、 [SkillInterfacePreview][SkillInterfacePreview] NuGet パッケージに依存していることに注意してください。 また、この NuGet パッケージはライセンスにリンクし、インジェスト前に承認要求をトリガーします。
+- **metadata**: この部分には、名前、説明、作成者と所有者、ライセンス、および依存関係が含まれています。 ここでは、[Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] NuGet パッケージに依存していることに注意してください。 この NuGet パッケージはライセンスにもリンクしており、取り込みの前に承認のための要求をトリガーします。
 
-- **ファイル**:この部分は、コンパイル済みのビットと資産を指します。 ターゲットの場所は、フレームワークのバージョン uap 10.0.17763 を指していることに注意してください。 これにより、アプリは10.0.17763 よりも前のバージョンを対象とするパッケージを取り込みすることができます (このスキルに必要な最小 OS バージョンでは、エラーメッセージが表示されます)。
+- **files**: この部分では、コンパイルされたビットと資産を指しています。 ターゲットの場所がフレームワーク バージョン uap10.0.17763 を指していることに注意してください。 これにより、10.0.17763 (このスキルが必要とする最小の OS バージョン) より前のバージョンを対象とするパッケージを取り込むアプリが、確実にエラー メッセージを受信します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -604,38 +604,38 @@ NuGet パッケージを作成するには、次のような*nuspec*ファイル
 </package>
 ```
 
-次に、nuget.exe ([公式サイトからダウンロード](https://www.nuget.org/downloads)) を使用して*nuspec*をパックして、 *nupkg* nuget パッケージファイルを生成する必要があります。
-コマンドラインを開き、nuget.exe の場所に移動して、次のように呼び出します。
+次に、nuget.exe ([公式サイトからのダウンロード](https://www.nuget.org/downloads)) を使用して *.nuspec* をパッケージングして *.nupkg* NuGet パッケージ ファイルを生成する必要があります。
+コマンド ラインを開き、nuget.exe の場所に移動して、次のように呼び出します。
 
 ```cmd
 > .\nuget.exe pack <path to your .nuspec>
 ```
 
-パッケージをローカルでテストするには、Visual Studio で NuGet フィードとして設定したフォルダーにこの*nupkg*ファイルを配置します ([詳細については、こちらを参照してください](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed))。
+パッケージをローカルでテストするには、この *.nupkg* ファイルを Visual Studio で NuGet フィードとして設定したフォルダーに置くことができます ([その方法については、ここを参照](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed))。
 
-バンザイは、初めての Windows ビジョンスキルを作成しました。 パッケージ化されたスキルを[NuGet.org](https://www.nuget.org/)にアップロードできます。
+これで、最初の Windows Vision Skills が作成されました。 パッケージ化されたスキルを [NuGet.org](https://www.nuget.org/) にアップロードできます。
 
-## 3.もう一つ。 資産ファイルを難読化および難読化して、知的財産を隠す<a name="Obfuscation"></a>
+## 3.もう 1 つの点ですが... 知的財産を隠すための資産ファイルの難読化および難読化解除<a name="Obfuscation"></a>
 
-コンシューマーがスキルアセット (モデルファイル、イメージなど) の改ざんやアクセスを防ぐためには、ファイルをビルド前の手順として難読化し、実行時に deobfuscate 化することができます。 この[サンプル GitHub の例で](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer)は、コンパイル時にファイルを[難読](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator)化[し、実行時に難読化](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator)するヘルパークラスの[実装につい](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography)て説明します。 この部分は、 C++ C#バージョンをより単純にするために、例として使用されているスキルの/WinRT バージョンでのみ表示されることに注意してください。  
+コンシューマーによるスキル資産 (モデル ファイルや画像など) の改ざんまたはアクセスを防止するために、ビルド前の手順としてファイルを難読化し、実行時にファイルを難読化解除することができます。 この[サンプル GitHub の例](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer)には、コンパイル時にファイルを[難読化](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator)し、実行時に[難読化解除](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator)するために [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) を活用するヘルパー クラスの実装が含まれています。 C# バージョンの単純さを維持するために、この部分では、スキルの例の C++/WinRT バージョンでのみ示されていることに注意してください。  
 
-- 難読化とは、プロジェクトを常に実行するように設定することも、1回だけ実行して出力を資産として直接使用することもできる、ビルド前のイベントです。 この例では、専用のコンパイル済みツール (ngen.exe) を使用します。 このツールを最初にコンパイルしてから、スキルコンパイル時間のビルド前イベントとして呼び出す必要があります。 コンパイル時には開発用コンピューターで実行されるため、サポートされている任意のターゲットとプラットフォーム (この場合は*Debug/Win32*) を使用してコンパイルすることができます。
+- 難読化は、プロジェクトで常に実行するか、または 1 回実行し、その出力を資産として直接使用するように設定できるビルド前のイベントです。 この例では、専用のコンパイルされたツール (Obfuscator.exe) を使用します。 このツールは、スキル コンパイル時のビルド前のイベントとして呼び出す前に、最初にコンパイルしておく必要があります。 コンパイル時には開発用コンピューターで実行されるため、サポートされる任意のターゲットおよびプラットフォーム (この場合は、*Debug/Win32*) を使用して 1 度コンパイルできることに注意してください。
 
-    Visual Studio でこのビルド前イベントを設定するには、次のようにします。
+    このビルド前のイベントは、Visual Studio で次のように設定できます。
 
-- C++プロジェクト:**スキルプロジェクトを右クリック**し、 **[ビルドイベント]** の折りたたみ を > > **[ビルド前のイベント]** を選択し、**コマンドライン**を入力 >
-- C#プロジェクト:**スキルプロジェクトを右クリックして**>**ビルドイベント**の選択-**ビルド前イベントのコマンドライン**を入力 >
+- C++ プロジェクト: **スキル プロジェクトを右クリックする** -> **[Build Event] (ビルド イベント)** を展開する -> **[ビルド前のイベント]** を選択する  -> **[コマンド ライン]** を入力する
+- C# プロジェクト: **スキル プロジェクトを右クリックする** -> **[Build Event] (イベントのビルド)** を選択する -> **[ビルド前に実行するコマンド ライン]** を入力する
 
-    次のコマンドを実行します。1:アセットファイルをローカルにコピーします 2:は、GUID キー3を必要とするで定義されているロジックを使用して、ファイルを暗号化ファイル (任意の拡張子名にすることができます) に暗号化し*ます*。ローカルファイルを削除します。
+    このコマンドは、1:資産ファイルをローカルでコピーし、2: GUID キーを必要とする定義済みのロジックを使用して、そのファイルを *.crypt* ファイル (希望する任意の拡張機能名にすることができます) に暗号化した後、3: ローカル ファイルを削除します。
 
 > [!NOTE]
-> このサンプルで提案されている暗号化ロジックを変更して、スキルに固有のものにすることをお勧めします。
+> サンプルで提案されている暗号化ロジックを、実際のスキルに固有のロジックに変更することをお勧めします。
 
     ```cmd
     copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
     ```
 
-- 非難読化は、スキルによって取り込まれたする単純なヘルパー Windows ランタイムコンポーネントによって公開されています。 復号化ロジックは、前の手順で定義した暗号化に従います。
+- 難読化解除は、スキルによって取り込まれる単純なヘルパー Windows ランタイム コンポーネント経由で公開されます。 その暗号化解除ロジックは、前の手順で定義されている暗号化ロジックに従います。
 
     ```cpp
     // FaceSentimentAnalyzerSkill.cpp

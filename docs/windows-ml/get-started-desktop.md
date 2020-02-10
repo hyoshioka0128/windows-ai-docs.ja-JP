@@ -1,5 +1,5 @@
 ---
-title: Windows Machine Learning for Desktop (C++) チュートリアル
+title: デスクトップ向け Windows Machine Learning (C++) チュートリアル
 description: このチュートリアルでは、デスクトップ向けの単純な Windows ML アプリケーションを構築する方法を示します。
 ms.date: 5/10/2019
 ms.topic: article
@@ -8,58 +8,58 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 619a0c39b824abc2ed2eaee1ca8f95f95a4aa9c7
 ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/29/2019
 ms.locfileid: "70157666"
 ---
-# <a name="tutorial-create-a-windows-machine-learning-desktop-application-c"></a>チュートリアル:Windows Machine Learning デスクトップアプリケーションを作成するC++()
+# <a name="tutorial-create-a-windows-machine-learning-desktop-application-c"></a>チュートリアル: Windows Machine Learning デスクトップ アプリケーション (C++) の作成
 
-Windows ML Api は、デスクトップ (Win32) アプリケーション内C++の機械学習モデルと簡単に対話するために利用できます。 アプリケーションの読み込み、バインド、評価の3つの手順を使用すると、機械学習の機能を活用できます。
+Windows ML API を利用して、C++ デスクトップ (Win32) アプリケーション内で、機械学習モデルを簡単に操作できます。 読み込み、バインド、評価の 3 つの手順を使用すると、アプリケーションで機械学習の機能を活用できます。
 
-![負荷 -> バインド -> 評価](../images/load-bind-evaluate.png)
+![読み込み -> バインド -> 評価](../images/load-bind-evaluate.png)
 
-ここでは、 [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp)で入手できる SqueezeNet オブジェクト検出サンプルの少し簡略化されたバージョンを作成します。 完了したときの動作を確認するには、完全なサンプルをダウンロードできます。
+[GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp) で入手できる SqueezeNet オブジェクト検出のサンプルを少し簡略化したバージョンを作成します。 完了したときにそれがどのようになるかを確認する場合は、完全なサンプルをダウンロードできます。
 
-ここでは、 C++Winml api にアクセスするために/WinRT を使用します。 詳細については、「 [ C++WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) 」を参照してください。
+C++/WinRT を使用して、WinML API にアクセスします。 詳細については、「[C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/)」を参照してください。
 
 このチュートリアルでは、次の方法について説明します。
 
 > [!div class="checklist"]
 > * 機械学習モデルを読み込む
-> * 画像を[Videoframe](https://docs.microsoft.com/uwp/api/windows.media.videoframe)として読み込む
+> * [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe) として画像を読み込む
 > * モデルの入力と出力をバインドする
 > * モデルを評価し、意味のある結果を出力する
 
 ## <a name="prerequisites"></a>前提条件
 
-* [Visual Studio 2019](https://developer.microsoft.com/windows/downloads)(または Visual Studio 2017、バージョン15.7.4 以降)
-* [Windows 10 バージョン1809以降](https://www.microsoft.com/software-download/windows10)
-* [Windows SDK、ビルド17763以降](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK
+* [Visual Studio 2019](https://developer.microsoft.com/windows/downloads) (または Visual Studio 2017 バージョン 15.7.4 以降)
+* [Windows 10 バージョン 1809 以降](https://www.microsoft.com/software-download/windows10)
+* [Windows SDK ビルド 17763 以降](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK
 )
-* /WinRT 用C++Visual Studio 拡張機能
-    1. Visual Studio で、[**ツール] [> の拡張機能と更新プログラム**] を選択します。
-    2. 左側のウィンドウで **[オンライン]** を選択し、右側の検索ボックスを使用して "WinRT" を検索します。
-    3. **[ C++/WinRT]** を選択し、 **[ダウンロード]** をクリックして、Visual Studio を閉じます。
+* C++/WinRT 用 Visual Studio 拡張機能
+    1. Visual Studio で、 **[ツール] > [拡張機能と更新プログラム]** を選択します。
+    2. 左ウィンドウで **[オンライン]** を選択し、右側の検索ボックスを使用して "WinRT" を検索します。
+    3. **[C++/WinRT]** を選択し、 **[ダウンロード]** をクリックして、Visual Studio を閉じます。
     4. インストール手順に従って、Visual Studio を再度開きます。
-* [Windows-Machine Learning Github リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning)(ZIP ファイルとしてダウンロードするか、コンピューターに複製することができます)
+* [Windows-Machine-Learning Github リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning) (ZIP ファイルとしてダウンロードするか、またはコンピューターに複製できます)
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
 まず、Visual Studio でプロジェクトを作成します。
 
-1. **[ファイル > 新しい > プロジェクト]** を選択して、 **[新しいプロジェクト]** ウィンドウを開きます。
-2. 左側のウィンドウで、 **[インストール済み > C++ Visual > windows デスクトップ]** を選択し、中央にある **[windowsC++コンソールアプリケーション (/WinRT)]** を選択します。
-3. プロジェクトに**名前**と**場所**を指定し、[ **OK]** をクリックします。
-4. **[新しいユニバーサル Windows プラットフォームプロジェクト]** ウィンドウで、**ターゲット**と**最小バージョン**の両方をビルド17763以降に設定し、 **[OK]** をクリックします。
-5. コンピューターのアーキテクチャに応じて、上部のツールバーのドロップダウンメニューが [ **デバッグ**] に設定されていることを確認します。
-6. Ctrl キーを押し**ながら F5**キーを押して、デバッグを行わずにプログラムを実行します。 ターミナルは、"Hello world" というテキストを使用して開く必要があります。 任意のキーを押して閉じます。
+1. **[ファイル] > [新規作成] > [プロジェクト]** の順に選択し、 **[新しいプロジェクト]** ウィンドウを開きます。
+2. 左ウィンドウで、 **[インストール済み] > [Visual C++] > [Windows デスクトップ]** を選択し、中央にある **[Windows コンソール アプリケーション (C++/WinRT)]** を選択します。
+3. プロジェクトに**名前**と**場所**を指定し、 **[OK]** をクリックします。
+4. **[新しいユニバーサル Windows プラットフォーム プロジェクト]** ウィンドウで、 **[ターゲット]** と **[最小バージョン]** の両方をビルド 17763 以降に設定し、 **[OK]** をクリックします。
+5. 上部のツールバーのドロップダウン メニューが、コンピューターのアーキテクチャに応じて、 **[デバッグ]** および **[x64]** または **[x86]** に設定されていることを確認します。
+6. **Ctrl + F5** キーを押して、デバッグなしでプログラムを実行します。 ターミナルが開き、"Hello world" などのテキストが表示されます。 任意のキーを押して閉じます。
 
-## <a name="load-the-model"></a>モデルの読み込み
+## <a name="load-the-model"></a>モデルを読み込む
 
-次に、LearningModel を使用して、ONNX モデルをプログラムに読み込みます[。](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath)
+次に、[LearningModel LoadFromFilePath](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath) を使用して、ONNX モデルをプログラムに読み込みます。
 
-1. **.Pch** (**ヘッダーファイル**フォルダー内) に次`include`のステートメントを追加します (これらは、必要なすべての api へのアクセスを提供します)。
+1. **pch.h** (**ヘッダー ファイル** フォルダー内) に、次の `include` ステートメントを追加します (これらにより、必要なすべての API にアクセスできるようになります)。
     ```cpp
     #include <winrt/Windows.AI.MachineLearning.h>
     #include <winrt/Windows.Foundation.Collections.h>
@@ -73,7 +73,7 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     #include <Windows.h>
     ```
 
-2. [**メイン .cpp** (**ソースファイル**] フォルダー内) で、次`using`のステートメントを追加します。
+2. **main.cpp** (**ソース ファイル** フォルダー内) に、次の `using` ステートメントを追加します。
     ```cpp
     using namespace Windows::AI::MachineLearning;
     using namespace Windows::Foundation::Collections;
@@ -84,7 +84,7 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     using namespace std;
     ```
 
-3. ステートメントの`using`後に、次の変数宣言を追加します。
+3. `using` ステートメントの後に、次の変数宣言を追加します。
     ```cpp
     // Global variables
     hstring modelPath;
@@ -99,7 +99,7 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     vector<string> labels;
     ```
 
-4. 次の事前宣言をグローバル変数の後に追加します。
+4. グローバル変数の後に、次の事前宣言を追加します。
     ```cpp
     // Forward declarations
     void LoadModel();
@@ -110,14 +110,14 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     void LoadLabels();
     ```
 
-5. **メイン .cpp**で、"Hello world" コード (の後`main` `init_apartment`に関数内のすべてのもの) を削除します。
-6. SqueezeNet リポジトリのローカル複製内の**onnx**ファイルを見つけます **()** 。 ある必要があります **\Windows-Machine-Learning\SharedContent\models** します。
-7. ファイルパスをコピーし、先頭で定義`modelPath`した変数に割り当てます。 文字列`L`をワイド文字列にして、で`hstring`適切に動作するようにし、バックスラッシュを追加して円記号 (`\`) をエスケープすることを忘れないでください。 以下に例を示します。
+5. **main.cpp** で、"Hello world" コード (`init_apartment` の後の `main` 関数内のすべて) を削除します。
+6. **Windows-Machine-Learning** リポジトリのローカルの複製で、**SqueezeNet.onnx** ファイルを見つけます。 これは **\Windows-Machine-Learning\SharedContent\models** にあります。
+7. ファイル パスをコピーし、上部に定義した `modelPath` 変数にそれを割り当てます。 `hstring` で正常に動作するように、文字列に `L` のプレフィックスを付けてワイド文字列にし、円記号を追加して円記号 (`\`) をエスケープしてください。 たとえば、次のように入力します。
     ```cpp
     hstring modelPath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\models\\SqueezeNet.onnx";
     ```
 
-8. まず、メソッドを`LoadModel`実装します。 メソッドの`main`後に次のメソッドを追加します。 このメソッドは、モデルを読み込み、かかった時間を出力します。
+8. まず、`LoadModel` メソッドを実装します。 `main` メソッドの後に次のメソッドを追加します。 このメソッドは、モデルを読み込み、かかった時間を出力します。
     ```cpp
     void LoadModel()
     {
@@ -130,18 +130,18 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-9. 最後に、 `main`メソッドからこのメソッドを呼び出します。
+9. 最後に、`main` メソッドからこのメソッドを呼び出します。
     ```cpp
     LoadModel();
     ```
 
-10. デバッグせずにプログラムを実行します。 モデルが正常に読み込まれたことがわかります。
+10. デバッグなしでプログラムを実行します。 モデルが正常に読み込まれたことが表示されます。
 
-## <a name="load-the-image"></a>イメージを読み込む
+## <a name="load-the-image"></a>画像を読み込む
 
-次に、このプログラムにイメージファイルを読み込みます。
+次に、このプログラムに画像ファイルを読み込みます。
 
-1. 次のメソッドを追加します。 このメソッドは、指定されたパスからイメージを読み込み、そこから[Videoframe](https://docs.microsoft.com/uwp/api/windows.media.videoframe)を作成します。
+1. 次のメソッドを追加します。 このメソッドは、指定されたパスから画像を読み込み、そこから [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe) を作成します。
     ```cpp
     VideoFrame LoadImageFile(hstring filePath)
     {
@@ -175,24 +175,24 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-2. メソッドで、 `main`このメソッドの呼び出しを追加します。
+2. `main` メソッドで、このメソッドの呼び出しを追加します。
     ```cpp
     imageFrame = LoadImageFile(imagePath);
     ```
 
-3. **Windows Machine Learning**リポジトリのローカル複製内の**メディア**フォルダーを探します。 配置されている必要がある **\Windows-Machine-Learning\SharedContent\media** します。
-4. そのフォルダー内のいずれかのイメージを選択し、そのファイルパスを`imagePath`一番上に定義した変数に割り当てます。 ワイド文字列にするには`L` 、にプレフィックスを付け、バックスラッシュを別の円記号でエスケープすることを忘れないでください。 以下に例を示します。
+3. **Windows-Machine-Learning** リポジトリのローカルの複製で、**media** フォルダーを見つけます。 これは **\Windows-Machine-Learning\SharedContent\media** にあります。
+4. そのフォルダー内のいずれかの画像を選択し、上部に定義した `imagePath` 変数にそのファイル パスを割り当てます。 それに `L` のプレフィックスを付けてワイド文字列にし、円記号にもう 1 つ円記号を付けてエスケープしてください。 たとえば、次のように入力します。
     ```cpp
     hstring imagePath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\media\\kitten_224.png";
     ```
 
-5. デバッグなしでプログラムを実行します。 イメージが正常に読み込まれたことがわかります。
+5. デバッグなしでプログラムを実行します。 画像が正常に読み込まれたことが表示されます。
 
 ## <a name="bind-the-input-and-output"></a>入力と出力をバインドする
 
-次に、モデルに基づいてセッションを作成し、 [LearningModelBinding](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind)を使用してセッションからの入力と出力をバインドします。 バインディングの詳細については、「[モデルのバインド](bind-a-model.md)」を参照してください。
+次に、モデルに基づいてセッションを作成し、[LearningModelBinding.Bind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind) を使用してセッションからの入力と出力をバインドします。 バインドの詳細については、「[モデルを作成する](bind-a-model.md)」を参照してください。
 
-1. `BindModel` メソッドを実装します。 これにより、モデルとデバイス、およびそのセッションに基づくバインドに基づいてセッションが作成されます。 次に、その名前を使用して、作成した変数に入力と出力をバインドします。 入力機能に "data_0" という名前が付けられ、出力機能の名前が "softmaxout_1" であることが事前にわかっています。 これらのプロパティは、オンラインモデルの視覚化ツールである[Netron](https://lutzroeder.github.io/Netron/)で開くことで、任意のモデルに対して表示できます。
+1. `BindModel` メソッドを実装します。 これにより、モデルとデバイスに基づいてセッションが作成され、そのセッションに基づいてバインドが作成されます。 次に、入力と出力を、それらの名前を使用して作成した変数にバインドします。 入力特徴には "data_0" という名前が付けられ、出力特徴には "softmaxout_1" という名前が付けられていることが事前にわかっています。 モデルのこれらのプロパティは、オンラインのモデル視覚化ツールの [Netron](https://lutzroeder.github.io/Netron/) で開くことで確認できます。
     ```cpp
     void BindModel()
     {
@@ -213,18 +213,18 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-2. メソッドからへ`BindModel`の呼び出しを追加します。 `main`
+2. `main` メソッドから `BindModel` の呼び出しを追加します。
     ```cpp
     BindModel();
     ```
 
-3. デバッグなしでプログラムを実行します。 モデルの入力と出力は、正常にバインドされている必要があります。 少しで完了です。
+3. デバッグなしでプログラムを実行します。 モデルの入力と出力が、正常にバインドされます。 もう少しで完了です。
 
 ## <a name="evaluate-the-model"></a>モデルを評価する
 
-ここでは、このチュートリアルの最初の図の最後の手順であるを**評価**します。 LearningModelSession を使用してモデルを評価し[ます。](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate)
+これで、このチュートリアルの冒頭にある図の最後の手順である**評価**に到達しました。 [LearningModelSession.Evaluate](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate) を使用してモデルを評価します。
 
-1. `EvaluateModel` メソッドを実装します。 このメソッドは、セッションを取得し、バインドと相関 ID を使用してそれを評価します。 相関 ID は、後で使用して、特定の評価呼び出しを出力結果に一致させることができるものです。 ここでも、出力の名前が "softmaxout_1" であることが事前にわかっています。
+1. `EvaluateModel` メソッドを実装します。 このメソッドは、セッションを取得し、バインドと関連付け ID を使用してそれを評価します。 関連付け ID は、後で使用して、特定の評価呼び出しを出力結果と照合できるようにするものです。 ここでも、出力の名前が "softmaxout_1" であることが事前にわかっています。
     ```cpp
     void EvaluateModel()
     {
@@ -244,7 +244,7 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-2. 次に、を`PrintResults`実装してみましょう。 このメソッドは、イメージに含まれる可能性があるオブジェクトの上位3つの確率を取得し、それらを出力します。
+2. 次に、`PrintResults` を実装します。 このメソッドは、画像に含まれている可能性があるオブジェクトの上位 3 つを取得し、それらを出力します。
     ```cpp
     void PrintResults(IVectorView<float> results)
     {
@@ -275,7 +275,7 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-3. また、を実装`LoadLabels`する必要もあります。 このメソッドは、モデルが認識できるすべての異なるオブジェクトを含むラベルファイルを開き、解析します。
+3. さらに `LoadLabels` を実装する必要もあります。 このメソッドは、モデルが認識できるすべての異なるオブジェクトを含むラベル ファイルを開き、解析します。
     ```cpp
     void LoadLabels()
     {
@@ -301,18 +301,18 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
     }
     ```
 
-4. **Windows Machine Learning**リポジトリのローカル複製で、 **Labels**ファイルを見つけます。 必要がある **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp** します。
-5. このファイルパスを、先頭`labelsFilePath`で定義した変数に割り当てます。 バックスラッシュは、必ず別の円記号でエスケープしてください。 以下に例を示します。
+4. **Windows-Machine-Learning** リポジトリのローカルの複製で、**Labels.txt** ファイルを見つけます。 これは **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp** にあります。
+5. このファイル パスを、上部に定義した `labelsFilePath` 変数に割り当てます。 円記号にもう 1 つ円記号を付けてエスケープしてください。 たとえば、次のように入力します。
     ```cpp
     string labelsFilePath = "C:\\Repos\\Windows-Machine-Learning\\Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\Labels.txt";
     ```
 
-6. `EvaluateModel`メソッドにの呼び出しを追加します。 `main`
+6. `main` メソッドに `EvaluateModel` の呼び出しを追加します。
     ```cpp
     EvaluateModel();
     ```
 
-7. デバッグなしでプログラムを実行します。 これで、画像の内容が正しく認識されるようになりました。 出力される内容の例を次に示します。
+7. デバッグなしでプログラムを実行します。 これで、画像の内容が正しく認識されるようになります。 出力される可能性のある内容の例を次に示します。
     ```sh
     Loading modelfile 'C:\Repos\Windows-Machine-Learning\SharedContent\models\SqueezeNet.onnx' on the 'default' device
     model file loaded in 250 ticks
@@ -328,14 +328,14 @@ Windows ML Api は、デスクトップ (Win32) アプリケーション内C++�
 
 ## <a name="next-steps"></a>次の手順
 
-バンザイは、 C++デスクトップアプリケーションでオブジェクト検出を実行しています。 次に、コマンドライン引数を使用して、モデルファイルとイメージファイルをハードコーディングせずに入力してみてください。 GitHub のサンプルと同様です。 また、GPU などの別のデバイスで評価を実行して、パフォーマンスの違いを確認することもできます。
+C++ デスクトップ アプリケーションで物体検出が機能するようになりました。 次に、GitHub のサンプルで行っているのと同様に、モデル ファイルと画像ファイルをハードコーディングせずに、コマンド ライン引数を使用して、それらを入力してみることができます。 さらに、GPU などの別のデバイスで評価を実行して、パフォーマンスの違いを確認することもできます。
 
-GitHub で他のサンプルを試してみてください。
+GitHub の他のサンプルを試して、お好きなように拡張してみてください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>「
 
 * [Windows ML のサンプル (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
-* [Windows. AI. 名前空間](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+* [Windows.AI.MachineLearning 名前空間](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 * [Windows ML](index.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

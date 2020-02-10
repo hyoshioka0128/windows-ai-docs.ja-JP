@@ -1,20 +1,20 @@
 ---
-title: Windows AI ソリューションの選択
-description: アプリケーションに適した Microsoft AI ソリューションの選択に役立つ情報を入手できます。
+title: Windows AI ソリューションを選択する
+description: アプリケーションに適した Microsoft AI ソリューションの選択に関するサポートを受けてください。
 author: mattwojo
 ms.author: mattwoj
 ms.date: 09/18/2019
 ms.topic: article
-keywords: windows 10、windows ai、windows ml、winml、windows machine learning、microsoft ai、比較、比較、windows ビジョンのスキル、直接 ML
+keywords: Windows 10、Windows AI、Windows ML、WinML、Windows Machine Learning、Microsoft AI、比較する、比較、Windows Vision Skills、Direct ML
 ms.localizationpriority: medium
 ms.openlocfilehash: f78772f11bbe0697acc7c62b91df06b69b2c7312
 ms.sourcegitcommit: 6eabf4acc3c42064054131ac6b76ffc87d31ac55
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/03/2019
 ms.locfileid: "74782645"
 ---
-# <a name="which-ai-solution-is-right-for-me"></a>どの AI ソリューションが適していますか?
+# <a name="which-ai-solution-is-right-for-me"></a>自分に適した AI ソリューション
 
 Microsoft ではいくつかの種類の AI ソリューションが提供されており、いくつかのオプションを自由に使用できます。 しかし、アプリケーションに対してどれを使用するかをどのようにして選べばよいのでしょうか。 詳しく見てみましょう。
 
