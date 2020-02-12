@@ -332,7 +332,7 @@ C++ デスクトップ アプリケーションで物体検出が機能するよ
 
 GitHub の他のサンプルを試して、お好きなように拡張してみてください。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * [Windows ML のサンプル (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
 * [Windows.AI.MachineLearning 名前空間](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
