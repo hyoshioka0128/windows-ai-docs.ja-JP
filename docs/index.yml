@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/18/2019
   ms.prod: machine-learning
   ms.topic: landing-page
-  ms.openlocfilehash: 56f5ba27a5e1ebbe789986a7b4193e5fdf721239
-  ms.sourcegitcommit: 478efb930668f2d16dfa18c9b52853f7e2e6dcd8
+  ms.openlocfilehash: 448af0b6a4709ca352192934b23622defcbb3c6f
+  ms.sourcegitcommit: 841189060a505c15cf6b1d7d20419648afc20b9c
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71278481"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80159928"
 landingContent:
 - title: Windows Machine Learning (WinML)
   linkLists:
@@ -48,17 +48,17 @@ landingContent:
       url: windows-ml/convert-model-winmltools.md
   - linkListType: reference
     links:
-    - text: API リファレンス
+    - text: リファレンス
       url: windows-ml/api-reference.md
     - text: コアとなる API (Windows.AI.MachineLearning 名前空間)
       url: https://docs.microsoft.com/uwp/api/windows.ai.machinelearning
     - text: カスタム演算子
-      url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/custom-operator
+      url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/custom-operators
     - text: WinML のネイティブ API
       url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis
     - text: ツールとサンプル
       url: windows-ml/tools-and-samples.md
-    - text: リリース ノート
+    - text: のリリース ノート
       url: windows-ml/release-notes.md
     - text: よく寄せられる質問
       url: windows-ml/faq.md
@@ -82,7 +82,7 @@ landingContent:
       url: windows-vision-skills/tutorial2.md
   - linkListType: reference
     links:
-    - text: API リファレンス
+    - text: リファレンス
       url: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
     - text: サンプル
       url: windows-vision-skills/samples.md

@@ -14,20 +14,20 @@ api_name:
 api_location:
 - MLOperatorAuthor.h
 ms.openlocfilehash: 3755c292420d858ebef696fd422bb8b705809d0c
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 841189060a505c15cf6b1d7d20419648afc20b9c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70157294"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80160085"
 ---
 # <a name="imloperatorkernelcontextgetoutputtensor-method"></a>Imloperatoro Context. Getoutputのメソッド
 
-## <a name="overloads"></a>Overloads
+## <a name="overloads"></a>オーバーライド
 
 | | |
 |-|-|
-| [Getoutputuint32_t (または、Imloperator、* *)](#GetOutputTensor1) | 指定したインデックス位置にある演算子によって取得された出力を取得します。 |
-| [Getoutputuint32_t (uint32_t、const uint32_t *、Imloperatorall * *)](#GetOutputTensor2) | 図形の宣言中に、指定したインデックス位置にある演算子によって取得された出力を取得します。 |
+| [Getoutputを (uint32_t、Imloperatorall * *)](#GetOutputTensor1) | 指定したインデックス位置にある演算子によって取得された出力を取得します。 |
+| [Getoutputを (uint32_t、uint32_t、const uint32_t *、Imloperatorall * *)](#GetOutputTensor2) | 図形の宣言中に、指定したインデックス位置にある演算子によって取得された出力を取得します。 |
 
 <a name="GetOutputTensor1"></a>
 ## <a name="getoutputtensoruint32_t-imloperatortensor"></a>GetOutputTensor(uint32_t, IMLOperatorTensor**)
