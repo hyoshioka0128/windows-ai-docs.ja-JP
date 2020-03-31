@@ -8,11 +8,11 @@ ms.topic: article
 keywords: Windows 10, Windows Machine Learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
 ms.openlocfilehash: 76d3436cf52a8e658881e7b8cbdd437a53a00bb1
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.sourcegitcommit: 841189060a505c15cf6b1d7d20419648afc20b9c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66180864"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80195955"
 ---
 # <a name="convert-ml-models-to-onnx-with-winmltools"></a>WinMLTools で ML モデルを ONNX に変換する
 
