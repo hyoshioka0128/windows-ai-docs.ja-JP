@@ -3,20 +3,34 @@ author: walrusmcd
 title: Windows ML のパフォーマンスとメモリ
 description: Windows ML の使用時にアプリケーションのパフォーマンスを向上させる方法について説明します。
 ms.author: paulm
-ms.date: 6/24/2019
+ms.date: 7/2/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b858e143af00ed0bf3c34986b07a0ad1f3dc01d
-ms.sourcegitcommit: edfaeda957977f26056b425a5cdda73d7a4f4ea1
+ms.openlocfilehash: 826489a52c79b9cbcd841e7834d9bbddc664e3e6
+ms.sourcegitcommit: 841189060a505c15cf6b1d7d20419648afc20b9c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334131"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159918"
 ---
 # <a name="windows-ml-performance-and-memory"></a>Windows ML のパフォーマンスとメモリ
 
-この記事では、Windows Machine Learning の使用時にアプリケーションのパフォーマンスを向上させる方法について説明します。
+この記事では、Windows Machine Learning の使用時にアプリケーションのパフォーマンスを管理する方法について説明します。
+
+## <a name="threading-and-concurrency"></a>スレッドと同時実行
+
+ランタイムから公開される各オブジェクトは*アジャイル*であり、これはどのスレッドからもアクセスできることを意味します。 アジャイルについての詳細は、「[C++/WinRT でのアジャイル オブジェクト](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/agile-objects)」を参照してください。
+
+使用する重要なオブジェクトの 1 つは、[LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession) です。  このオブジェクトは、どのスレッドから呼び出しても安全です。
+
+* **GPU セッションの場合**:オブジェクトはロックされ、同時呼び出しを同期します。  同時実行が必要な場合、それを実現するには複数のセッションを作成する必要があります。
+
+* **CPU セッションの場合**:オブジェクトはロックされ、単一セッションでの同時呼び出しが許可されます。 自分の状態、バッファー、バインド オブジェクトを管理する必要があります。
+
+自分のシナリオの目標をしっかりと検討する必要があります。 最新の GPU アーキテクチャは、CPU とは異なる動作をします。 たとえば、低レイテンシが目標の場合、同時実行ではなくパイプラインを使用して CPU と GPU エンジンでの動作のスケジュールを管理するとよいかもしれません。 詳細については、[マルチエンジン同期に関するこの記事](https://docs.microsoft.com/windows/desktop/direct3d12/user-mode-heap-synchronization)をご覧ください。 スループットが目標の場合 (できるだけ多くの画像を同時に処理するなど)、CPU を飽和状態にさせるために複数スレッドと同時実行を使いたいと思うことでしょう。
+
+スレッドと同時実行については、実験を行い、タイミングを測定するとよいでしょう。   目標やシナリオによって、パフォーマンスは大きく変化します。
 
 ## <a name="memory-utilization"></a>メモリ使用率
 

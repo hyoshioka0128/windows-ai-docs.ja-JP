@@ -5,12 +5,12 @@ ms.date: 4/1/2019
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: feb1dd5e2837039ea573361ea338cbd8c387ebab
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.openlocfilehash: c4b2e330efce5b0d5b7a2f5729adc94a97fb604e
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70156060"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80231592"
 ---
 # <a name="create-a-session"></a>セッションを作成する
 
@@ -39,6 +39,13 @@ ms.locfileid: "70156060"
 
 > [!VIDEO https://www.youtube.com/embed/NM5CYUMMp-w]
 
+## <a name="advanced-device-creation"></a>高度なデバイス作成
+
+Windows AI では、呼び出し元が既に作成したデバイスの使用がサポートされています。  そうする際のいくつかのオプションと考慮事項があります。
+
+* [CreateFromDirect3D11Device](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodeldevice.createfromdirect3d11device)。  既存の IDirect3DDevice が既にある場合は、これを使用します。  Windows AI は、同じアダプターを使用して ML ワークロードのために d3d12 デバイスを作成します。  これは、VideoFrame のために d3d11 デバイスを使用しているカメラがあり、LearningModelSession でも同じデバイスを使用する場合に役立ちます。  多くの場合、こうすることでメモリ コピーを回避できます。  注: VideoFrame のテンソル化は、Windows AI に含まれる唯一の d3d11 ワークロードです。  この機能を使用しない場合は、d3d11 デバイスを共有したり作成したりすることに利点はありません。
+* [CreateFromD3D12CommandQueue (ネイティブ)](https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis/ilearningmodeldevicefactorynative_createfromd3d12commandqueue)。  再利用したい d3d12 デバイスがある場合は、これを使用してください。  Windows AI は ML ワークロードに対してこのコマンド キューを使用します。   また、D3D11On12CreateDevice を使用して d3d11 デバイスを作成します。  これは必要な時だけ行われ、VideoFrame のテンソル化など、すべての d3d11 ワークロードで使用されます。  この新しいデバイスには、LearningModelDevice.Direct3D11Device プロパティを使用してアクセスできます。
+
 ## <a name="example"></a>例
 
 次の例は、モデルとデバイスからセッションを作成する方法を示しています。
@@ -52,7 +59,7 @@ private void CreateSession(LearningModel model, LearningModelDeviceKind kind)
 }
 ```
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * 前の手順: [モデルを読み込む](load-a-model.md)
 * 次の手順:[モデルを作成する](bind-a-model.md)
