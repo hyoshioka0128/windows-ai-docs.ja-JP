@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, windows ml container, container, iot, edge
 ms.localizationpriority: medium
 ms.openlocfilehash: aee749d7aa77a48a6559d5dcd183926dfa86cd3c
-ms.sourcegitcommit: f5945af6d1f534b490eea7860f72804dc1c9fea8
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "72315376"
 ---
 # <a name="windows-ml-container-insider-preview"></a>Windows ML コンテナーの Insider Preview
@@ -22,7 +22,7 @@ Windows ML コンテナーは、Windows ML API を利用するワークロード
 
 Windows ML コンテナーを使用すると、高速かつ機動性のあるプラットフォームを使って、エンタープライズレベルの IoT ソリューションを構築できます。 Windows の高度な機能、Windows 10 IoT プラットフォームのセキュリティ、Azure IoT Edge サービスの管理容易性を兼ね備えています。
 
-## <a name="getting-started"></a>概要
+## <a name="getting-started"></a>はじめに
 
 Windows ML コンテナーの使用を検討していますか。 詳細については、「[作業の開始](getting-started.md)」を参照してください。
 
@@ -32,7 +32,7 @@ Windows ML コンテナーは、C++、C#、NET Core、Node.JS、Python など、
 
 サポートされる API とコントラクトの詳細な一覧については、[サポートされている API の一覧](api-list.md)をご覧ください。
 
-## <a name="feedback"></a>Feedback
+## <a name="feedback"></a>フィードバック
 
 フィードバックをお聞かせください。
 

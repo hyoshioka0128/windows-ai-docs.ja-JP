@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: 4fd0c47a04b96922bf9ea6f498d54d827c5f257d
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "66180834"
 ---
 # <a name="executing-multiple-ml-models-in-a-chain"></a>チェーン内で複数の ML モデルを実行する

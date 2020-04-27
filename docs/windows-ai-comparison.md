@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10、Windows AI、Windows ML、WinML、Windows Machine Learning、Microsoft AI、比較する、比較、Windows Vision Skills、Direct ML
 ms.localizationpriority: medium
 ms.openlocfilehash: f78772f11bbe0697acc7c62b91df06b69b2c7312
-ms.sourcegitcommit: 6eabf4acc3c42064054131ac6b76ffc87d31ac55
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "74782645"
 ---
 # <a name="which-ai-solution-is-right-for-me"></a>自分に適した AI ソリューション

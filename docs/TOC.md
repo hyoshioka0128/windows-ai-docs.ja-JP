@@ -36,23 +36,23 @@
 ###### [MLCreateOperatorRegistry](windows-ml/custom-operators/MLCreateOperatorRegistry.md)
 ##### インターフェイス
 ###### [IMLOperatorAttributes](windows-ml/custom-operators/IMLOperatorAttributes.md)
-####### メソッド
+####### 方法
 ######## [GetAttribute](windows-ml/custom-operators/IMLOperatorAttributes_GetAttribute.md)
 ######## [GetAttributeElementCount](windows-ml/custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md)
 ######## [GetStringAttributeElement](windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md)
 ######## [GetStringAttributeElementLength](windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 ###### [IMLOperatorKernel](windows-ml/custom-operators/IMLOperatorKernel.md)
-####### メソッド
+####### 方法
 ######## [Compute](windows-ml/custom-operators/IMLOperatorKernel_Compute.md)
 ###### [IMLOperatorKernelContext](windows-ml/custom-operators/IMLOperatorKernelContext.md)
-####### メソッド
+####### 方法
 ######## [AllocateTemporaryData](windows-ml/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md)
 ######## [GetExecutionInterface](windows-ml/custom-operators/IMLOperatorKernelContext_GetExecutionInterface.md)
 ######## [GetInputTensor](windows-ml/custom-operators/IMLOperatorKernelContext_GetInputTensor.md)
 ######## [GetOutputTensor(windows-ml/uint32_t, IMLOperatorTensor**)](windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor1)
 ######## [GetOutputTensor(windows-ml/uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2)
 ###### [IMLOperatorKernelCreationContext](windows-ml/custom-operators/IMLOperatorKernelCreationContext.md)
-####### メソッド
+####### 方法
 ######## [GetExecutionInterface](windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md)
 ######## [GetInputCount](windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md)
 ######## [GetInputEdgeDescription](windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md)
@@ -63,14 +63,14 @@
 ######## [IsInputValid](windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ######## [IsOutputValid](windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)
 ###### [IMLOperatorKernelFactory](windows-ml/custom-operators/IMLOperatorKernelFactory.md)
-####### メソッド
+####### 方法
 ######## [CreateKernel](windows-ml/custom-operators/IMLOperatorKernelFactory_CreateKernel.md)
 ###### [IMLOperatorRegistry](windows-ml/custom-operators/IMLOperatorRegistry.md)
-####### メソッド
+####### 方法
 ######## [RegisterOperatorKernel](windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md)
 ######## [RegisterOperatorSetSchema](windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md)
 ###### [IMLOperatorShapeInferenceContext](windows-ml/custom-operators/IMLOperatorShapeInferenceContext.md)
-####### メソッド
+####### 方法
 ######## [GetInputCount](windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
 ######## [GetInputEdgeDescription](windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md)
 ######## [GetInputTensorDimensionCount](windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md)
@@ -80,10 +80,10 @@
 ######## [IsOutputValid](windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md)
 ######## [SetOutputTensorShape](windows-ml/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md)
 ###### [IMLOperatorShapeInferrer](windows-ml/custom-operators/IMLOperatorShapeInferrer.md)
-####### メソッド
+####### 方法
 ######## [InferOutputShapes](windows-ml/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md)
 ###### [IMLOperatorTensor](windows-ml/custom-operators/IMLOperatorTensor.md)
-####### メソッド
+####### 方法
 ######## [GetData](windows-ml/custom-operators/IMLOperatorTensor_GetData.md)
 ######## [GetDataInterface](windows-ml/custom-operators/IMLOperatorTensor_GetDataInterface.md)
 ######## [GetDimensionCount](windows-ml/custom-operators/IMLOperatorTensor_GetDimensionCount.md)
@@ -92,14 +92,14 @@
 ######## [IsCpuData](windows-ml/custom-operators/IMLOperatorTensor_IsCpuData.md)
 ######## [IsDataInterface](windows-ml/custom-operators/IMLOperatorTensor_IsDataInterface.md)
 ###### [IMLOperatorTensorShapeDescription](windows-ml/custom-operators/IMLOperatorTensorShapeDescription.md)
-####### メソッド
+####### 方法
 ######## [GetInputTensorDimensionCount](windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
 ######## [GetInputTensorShape](windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md)
 ######## [GetOutputTensorDimensionCount](windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md)
 ######## [GetOutputTensorShape](windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)
 ######## [HasOutputShapeDescription](windows-ml/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md)
 ###### [IMLOperatorTypeInferenceContext](windows-ml/custom-operators/IMLOperatorTypeInferenceContext.md)
-####### メソッド
+####### 方法
 ######## [GetInputCount](windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md)
 ######## [GetInputEdgeDescription](windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md)
 ######## [GetOutputCount](windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md)
@@ -107,9 +107,9 @@
 ######## [IsOutputValid](windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md)
 ######## [SetOutputEdgeDescription](windows-ml/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md)
 ###### [IMLOperatorTypeInferrer](windows-ml/custom-operators/IMLOperatorTypeInferrer.md)
-####### メソッド
+####### 方法
 ######## [InferOutputTypes](windows-ml/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md)
-##### 構造体
+##### 構造
 ###### [MLOperatorAttribute](windows-ml/custom-operators/MLOperatorAttribute.md)
 ###### [MLOperatorAttributeNameValue](windows-ml/custom-operators/MLOperatorAttributeNameValue.md)
 ###### [MLOperatorEdgeDescription](windows-ml/custom-operators/MLOperatorEdgeDescription.md)
@@ -121,18 +121,18 @@
 #### [ネイティブ API](windows-ml/native-apis.md)
 ##### インターフェイス
 ###### [ILearningModelDeviceFactoryNative](windows-ml/native-apis/ILearningModelDeviceFactoryNative.md)
-####### メソッド
+####### 方法
 ######## [CreateFromD3D12CommandQueue](windows-ml/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
 ###### [ITensorNative](windows-ml/native-apis/ITensorNative.md)
-####### メソッド
+####### 方法
 ######## [GetBuffer](windows-ml/native-apis/ITensorNative_GetBuffer.md)
 ######## [GetD3D12Resource](windows-ml/native-apis/ITensorNative_GetD3D12Resource.md)
 ###### [ITensorStaticsNative](windows-ml/native-apis/ITensorStaticsNative.md)
-####### メソッド
+####### 方法
 ######## [CreateFromD3D12Resource](windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md)
-##### 構造体
+##### 構造
 ###### [ILearningModelOperatorProviderNative](windows-ml/native-apis/ILearningModelOperatorProviderNative.md)
-####### メソッド
+####### 方法
 ######## [GetRegistry](windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md)
 ### [ツールとサンプル](windows-ml/tools-and-samples.md)
 ### [FAQ](windows-ml/faq.md)
@@ -146,6 +146,6 @@
 ### [API リファレンス](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
 ## Windows ML コンテナ (Windows Insider Preview)
 ### [概要](windows-ml-container/index.md)
-### [はじめに](windows-ml-container/getting-started.md)
+### [概要](windows-ml-container/getting-started.md)
 ### [Azure IoT Edge の実行時間](windows-ml-container/iot-edge-runtime.md)
 ### [API の一覧](windows-ml-container/api-list.md)

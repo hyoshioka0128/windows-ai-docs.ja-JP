@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: a2c43090d44d6ac3c9e3c095ff83da5d58976265
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156267"
 ---
 # <a name="what-is-a-machine-learning-model"></a>機械学習モデルとは
