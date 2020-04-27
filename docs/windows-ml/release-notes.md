@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: e306d8d1af0a421b8da7814f212483d3f7870fa9
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "66180034"
 ---
 # <a name="release-notes"></a>リリース ノート

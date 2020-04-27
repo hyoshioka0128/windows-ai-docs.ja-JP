@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10、Windows Machine Learning、WinML、Python
 ms.localizationpriority: medium
 ms.openlocfilehash: ec3c70b320556d365f3f9a6ece76fbd6ecef9b7b
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156710"
 ---
 # <a name="tutorial-create-a-windows-machine-learning-desktop-application-python"></a>チュートリアル: Windows Machine Learning のデスクトップ アプリケーションを作成する (Python)

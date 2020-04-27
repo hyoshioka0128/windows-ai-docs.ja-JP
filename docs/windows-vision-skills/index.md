@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning, Windows Vision Skills
 ms.localizationpriority: medium
 ms.openlocfilehash: b2e3a6b424f0f20097f3a66dac0a3d4d0a8631d9
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156304"
 ---
 # <a name="windows-vision-skills-preview"></a>Windows Vision Skills (プレビュー)
@@ -31,7 +31,7 @@ ms.locfileid: "70156304"
 
 Windows Vision Skills のコンテキストで、スキルとは、入力を処理して出力を生成する効率的なモジュール型のコードです。 スキルは、単一目的のマイクロスキルを使用したエッジ検出のような単純な機能や、スケルトンの検出などの複雑な問題に対処するシナリオ スキルを形成する豊富な機能のセットをカプセル化できます。
 
-## <a name="benefits"></a>利点
+## <a name="benefits"></a>メリット
 
 - **単純な統合**:スキルにより、機械学習やコンピューター ビジョンの専門知識、あるいは Windows の低レベル API についての事前知識が不要なそのまま使用できる API を使用して、機能をアプリケーションに容易に追加できるようになります。
 

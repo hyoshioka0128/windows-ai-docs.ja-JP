@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: af2af3fd6af4353171def886625271df97a55f35
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "66181934"
 ---
 # <a name="integrate-a-model-into-your-app-with-windows-ml"></a>Windows ML でモデルをアプリに統合する

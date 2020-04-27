@@ -9,10 +9,10 @@ keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 4837648d23a21ea15ea27493ccba5307f81af0a0
-ms.sourcegitcommit: 6eabf4acc3c42064054131ac6b76ffc87d31ac55
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "74782634"
 ---
 # <a name="windows-machine-learning"></a>Windows Machine Learning

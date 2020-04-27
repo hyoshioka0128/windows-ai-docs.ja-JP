@@ -7,10 +7,10 @@ keywords: Windows 10, UWP, Windows Machine Learning, WinML, Windows ML
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 4a8e46835b0018a8057c1056c6dd59b9589b0f9c
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156740"
 ---
 # <a name="tutorial-create-a-windows-machine-learning-uwp-application-c"></a>チュートリアル: Windows Machine Learning の UWP アプリケーションの作成 (C#)

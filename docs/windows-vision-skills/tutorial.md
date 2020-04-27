@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
 ms.openlocfilehash: 0b61a7261b04d8e01a3ca8ce5e9acd8a770f1cdf
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156218"
 ---
 # <a name="tutorial-create-your-own-windows-vision-skill-c"></a>チュートリアル: 独自の Windows Vision Skills を作成する (C#)
@@ -54,7 +54,7 @@ ms.locfileid: "70156218"
 - [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) バージョン 1809 以降
 - [Microsoft.AI.Skills.SkillInterfacePreview NuGet パッケージ](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
 
-## 1.主要なスキル クラスを作成して実装する <a name="CreateMainClasses"></a>
+## <a name="1-create-and-implement-the-main-skill-classes"></a>1.主要なスキル クラスを作成して実装する <a name="CreateMainClasses"></a>
 
 まず、次の主要なスキル クラスを実装する必要があります (詳細については、「[API の重要な概念](important-api-concepts.md)」を参照)。
 
@@ -64,7 +64,7 @@ ms.locfileid: "70156218"
 
 Visual Studio でカスタム ビジョン ソリューションを開きます。
 
-### a。 ISkillDescriptor <a name="ISkillDescriptor"></a>
+### <a name="a-iskilldescriptor"></a>a。 ISkillDescriptor <a name="ISkillDescriptor"></a>
 
 スキルに関する情報や、サポートされる実行デバイス (CPU や GPU など) の一覧を提供し、スキルのファクトリ オブジェクトとして機能する、[ISkillDescriptor][ISkillDescriptor] から継承されたスキル記述子クラスを作成して実装します。
 
@@ -216,7 +216,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
         }
         ```
 
-### b. **ISkillBinding** <a name="ISkillBinding"></a>
+### <a name="b-iskillbinding"></a>b. **ISkillBinding** <a name="ISkillBinding"></a>
 
 スキルによって使用および生成される入力および出力変数を含む、[ISkillBinding][ISkillBinding] インターフェイスから継承されたスキル バインド クラスを作成して実装します。
 
@@ -366,7 +366,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
     }
     ```
 
-### c. **ISkill** <a name="ISkill"></a>
+### <a name="c-iskill"></a>c. **ISkill** <a name="ISkill"></a>
 
 スキル ロジックを実行し、指定された一連の入力から出力を生成する、[ISkill][ISkill] インターフェイスから継承されたスキル クラスを作成して実装します。 また、これは ISkillBinding 派生クラスのファクトリ オブジェクトとしても機能します。
 
@@ -559,7 +559,7 @@ Visual Studio でカスタム ビジョン ソリューションを開きます�
     }
     ```
 
-## 2.スキルを NuGet にパッケージ化する <a name="CreateNuspec"></a>
+## <a name="2-package-your-skill-to-nuget"></a>2.スキルを NuGet にパッケージ化する <a name="CreateNuspec"></a>
 
 後は、スキルをコンパイルし、そのスキルから NuGet パッケージを作成してアプリケーションが取り込めるようにするだけです。
 
@@ -615,7 +615,7 @@ NuGet パッケージを作成するには、次のような *.nuspec* ファイ
 
 これで、最初の Windows Vision Skills が作成されました。 パッケージ化されたスキルを [NuGet.org](https://www.nuget.org/) にアップロードできます。
 
-## 3.もう 1 つの点ですが... 知的財産を隠すための資産ファイルの難読化および難読化解除<a name="Obfuscation"></a>
+## <a name="3-one-more-thing-obfuscating-and-deobfuscating-asset-files-to-conceal-your-intellectual-property"></a>3.もう 1 つの点ですが... 知的財産を隠すための資産ファイルの難読化および難読化解除<a name="Obfuscation"></a>
 
 コンシューマーによるスキル資産 (モデル ファイルや画像など) の改ざんまたはアクセスを防止するために、ビルド前の手順としてファイルを難読化し、実行時にファイルを難読化解除することができます。 この[サンプル GitHub の例](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer)には、コンパイル時にファイルを[難読化](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator)し、実行時に[難読化解除](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator)するために [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) を活用するヘルパー クラスの実装が含まれています。 C# バージョンの単純さを維持するために、この部分では、スキルの例の C++/WinRT バージョンでのみ示されていることに注意してください。  
 

@@ -9,7 +9,7 @@ ms.openlocfilehash: c4b2e330efce5b0d5b7a2f5729adc94a97fb604e
 ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "80231592"
 ---
 # <a name="create-a-session"></a>セッションを作成する

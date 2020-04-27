@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: a2f83c0b3eedc64019e6c60fbc3d14cdb573a524
-ms.sourcegitcommit: 81bd558d96d56735d49d522883957ce4b09f00cc
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "75216965"
 ---
 # <a name="bind-a-model"></a>モデルを作成する
@@ -146,7 +146,7 @@ private void BindModel(
 }
 ```
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * 前の手順: [セッションを作成する](create-a-session.md)
 * 次の手順:[モデルの入力を評価する](evaluate-model-inputs.md)

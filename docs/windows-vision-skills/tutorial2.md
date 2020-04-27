@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, デスクトップ
 ms.localizationpriority: medium
 ms.openlocfilehash: 0a5b8e1068bceaa805667d5d4c88495d80c290b7
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156168"
 ---
 # <a name="tutorial-create-a-vision-skill-desktop-application-c"></a>チュートリアル: ビジョン スキルのデスクトップ アプリケーションを作成する (C++)

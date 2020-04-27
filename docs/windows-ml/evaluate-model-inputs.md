@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: 9f23b272f85f1bd3beb60bfea341c522941fa854
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156720"
 ---
 # <a name="evaluate-the-model-inputs"></a>モデルの入力を評価する
@@ -84,7 +84,7 @@ Windows ML を使用している場合は、このケースを検出してセッ
 
 このエラーは一般的に、[LearningModelSession.Evaluate](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate) の実行中の場合に最も表示されます。 デバイスの削除またはリセットが発生した場合、[LearningModelEvaluationResult.ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus) は [DXGI_ERROR_DEVICE_REMOVED](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error) または [DXGI_ERROR_DEVICE_RESET](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error) になります。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * 前の手順: [モデルを作成する](bind-a-model.md)
 

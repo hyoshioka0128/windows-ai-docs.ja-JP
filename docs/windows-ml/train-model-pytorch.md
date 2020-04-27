@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10、Windows AI、Windows ML、WinML、Windows Machine Learning、PyTorch
 ms.localizationpriority: medium
 ms.openlocfilehash: 7aa1091cf3622f532c6601a040fad5c80746d6b3
-ms.sourcegitcommit: ecd33843dd548e443a1292d6a22e1a4029298944
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "75737405"
 ---
 # <a name="train-a-model-with-pytorch-and-export-to-onnx"></a>PyTorch を使用してモデルをトレーニングし、ONNX にエクスポートする

@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
 ms.openlocfilehash: c0fd10c4f970659d4560fbb4b4d259c6d30b11c4
-ms.sourcegitcommit: 577942041c1ff4da60d22af96543c11f5d5fe401
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "70156601"
 ---
 # <a name="load-a-model"></a>モデルを読み込む
@@ -47,7 +47,7 @@ private async LearningModel LoadModelAsync(string modelPath)
 }
 ```
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * 次の手順:[セッションを作成する](create-a-session.md)
 
