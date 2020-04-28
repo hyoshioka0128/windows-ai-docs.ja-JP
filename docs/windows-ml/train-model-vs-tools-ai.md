@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10, UWP, Windows Machine Learning, Visual Studio
 ms.localizationpriority: medium
 ms.openlocfilehash: 27c2fb2cdce9d19c6219c40f885ad9d720029f12
-ms.sourcegitcommit: 6948f383d671a042290d4ef83e360fa43292eef2
+ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "66179964"
 ---
 # <a name="train-a-model-with-cntk"></a>CNTK を使用してモデルをトレーニングする
@@ -30,7 +30,7 @@ ms.locfileid: "66179964"
 3. **[ダウンロード]** ボタンをクリックします。 
 4. インストールの完了後、Visual Studio を再起動します。 
 
-Visual Studio を再起動すると、拡張機能がアクティブになります。 問題が発生した場合は、「[Visual Studio 拡張機能の検索と使用](h https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)」をご覧ください。
+Visual Studio を再起動すると、拡張機能がアクティブになります。 問題が発生した場合は、「[Visual Studio 拡張機能の検索と使用](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)」をご覧ください。
 
 ### <a name="download-sample-code"></a>サンプル コードのダウンロード
 GitHub で、[Samples for AI](https://github.com/Microsoft/samples-for-ai) のリポジトリをダウンロードします。 これらのサンプルでは、TensorFlow、CNTK、Theano などでディープ ラーニングを始める方法がカバーされています。
