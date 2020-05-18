@@ -3,16 +3,16 @@ author: wschin
 title: WinMLTools で ML モデルを ONNX に変換する
 description: WinMLTools を使用して ML モデルを ONNX 形式に変換する方法について説明します。
 ms.author: wechi
-ms.date: 4/18/2019
+ms.date: 5/13/2020
 ms.topic: article
 keywords: Windows 10, Windows Machine Learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
-ms.openlocfilehash: 76d3436cf52a8e658881e7b8cbdd437a53a00bb1
-ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
+ms.openlocfilehash: 2684a11bb0e95df639b9e0432633a6ddd7e2e806
+ms.sourcegitcommit: 6a206c0965789ef4d2e1f8dfdd501971c108032a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "80195955"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83383625"
 ---
 # <a name="convert-ml-models-to-onnx-with-winmltools"></a>WinMLTools で ML モデルを ONNX に変換する
 
@@ -40,7 +40,7 @@ WinMLTools は現在、次のフレームワークからの変換をサポート
 - カスタムの ONNX 演算子を作成する
 
 >[!NOTE]
->[最新バージョンの WinMLTools](https://pypi.org/project/winmltools/1.3.0/) では、ONNX バージョン 1.2.2 (ONNX opset 7) および ONNX バージョン 1.3 (ONNX opset 8) への変換がサポートされています。 以前のバージョンのツールでは、ONNX 1.3 がサポートされません。
+>[最新バージョンの WinMLTools](https://pypi.org/project/winmltools/1.3.0/) では、ONNX opsets 7、8、9 で指定されている通り、ONNX バージョン 1.2.2、1.3、および 1.4 への変換がサポートされています。 以前のバージョンのツールでは、ONNX 1.4 がサポートされません。
 
 ## <a name="install-winmltools"></a>WinMLTools のインストール
 

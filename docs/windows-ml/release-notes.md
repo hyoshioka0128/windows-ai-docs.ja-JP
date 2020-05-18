@@ -3,20 +3,33 @@ author: rosanevallim
 title: リリース ノート
 description: Windows AI プラットフォームについての最新情報。
 ms.author: rovalli
-ms.date: 4/18/2019
+ms.date: 5/13/2020
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: e306d8d1af0a421b8da7814f212483d3f7870fa9
-ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
+ms.openlocfilehash: e449007895188eb643545ace68b2cdd1c4b12c0c
+ms.sourcegitcommit: 6a206c0965789ef4d2e1f8dfdd501971c108032a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "66180034"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83383626"
 ---
 # <a name="release-notes"></a>リリース ノート
 
 このページには、Windows 10 SDK の最新のビルドにおける Windows ML に関する最新情報を記載しています。
+
+## <a name="build-19041-windows-10-version-2004"></a>ビルド 19041 (Windows 10 バージョン 2004)
+
+ONNX 1.4 および opset 9 (CPU および GPU) のサポート 
+
+API Surface の追加:
+* [CloseModelOnSessionCreation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation?view=winrt-19041): 作業メモリを削減するために構成する新しい **LearningModelSessionOptions** パラメーターです。
+
+ツール:
+
+* WinMLTools コンバーターは新しい ONNX バージョンと opset をサポート  
+* 新しいパフォーマンス メトリックを公開する WinMLRunner への最適化 
+
 
 ## <a name="build-18362-windows-10-version-1903"></a>ビルド 18362 (Windows 10 バージョン 1903)
 

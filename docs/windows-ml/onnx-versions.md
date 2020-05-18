@@ -1,16 +1,16 @@
 ---
 title: ONNX バージョンと Windows ビルド
 description: Windows 10 の各ビルドでサポートされている ONNX のバージョンを確認します。
-ms.date: 2/12/2020
+ms.date: 5/13/2020
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning, ONNX
 ms.localizationpriority: medium
-ms.openlocfilehash: 0788674e75a4a77948444f7bcedd47cfa9a30db4
-ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
+ms.openlocfilehash: 24caa924ba7553d17712a6608e3a03555c29fcf7
+ms.sourcegitcommit: 6a206c0965789ef4d2e1f8dfdd501971c108032a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "78935230"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83383624"
 ---
 # <a name="onnx-versions-and-windows-builds"></a>ONNX バージョンと Windows ビルド
 
@@ -20,6 +20,7 @@ Windows Machine Learning は、リリースされている Windows ビルドで�
 
 | Windows のリリース | サポートされる ONNX バージョン | サポートされる ONNX opset |
 |-----------------|-------------------------|-----------------------|
+| Windows 10 バージョン 2004 (ビルド 19041) | 1.2.2、1.3、および 1.4 | 7、8、および 9 |
 | Windows 10 バージョン 1909 | 1.2.2 および 1.3 | 7 および 8 |
 | Windows 10 バージョン 1903 (ビルド 18362) | 1.2.2 および 1.3 | 7 および 8 |
 | Windows 10 バージョン 1809 (ビルド 17763) | 1.2.2 | 7 |
