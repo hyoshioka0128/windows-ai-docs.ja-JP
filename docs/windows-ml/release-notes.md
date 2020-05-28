@@ -3,20 +3,29 @@ author: rosanevallim
 title: リリース ノート
 description: Windows AI プラットフォームについての最新情報。
 ms.author: rovalli
-ms.date: 5/13/2020
+ms.date: 5/19/2020
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: e449007895188eb643545ace68b2cdd1c4b12c0c
-ms.sourcegitcommit: 6a206c0965789ef4d2e1f8dfdd501971c108032a
+ms.openlocfilehash: 86ce0f25fcac48a8f1e9983fc986f3db61f93be4
+ms.sourcegitcommit: f41fad7e6b6280bbbaf4157703f03fb7f23de676
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83383626"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631817"
 ---
 # <a name="release-notes"></a>リリース ノート
 
 このページには、Windows 10 SDK の最新のビルドにおける Windows ML に関する最新情報を記載しています。
+
+
+## <a name="windows-ml-nuget-package---may-2020-version"></a>Windows ML NuGet パッケージ - 2020 月 5 月バージョン 
+
+- [ONNX ランタイム 1.3 上に構築](https://github.com/microsoft/onnxruntime/blob/master/docs/HighLevelDesign.md#the-onnx-runtime-and-windows-os-integration)
+- MachineLearningContract v3 に対応 
+- ONNX 1.6 および opset 11 のサポート 
+- CPU の実行は、Windows 8.1 までサポートされています。GPU の実行は、Windows 10 バージョン 1709 までサポートされています 
+- 認定されている既知のテスト済みのパスは、C++ を使用するデスクトップ アプリケーションです。 ストア アプリケーションと Windows アプリケーション認定キットは、まだサポートされていません。 
 
 ## <a name="build-19041-windows-10-version-2004"></a>ビルド 19041 (Windows 10 バージョン 2004)
 
@@ -29,7 +38,6 @@ API Surface の追加:
 
 * WinMLTools コンバーターは新しい ONNX バージョンと opset をサポート  
 * 新しいパフォーマンス メトリックを公開する WinMLRunner への最適化 
-
 
 ## <a name="build-18362-windows-10-version-1903"></a>ビルド 18362 (Windows 10 バージョン 1903)
 

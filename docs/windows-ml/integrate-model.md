@@ -3,16 +3,16 @@ author: walrusmcd
 title: モデルをアプリに統合する
 description: Windows ML を使用して Windows アプリケーションにトレーニング済みの機械学習モデルを統合する方法について説明します。
 ms.author: paulm
-ms.date: 5/10/2019
+ms.date: 5/19/2020
 ms.topic: article
 keywords: Windows 10, Windows AI, Windows ML, WinML, Windows Machine Learning
 ms.localizationpriority: medium
-ms.openlocfilehash: af2af3fd6af4353171def886625271df97a55f35
-ms.sourcegitcommit: 2139506ff12b7205283288c4bbac866ddfa812f3
+ms.openlocfilehash: 956e6bdb39d82712b7ed7c6a761639a4ab8578bc
+ms.sourcegitcommit: f41fad7e6b6280bbbaf4157703f03fb7f23de676
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "66181934"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631826"
 ---
 # <a name="integrate-a-model-into-your-app-with-windows-ml"></a>Windows ML でモデルをアプリに統合する
 
@@ -41,6 +41,7 @@ ms.locfileid: "66181934"
 
 WinML API は C++/Cx と C++/WinRT の両方で使用できますが、C++/WinRT バージョンを使用することをお勧めします。C++ のコーディングがより自然にでき、開発作業のほとんどを、開発を先に進めるために注力できるためです。 C++/WinRT API を使用する個々の状況に応じて、以下の手順に従ってください。
 
+* Windows 1803 以前を対象にする場合、「[チュートリアル:既存の WinML アプリを NuGet パッケージに移植する](port-app-to-nuget.md)」を参照します。
 * 新しい C++ アプリケーションを作成する場合は、「[チュートリアル:Windows Machine Learning デスクトップ アプリケーションの作成 (C++) ](https://docs.microsoft.com/windows/ai/get-started-desktop)」を参照し、「**モデルを読み込む**」までのステップを実行します。
 * (C++/WinRT 用にまだ設定されていない) 既存の C++ アプリケーションがある場合は、次の手順に従って、C++/WinRT 用にアプリケーションを設定します。
     1. 最新バージョンの [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (任意のエディション) がインストールされていることを確認します。
