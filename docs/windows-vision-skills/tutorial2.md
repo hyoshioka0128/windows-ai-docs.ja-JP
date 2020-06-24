@@ -98,7 +98,7 @@ else
 
     2.1. C++ アプリのヘッダー ファイル ( *.h*) を生成します。
 Visual Studio で、プロジェクトを選択します。 次のようになります。
-    - WinRT C++ コンポーネント:[Project]/(プロジェクト/) -> [properties]/(プロパティ/) -> [MIDL] -> [output]/(出力/) -> [Header File]/(ヘッダー ファイル/) を選択します
+    - WinRT C++ コンポーネント:[Project]\(プロジェクト\) -> [properties]\(プロパティ\) -> [MIDL] -> [output]\(出力\) -> [Header File]\(ヘッダー ファイル\) を選択します
     - WinRT C# コンポーネント:C# プロジェクトにヘッダー ファイルを生成するオプションがないため、最初に、生成されたメタデータ ファイル ( *.winmd*) をインターフェイス定義ファイル ( *.idl*) に変換してから、その *.idl* をヘッダー ファイル ( *.h*) に変換する必要があります。 この操作は Visual Studio の開発者コマンド プロンプトを使用して実行できます。
       - [winmdidl.exe](https://docs.microsoft.com/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019) を使用して *.winmd* から *.idl* を生成します
       ```
